@@ -1,6 +1,8 @@
-data_storage/
+data/asr/
 generated_output/
+generated_eval/
 __pycache__/
 *.pyc
 *.log
 myjob*
+z_outputs

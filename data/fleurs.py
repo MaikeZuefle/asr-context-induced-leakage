@@ -5,7 +5,7 @@ from data.utils import FLEURS_LANG_MAP
 
 def load_asr(language):
 
-    base_dir = "data_storage/asr"
+    base_dir = "data/asr"
     os.makedirs(base_dir, exist_ok=True)
 
     fleurs_asr = load_dataset("google/fleurs", FLEURS_LANG_MAP[language], split="test", trust_remote_code=True)

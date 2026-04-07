@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "mw-privacy"
+version = "0.1.0"
+requires-python = ">=3.10"
+authors = [{name = "Maike Züfle"}]
+dependencies = [
+    "datasets",
+    "soundfile==0.13.1",
+    "audioread",
+    "tqdm",
+    "jiwer",
+    "nltk",
+    "spacy",
+    "spacy-transformers",
+]
+
+[project.optional-dependencies]
+phi = [
+    "torch==2.6.0",
+    "torchvision==0.21.0",
+    "transformers==4.48.2",
+    "accelerate==1.3.0",
+    "flash_attn==2.7.4.post1",
+    "pillow==11.1.0",
+    "scipy==1.15.2",
+    "backoff==2.2.1",
+    "peft==0.13.2",
+]
+# Note for qwen: first uninstall any existing transformers, then install the
+# Qwen-specific fork before running pip install -e ".[qwen]":
+#   pip uninstall transformers
+#   pip install git+https://github.com/huggingface/transformers@v4.51.3-Qwen2.5-Omni-preview
+qwen = [
+    "accelerate",
+    "qwen-omni-utils[decord]",
+]
