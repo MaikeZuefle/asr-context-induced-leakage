@@ -17,8 +17,7 @@ set_seed(42)
 random.seed(42)
 
 PROMPT_NO_CONTEXT = "Please transcribe the audio."
-PROMPT_WITH_CONTEXT_WORD = "Context: {context_word}\n\nPlease transcribe the audio."
-PROMPT_WITH_CONTEXT_SENTENCE = "Context: {context_sentence}\n\nPlease transcribe the audio."
+PROMPT_WITH_CONTEXT = "Context: {context}\n\nPlease transcribe the audio."
 
 
 def load_model(model_name):
@@ -32,6 +31,36 @@ def load_model(model_name):
 
 def make_prompt(text):
     return {"prompt_modality": "text", "prompt": text}
+
+
+def _format_context(value) -> str:
+    """Join a list of sentences into a single context string, or pass through a plain string."""
+    if isinstance(value, list):
+        return " ".join(value)
+    return value
+
+
+def _get_scenarios(sample: dict) -> list[tuple[str, str | None]]:
+    """Return (output_key, context_string_or_None) for every scenario."""
+    return [
+        ("no_context",           None),
+        # 1-word contexts
+        ("word_context",         sample["context_word"]),
+        ("word_target",          sample["target_word"]),
+        # 1-sentence contexts
+        ("sentence_context",     sample["context_sentence"]),
+        ("sentence_target",      sample["target_context_sentence"]),
+        # 2-sentence mixed context (context_sentence + target_context_sentence)
+        ("sentences_2_mixed",    _format_context(sample["mixed_sentences"])),
+        # 5-sentence contexts
+        ("sentences_5_context",  _format_context(sample["context_sentences_5"])),
+        ("sentences_5_target",   _format_context(sample["target_context_sentences_5"])),
+        ("sentences_5_mixed",    _format_context(sample["mixed_sentences_5"])),
+        # 10-sentence contexts
+        ("sentences_10_context", _format_context(sample["context_sentences_10"])),
+        ("sentences_10_target",  _format_context(sample["target_context_sentences_10"])),
+        ("sentences_10_mixed",   _format_context(sample["mixed_sentences_10"])),
+    ]
 
 
 def main(out_folder, model_name, prepared_path):
@@ -71,41 +100,23 @@ def main(out_folder, model_name, prepared_path):
                 skipped += 1
                 continue
 
-            no_context_pred = generate(
-                model_instance,
-                make_prompt(PROMPT_NO_CONTEXT),
-                sample["audio_path"],
-                modality="audio",
-                output_modality="text",
-                out_wav=None,
-            )
-            with_context_word_pred = generate(
-                model_instance,
-                make_prompt(PROMPT_WITH_CONTEXT_WORD.format(context_word=sample["context_word"])),
-                sample["audio_path"],
-                modality="audio",
-                output_modality="text",
-                out_wav=None,
-            )
-            with_context_sentence_pred = generate(
-                model_instance,
-                make_prompt(PROMPT_WITH_CONTEXT_SENTENCE.format(context_sentence=sample["context_sentence"])),
-                sample["audio_path"],
-                modality="audio",
-                output_modality="text",
-                out_wav=None,
-            )
+            predictions = {}
+            for scenario_key, context in _get_scenarios(sample):
+                prompt_text = PROMPT_NO_CONTEXT if context is None else PROMPT_WITH_CONTEXT.format(context=context)
+                predictions[scenario_key] = generate(
+                    model_instance,
+                    make_prompt(prompt_text),
+                    sample["audio_path"],
+                    modality="audio",
+                    output_modality="text",
+                    out_wav=None,
+                )
 
             out = {
-                "reference":        sample["reference"],
-                "target_word":      sample["target_word"],
-                "context_word":     sample["context_word"],
-                "context_sentence": sample["context_sentence"],
-                "predicted": {
-                    "no_context":            no_context_pred,
-                    "with_context_word":     with_context_word_pred,
-                    "with_context_sentence": with_context_sentence_pred,
-                },
+                "reference":    sample["reference"],
+                "target_word":  sample["target_word"],
+                "context_word": sample["context_word"],
+                "predicted":    predictions,
             }
             f_out.write(json.dumps(out, ensure_ascii=False) + "\n")
             f_out.flush()
