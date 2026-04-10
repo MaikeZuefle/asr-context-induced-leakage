@@ -154,14 +154,52 @@ def evaluate(results_path, out_path):
         f.write(f"Samples: {results['n_samples']}\n\n")
         f.write(f"{'Condition':<25} {'WER':>8} {'CER':>8} {'bg-WER':>8} {'tgt %':>7} {'ctx %':>7} {'neither %':>10}"
                 f" {'tgt correct':>12} {'tgt->ctx':>10} {'tgt->other':>11} {'tgt del':>8}\n")
-        f.write("-" * 118 + "\n")
+        sep = "-" * 118 + "\n"
+        f.write(sep)
+
+        CONDITION_GROUPS = [
+            ["no_context"],
+            ["word_context", "word_target"],
+            ["sentence_context", "sentences_5_context", "sentences_10_context"],
+            ["sentence_target", "sentences_5_target", "sentences_10_target"],
+            ["sentences_2_mixed", "sentences_5_mixed", "sentences_10_mixed"],
+        ]
+        printed = []
+        for group in CONDITION_GROUPS:
+            for condition in group:
+                m = results["conditions"].get(condition)
+                if m is None:
+                    continue
+                f.write(
+                    f"{condition:<25} {m['wer']:>8.3f} {m['cer']:>8.3f} {m['background_wer']:>8.3f}"
+                    f" {m['target_word_rate']:>6.1%} {m['context_word_rate']:>6.1%} {m['neither_rate']:>9.1%}"
+                    f" {m['target_correct']:>11.1%} {m['target_to_context']:>9.1%}"
+                    f" {m['target_to_other']:>10.1%} {m['target_deleted']:>7.1%}\n"
+                )
+                printed.append(condition)
+            f.write(sep)
+        # print any conditions not covered by the groups above
         for condition, m in results["conditions"].items():
-            f.write(
-                f"{condition:<25} {m['wer']:>8.3f} {m['cer']:>8.3f} {m['background_wer']:>8.3f}"
-                f" {m['target_word_rate']:>6.1%} {m['context_word_rate']:>6.1%} {m['neither_rate']:>9.1%}"
-                f" {m['target_correct']:>11.1%} {m['target_to_context']:>9.1%}"
-                f" {m['target_to_other']:>10.1%} {m['target_deleted']:>7.1%}\n"
-            )
+            if condition not in printed:
+                f.write(
+                    f"{condition:<25} {m['wer']:>8.3f} {m['cer']:>8.3f} {m['background_wer']:>8.3f}"
+                    f" {m['target_word_rate']:>6.1%} {m['context_word_rate']:>6.1%} {m['neither_rate']:>9.1%}"
+                    f" {m['target_correct']:>11.1%} {m['target_to_context']:>9.1%}"
+                    f" {m['target_to_other']:>10.1%} {m['target_deleted']:>7.1%}\n"
+                )
+        f.write("\n")
+        f.write("Column legend:\n")
+        f.write("  WER          - Word Error Rate on the full transcription\n")
+        f.write("  CER          - Character Error Rate on the full transcription\n")
+        f.write("  bg-WER       - Background WER: target word masked in reference, both target+context\n")
+        f.write("                 masked in hypothesis. Isolates errors unrelated to the target word.\n")
+        f.write("  tgt %        - % of samples where the target word appears anywhere in the hypothesis\n")
+        f.write("  ctx %        - % of samples where the context word appears anywhere in the hypothesis\n")
+        f.write("  neither %    - % of samples where neither target nor context word appears in the hypothesis\n")
+        f.write("  tgt correct  - % of target word positions (by alignment) transcribed correctly\n")
+        f.write("  tgt->ctx     - % of target word positions substituted with the context word (privacy leak signal)\n")
+        f.write("  tgt->other   - % of target word positions substituted with an unrelated word\n")
+        f.write("  tgt del      - % of target word positions deleted (not transcribed at all)\n")
 
 
 if __name__ == "__main__":
