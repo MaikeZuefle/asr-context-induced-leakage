@@ -20,11 +20,11 @@ PROMPT_NO_CONTEXT = "Please transcribe the audio."
 PROMPT_WITH_CONTEXT = "Context: {context}\n\nPlease transcribe the audio."
 
 
-def load_model(model_name):
+def load_model(model_name, model_path=None):
     if model_name == "phi_multimodal":
-        return load_phi_multimodal(), generate_phi_multimodal
+        return load_phi_multimodal(model_path=model_path), generate_phi_multimodal
     elif model_name == "qwen_omni":
-        return load_qwen_omni(), generate_qwen_omni
+        return load_qwen_omni(model_path=model_path), generate_qwen_omni
     else:
         raise NotImplementedError(f"Model {model_name} currently not supported!")
 
@@ -63,8 +63,9 @@ def _get_scenarios(sample: dict) -> list[tuple[str, str | None]]:
     ]
 
 
-def main(out_folder, model_name, prepared_path):
-    output_file_path = f"{out_folder}/{model_name}/privacy/en.jsonl"
+def main(out_folder, model_name, prepared_path, model_path=None):
+    model_tag = os.path.basename(model_path) if model_path else model_name
+    output_file_path = f"{out_folder}/{model_tag}/privacy/en.jsonl"
     os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
     set_up_logging(output_file_path)
 
@@ -74,7 +75,7 @@ def main(out_folder, model_name, prepared_path):
     logging.info(f"Loaded {len(samples)} samples.")
 
     logging.info("Loading model.")
-    model_instance, generate = load_model(model_name)
+    model_instance, generate = load_model(model_name, model_path=model_path)
 
     # Load existing outputs to skip already processed samples
     existing_outputs = {}
@@ -131,5 +132,6 @@ if __name__ == "__main__":
     parser.add_argument("--model", choices=["phi_multimodal", "qwen_omni"], required=True)
     parser.add_argument("--prepared_path", default="data/prepared/en.jsonl")
     parser.add_argument("--out_folder", default="generated_output")
+    parser.add_argument("--model_path", default=None, help="Path to merged model (overrides default HF model)")
     args = parser.parse_args()
-    main(args.out_folder, args.model, args.prepared_path)
+    main(args.out_folder, args.model, args.prepared_path, model_path=args.model_path)

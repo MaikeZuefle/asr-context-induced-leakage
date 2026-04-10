@@ -1,0 +1,13 @@
+### Note: DO NOT use quantized model or quantization_bit when merging lora adapters
+
+### model
+model_name_or_path: Qwen/Qwen2.5-Omni-7B
+adapter_name_or_path: saves/qwen2.5-omni-7b/lora/target_word
+template: qwen2_omni
+trust_remote_code: true
+
+### export
+export_dir: saves/qwen2.5-omni-7b/merged/target_word
+export_size: 5
+export_device: auto
+export_legacy_format: false

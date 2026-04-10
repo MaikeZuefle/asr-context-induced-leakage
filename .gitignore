@@ -1,5 +1,6 @@
 data/asr/
 generated_output/
+generated_output_finetuned/
 generated_eval/
 __pycache__/
 *.pyc
@@ -8,3 +9,5 @@ myjob*
 z_outputs
 LlamaFactory
 todo.txt
+wandb/
+saves/

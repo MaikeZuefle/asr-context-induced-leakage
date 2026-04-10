@@ -1,14 +1,21 @@
 import os
-def load_model():
+import torch
+
+DEFAULT_MODEL_PATH = "Qwen/Qwen2.5-Omni-7B"
+
+def load_model(model_path=None):
     from transformers import Qwen2_5OmniForConditionalGeneration, Qwen2_5OmniProcessor
 
+    model_path = model_path or DEFAULT_MODEL_PATH
     model = Qwen2_5OmniForConditionalGeneration.from_pretrained(
-        "Qwen/Qwen2.5-Omni-7B",
-        torch_dtype="auto",
+        model_path,
+        torch_dtype=torch.bfloat16,
         device_map="auto",
         attn_implementation="flash_attention_2",
     )
-    processor = Qwen2_5OmniProcessor.from_pretrained("Qwen/Qwen2.5-Omni-7B")
+    # Always load processor from base model — fine-tuned checkpoints only save the tokenizer
+    processor_path = DEFAULT_MODEL_PATH if model_path != DEFAULT_MODEL_PATH else model_path
+    processor = Qwen2_5OmniProcessor.from_pretrained(processor_path)
     return model, processor
 
 

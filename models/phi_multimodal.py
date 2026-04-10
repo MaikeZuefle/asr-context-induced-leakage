@@ -1,15 +1,19 @@
-def load_model():
+DEFAULT_MODEL_PATH = "microsoft/Phi-4-multimodal-instruct"
+
+def load_model(model_path=None):
     from transformers import AutoModelForCausalLM, AutoProcessor, GenerationConfig
-    model_path = "microsoft/Phi-4-multimodal-instruct"
-    processor = AutoProcessor.from_pretrained(model_path, trust_remote_code=True)
+    model_path = model_path or DEFAULT_MODEL_PATH
+    # Always load processor from base model — fine-tuned LoRA checkpoints only save a partial processor config
+    processor_path = DEFAULT_MODEL_PATH if model_path != DEFAULT_MODEL_PATH else model_path
+    processor = AutoProcessor.from_pretrained(processor_path, trust_remote_code=True)
     model = AutoModelForCausalLM.from_pretrained(
-        model_path, 
-        device_map="cuda", 
-        torch_dtype="auto", 
+        model_path,
+        device_map="cuda",
+        torch_dtype="auto",
         trust_remote_code=True,
         _attn_implementation='flash_attention_2',
     ).cuda()
-    generation_config = GenerationConfig.from_pretrained(model_path)
+    generation_config = GenerationConfig.from_pretrained(processor_path)
     return model, processor, generation_config
 
 def generate(model_processor_config, prompt, input_data, modality, output_modality, out_wav=None):
