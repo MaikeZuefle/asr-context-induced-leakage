@@ -46,11 +46,11 @@ MODEL_STYLES = {
 
 DISPLAY_NAMES = {
     "qwen_omni":                    "Qwen2.5-Omni (zeroshot)",
-    "finetuned/qwen/context_word":  "Qwen ft-context",
+    "finetuned/qwen/context_word":  "Qwen ft-distractor",
     "finetuned/qwen/target_word":   "Qwen ft-target",
     "finetuned/qwen/both":          "Qwen ft-both",
     "phi_multimodal":               "Phi-4-multimodal (zeroshot)",
-    "finetuned/phi/context_word":   "Phi ft-context",
+    "finetuned/phi/context_word":   "Phi ft-distractor",
     "finetuned/phi/target_word":    "Phi ft-target",
     "finetuned/phi/both":           "Phi ft-both",
 }
@@ -157,9 +157,9 @@ def make_plots(eval_root="generated_eval", out_dir="generated_eval"):
 
     plot_two_row_figure(
         models,
-        metric_main="wer", metric_secondary="background_wer",
-        ylabel="WER",
-        suptitle="Word Error Rate — solid: WER, dashed: bg-WER",
+        metric_main="background_wer", metric_secondary=None,
+        ylabel="bg-WER",
+        suptitle="Background Word Error Rate",
         fmt=lambda v: v,
         out_path=os.path.join(out_dir, "results_wer.pdf"),
     )

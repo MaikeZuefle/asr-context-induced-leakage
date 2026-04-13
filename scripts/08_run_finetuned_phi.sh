@@ -1,12 +1,12 @@
 #!/bin/bash
 
 PREPARED_PATH="data/prepared/en.jsonl"
-OUT_FOLDER="generated_output_finetuned"
+OUT_FOLDER="generated_output_finetuned/phi"
 
 MERGED_MODELS=(
     "saves/phi4-multimodal/lora/context_word"
-    # "saves/phi4-multimodal/lora/target_word"
-    # "saves/phi4-multimodal/lora/both"
+    "saves/phi4-multimodal/lora/target_word"
+    "saves/phi4-multimodal/lora/both"
 )
 
 for MODEL_PATH in "${MERGED_MODELS[@]}"; do
