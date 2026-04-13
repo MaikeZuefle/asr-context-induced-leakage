@@ -208,7 +208,9 @@ if __name__ == "__main__":
     parser.add_argument("--out_folder", default="generated_eval", help="Folder to save evaluation results")
     args = parser.parse_args()
 
-    relative = os.path.relpath(args.results_path, "generated_output")
+    # Strip leading generated_output*/ so paths from generated_output_finetuned/
+    # end up cleanly under out_folder just like those from generated_output/
+    relative = re.sub(r'^generated_output[^/]*/', '', args.results_path)
     out_path = os.path.join(args.out_folder, relative.replace(".jsonl", ".json"))
 
     evaluate(args.results_path, out_path)

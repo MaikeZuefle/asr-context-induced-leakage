@@ -11,3 +11,4 @@ LlamaFactory
 todo.txt
 wandb/
 saves/
+.claude/

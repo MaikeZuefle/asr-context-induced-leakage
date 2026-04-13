@@ -3,9 +3,9 @@
 BASE_MODEL="Qwen/Qwen2.5-Omni-7B"
 
 MERGES=(
-    "saves/qwen2.5-omni-7b/lora/context_word:saves/qwen2.5-omni-7b/merged/context_word"
-    # "saves/qwen2.5-omni-7b/lora/target_word:saves/qwen2.5-omni-7b/merged/target_word"
-    # "saves/qwen2.5-omni-7b/lora/both:saves/qwen2.5-omni-7b/merged/both"
+    # "saves/qwen2.5-omni-7b/lora/context_word:saves/qwen2.5-omni-7b/merged/context_word"
+    "saves/qwen2.5-omni-7b/lora/target_word:saves/qwen2.5-omni-7b/merged/target_word"
+    "saves/qwen2.5-omni-7b/lora/both:saves/qwen2.5-omni-7b/merged/both"
 )
 
 for ENTRY in "${MERGES[@]}"; do
