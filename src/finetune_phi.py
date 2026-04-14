@@ -1,5 +1,6 @@
 """
-Fine-tune Phi-4-multimodal-instruct on TTS-generated privacy evaluation sentences.
+Fine-tune Phi-4-multimodal-instruct on TTS-generated privacy evaluation sentences
+or FLEURS context FT data.
 
 Uses the model's built-in speech LoRA adapter (model.set_lora_adapter('speech')).
 
@@ -13,6 +14,7 @@ Requirements:
 import argparse
 import json
 import os
+import random
 import re
 from pathlib import Path
 
@@ -37,6 +39,7 @@ set_seed(42)
 
 MODEL_PATH = "microsoft/Phi-4-multimodal-instruct"
 INSTRUCTION = "Please transcribe the audio."
+INSTRUCTION_WITH_CONTEXT = "Context: {context}\n\nPlease transcribe the audio."
 ANSWER_SUFFIX = "<|end|><|endoftext|>"
 _IGNORE_INDEX = -100
 
@@ -89,6 +92,70 @@ class TTSDataset(Dataset):
         user_message = {
             "role": "user",
             "content": f"<|audio_1|>\n{INSTRUCTION}",
+        }
+        prompt = self.processor.tokenizer.apply_chat_template(
+            [user_message], tokenize=False, add_generation_prompt=True
+        )
+        inputs = self.processor(text=prompt, audios=[(audio, sr)], return_tensors="pt")
+
+        answer = f"{sample['transcript']}{ANSWER_SUFFIX}"
+        answer_ids = self.processor.tokenizer(answer, return_tensors="pt").input_ids
+
+        input_ids = torch.cat([inputs.input_ids, answer_ids], dim=1)
+        labels = torch.full_like(input_ids, _IGNORE_INDEX)
+        labels[:, -answer_ids.shape[1]:] = answer_ids
+
+        return {
+            "input_ids": input_ids,
+            "labels": labels,
+            "input_audio_embeds": inputs.input_audio_embeds,
+            "audio_embed_sizes": inputs.audio_embed_sizes,
+        }
+
+
+# ---------------------------------------------------------------------------
+# FLEURS context dataset
+# ---------------------------------------------------------------------------
+
+_FLEURS_CONTEXT_FIELDS = {
+    "fleurs_context_1":  "context_sentence",
+    "fleurs_context_5":  "context_sentences_5",
+    "fleurs_context_10": "context_sentences_10",
+}
+_FLEURS_MIXED_FIELDS = ["context_sentence", "context_sentences_5", "context_sentences_10"]
+
+
+class FleursContextDataset(Dataset):
+    """Loads FLEURS context FT data and injects context into the prompt,
+    matching the inference-time format: 'Context: {context}\\n\\nPlease transcribe the audio.'
+    """
+
+    def __init__(self, processor, ft_jsonl: str, context_field: str | None = None, seed: int = 42):
+        with open(ft_jsonl, "r", encoding="utf-8") as f:
+            self.samples = [json.loads(line) for line in f if line.strip()]
+        self.processor = processor
+        self.context_field = context_field  # None means mixed (random per sample)
+        if context_field is None:
+            rng = random.Random(seed)
+            self.context_fields = [rng.choice(_FLEURS_MIXED_FIELDS) for _ in self.samples]
+
+    def __len__(self):
+        return len(self.samples)
+
+    def _get_context(self, idx: int) -> str:
+        field = self.context_fields[idx] if self.context_field is None else self.context_field
+        value = self.samples[idx][field]
+        return " ".join(value) if isinstance(value, list) else value
+
+    def __getitem__(self, idx):
+        sample = self.samples[idx]
+        audio, sr = sf.read(sample["audio_path"])
+        context = self._get_context(idx)
+        instruction = INSTRUCTION_WITH_CONTEXT.format(context=context)
+
+        user_message = {
+            "role": "user",
+            "content": f"<|audio_1|>\n{instruction}",
         }
         prompt = self.processor.tokenizer.apply_chat_template(
             [user_message], tokenize=False, add_generation_prompt=True
@@ -267,11 +334,17 @@ DATASET_SOURCES = {
     "both":         ["context_sentence", "target_context_sentence"],
 }
 
+_EVAL_DATASETS    = list(DATASET_SOURCES.keys())
+_FLEURS_DATASETS  = list(_FLEURS_CONTEXT_FIELDS.keys()) + ["fleurs_context_mixed"]
+
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dataset", choices=["context_word", "target_word", "both"], required=True)
+    parser.add_argument("--dataset",
+                        choices=_EVAL_DATASETS + _FLEURS_DATASETS,
+                        required=True)
     parser.add_argument("--tts_jsonl", default="data/tts/en.jsonl")
+    parser.add_argument("--ft_jsonl",  default="data/ft/fleurs_context/en.jsonl")
     parser.add_argument("--output_dir", default=None)
     parser.add_argument("--use_flash_attention", action="store_true")
     parser.add_argument("--batch_size", type=int, default=8)
@@ -295,9 +368,14 @@ def main():
 
     model.set_lora_adapter("speech")
 
-    sources = DATASET_SOURCES[args.dataset]
-    train_dataset = TTSDataset(processor, args.tts_jsonl, sources=sources)
-    print(f"Training on {len(train_dataset)} samples (sources: {sources})")
+    if args.dataset in _EVAL_DATASETS:
+        sources = DATASET_SOURCES[args.dataset]
+        train_dataset = TTSDataset(processor, args.tts_jsonl, sources=sources)
+        print(f"Training on {len(train_dataset)} samples (sources: {sources})")
+    else:
+        context_field = _FLEURS_CONTEXT_FIELDS.get(args.dataset)  # None for mixed
+        train_dataset = FleursContextDataset(processor, args.ft_jsonl, context_field=context_field)
+        print(f"Training on {len(train_dataset)} FLEURS context samples (dataset: {args.dataset})")
 
     out_path = Path(args.output_dir)
     out_path.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,86 @@
+{
+  "privacy_context_word": {
+    "file_name": "privacy_context_word.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "audios": "audios"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
+  },
+  "privacy_target_word": {
+    "file_name": "privacy_target_word.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "audios": "audios"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
+  },
+  "privacy_fleurs_context_1": {
+    "file_name": "privacy_fleurs_context_1.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "audios": "audios"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
+  },
+  "privacy_fleurs_context_5": {
+    "file_name": "privacy_fleurs_context_5.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "audios": "audios"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
+  },
+  "privacy_fleurs_context_10": {
+    "file_name": "privacy_fleurs_context_10.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "audios": "audios"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
+  },
+  "privacy_fleurs_context_mixed": {
+    "file_name": "privacy_fleurs_context_mixed.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "audios": "audios"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
+  }
+}

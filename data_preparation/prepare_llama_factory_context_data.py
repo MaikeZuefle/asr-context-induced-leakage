@@ -2,10 +2,11 @@
 Convert FLEURS context FT JSONL into LLaMA Factory ShareGPT audio format and
 register datasets in LLaMA Factory's dataset_info.json.
 
-Creates three datasets from the FT JSONL, one per context length:
-  - privacy_fleurs_context_1:  single context sentence
-  - privacy_fleurs_context_5:  5-sentence context (key sentence at random position)
-  - privacy_fleurs_context_10: 10-sentence context
+Creates four datasets from the FT JSONL:
+  - privacy_fleurs_context_1:     single context sentence
+  - privacy_fleurs_context_5:     5-sentence context (key sentence at random position)
+  - privacy_fleurs_context_10:    10-sentence context
+  - privacy_fleurs_context_mixed: one context length sampled uniformly at random per example
 
 Output format per entry:
     {
@@ -21,6 +22,7 @@ Output format per entry:
 import argparse
 import json
 import os
+import random
 
 DATASET_CONFIGS = {
     "privacy_fleurs_context_1":  "context_sentence",
@@ -28,7 +30,9 @@ DATASET_CONFIGS = {
     "privacy_fleurs_context_10": "context_sentences_10",
 }
 
-INSTRUCTION_TEMPLATE = 'Please transcribe the audio. Context: "{context}"'
+_MIXED_FIELDS = ["context_sentence", "context_sentences_5", "context_sentences_10"]
+
+INSTRUCTION_TEMPLATE = "Context: {context}\n\nPlease transcribe the audio."
 
 
 def format_context(value: str | list[str]) -> str:
@@ -87,6 +91,33 @@ def main(ft_jsonl: str, data_dir: str):
                 "assistant_tag": "gpt",
             },
         }
+
+    # mixed: one context length sampled uniformly at random per example (seeded for reproducibility)
+    rng = random.Random(42)
+    mixed_entries = [
+        build_entry(s["audio_path"], s["transcript"], s[rng.choice(_MIXED_FIELDS)])
+        for s in samples
+    ]
+    mixed_name = "privacy_fleurs_context_mixed"
+    mixed_path = os.path.join(data_dir, f"{mixed_name}.json")
+    with open(mixed_path, "w", encoding="utf-8") as f:
+        json.dump(mixed_entries, f, ensure_ascii=False, indent=2)
+    print(f"Wrote {len(mixed_entries)} entries to {mixed_path}")
+
+    dataset_info[mixed_name] = {
+        "file_name": f"{mixed_name}.json",
+        "formatting": "sharegpt",
+        "columns": {
+            "messages": "conversations",
+            "audios": "audios",
+        },
+        "tags": {
+            "role_tag": "from",
+            "content_tag": "value",
+            "user_tag": "human",
+            "assistant_tag": "gpt",
+        },
+    }
 
     with open(dataset_info_path, "w", encoding="utf-8") as f:
         json.dump(dataset_info, f, ensure_ascii=False, indent=2)
