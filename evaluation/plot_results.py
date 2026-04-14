@@ -9,17 +9,17 @@ import matplotlib.lines as mlines
 # ── condition groups ──────────────────────────────────────────────────────────
 GROUPS = {
     "context": {
-        "title": "Distractor in context",
+        "title": "Distractor in context (target word in speech)",
         "conditions": ["no_context", "word_context", "sentence_context", "sentences_5_context", "sentences_10_context"],
         "labels":     ["no context", "word",         "1-sent",           "5-sent",              "10-sent"],
     },
     "target": {
-        "title": "Target word in context",
+        "title": "Target word in context (target word in speech)",
         "conditions": ["no_context", "word_target", "sentence_target", "sentences_5_target", "sentences_10_target"],
         "labels":     ["no context", "word",        "1-sent",          "5-sent",             "10-sent"],
     },
     "mixed": {
-        "title": "Distractor + target in context",
+        "title": "Distractor + target in context (target word in speech)",
         "conditions": ["no_context", "sentences_2_mixed", "sentences_5_mixed", "sentences_10_mixed"],
         "labels":     ["no context", "2-sent",            "5-sent",            "10-sent"],
     },
@@ -82,7 +82,7 @@ def plot_two_row_figure(all_models, metric_main, metric_secondary, ylabel, supti
         ("Phi",  {k: v for k, v in all_models.items() if "phi"  in k}),
     ]
 
-    fig, axes = plt.subplots(2, 3, figsize=(14, 7), sharey=False)
+    fig, axes = plt.subplots(2, 3, figsize=(14, 7), sharey=True)
     fig.suptitle(suptitle, fontsize=10, y=1.01)
 
     for row, (family_name, models) in enumerate(families):
@@ -167,10 +167,19 @@ def make_plots(eval_root="generated_eval", out_dir="generated_eval"):
     plot_two_row_figure(
         models,
         metric_main="target_to_context", metric_secondary=None,
-        ylabel="tgt → ctx (%)",
-        suptitle="Privacy leakage: target word transcribed as context word",
+        ylabel="tgt → distractor (%)",
+        suptitle="Privacy leakage: target word transcribed as distractor word",
         fmt=lambda v: v * 100,
         out_path=os.path.join(out_dir, "results_leakage.pdf"),
+    )
+
+    plot_two_row_figure(
+        models,
+        metric_main="target_correct", metric_secondary=None,
+        ylabel="tgt correct (%)",
+        suptitle="Target word transcription accuracy (target word in speech)",
+        fmt=lambda v: v * 100,
+        out_path=os.path.join(out_dir, "results_target_correct.pdf"),
     )
 
 

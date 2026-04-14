@@ -46,6 +46,12 @@ from tqdm import tqdm
 from transformers import pipeline as hf_pipeline, set_seed
 
 from data.fleurs import load_asr
+from data_preparation.utils import (
+    _SECRET_ENTITY_TYPES,
+    _build_scenario,
+    generate_filler_sentences,
+    generate_sentence_containing,
+)
 
 nltk.download("cmudict", quiet=True)
 
@@ -122,11 +128,6 @@ def find_similar_word(word: str, max_distance: int = 2) -> tuple[str | None, int
 # Candidate word extraction
 # ---------------------------------------------------------------------------
 
-# Entity types that represent "secret-like" information (people, orgs, places, products).
-# Excludes DATE, TIME, CARDINAL, ORDINAL, PERCENT, MONEY, QUANTITY which are not secrets.
-_SECRET_ENTITY_TYPES = {"PERSON", "ORG", "GPE", "LOC", "PRODUCT", "EVENT", "WORK_OF_ART", "FAC"}
-
-
 def extract_candidate_words(text: str, nlp) -> list[str]:
     """
     Return named entity tokens from text, restricted to secret-like entity types,
@@ -161,54 +162,15 @@ Write exactly one short, natural sentence that:
 
 Return only the sentence, no explanation."""
 
-_FILLER_SENTENCES_PROMPT = """\
-Here is a sentence from a spoken transcript:
-"{reference}"
-
-Write exactly {n} short, natural sentences that:
-- fit the same topic and register as the transcript
-- do not contain the words "{target_word}" or "{context_word}"
-
-Return exactly {n} sentences, one per line, no numbering, no explanation."""
-
-
-def _run_pipe(pipe, prompt: str, max_new_tokens: int) -> str:
-    messages = [{"role": "user", "content": prompt}]
-    output = pipe(messages, max_new_tokens=max_new_tokens)
-    return output[0]["generated_text"][-1]["content"].strip()
-
-
-def _parse_sentences(text: str, n: int) -> list[str]:
-    lines = [line.strip() for line in text.splitlines() if line.strip()]
-    return lines[:n]
-
 
 def generate_context_sentence(reference: str, target_word: str, context_word: str, pipe) -> str:
     prompt = _CONTEXT_SENTENCE_PROMPT.format(reference=reference, target_word=target_word, context_word=context_word)
-    return _run_pipe(pipe, prompt, max_new_tokens=64)
+    return generate_sentence_containing(prompt, context_word, pipe)
 
 
 def generate_target_sentence(reference: str, target_word: str, pipe) -> str:
     prompt = _TARGET_SENTENCE_PROMPT.format(reference=reference, target_word=target_word)
-    return _run_pipe(pipe, prompt, max_new_tokens=64)
-
-
-def generate_filler_sentences(reference: str, target_word: str, context_word: str, pipe, n: int = 9, max_retries: int = 3) -> list[str]:
-    prompt = _FILLER_SENTENCES_PROMPT.format(reference=reference, target_word=target_word, context_word=context_word, n=n)
-    for _ in range(max_retries):
-        sentences = _parse_sentences(_run_pipe(pipe, prompt, max_new_tokens=n * 40), n)
-        if len(sentences) >= n:
-            return sentences
-    raise RuntimeError(f"Failed to generate {n} filler sentences after {max_retries} retries.")
-
-
-def _build_scenario(key_sentences: list[str], fillers: list[str], n: int) -> list[str]:
-    """Insert each key sentence at a random position into the first n-len(keys) fillers."""
-    pool = list(fillers[:n - len(key_sentences)])
-    for key in key_sentences:
-        pos = random.randint(0, len(pool))
-        pool = pool[:pos] + [key] + pool[pos:]
-    return pool
+    return generate_sentence_containing(prompt, target_word, pipe)
 
 
 # ---------------------------------------------------------------------------
@@ -245,7 +207,7 @@ def main(language: str, out_path: str, max_distance: int, gemma_model_path: str)
                     # 3 LLM calls; all multi-sentence scenarios are assembled from these
                     ctx_sent = generate_context_sentence(reference, word, context_word, pipe)
                     tgt_sent = generate_target_sentence(reference, word, pipe)
-                    fillers = generate_filler_sentences(reference, word, context_word, pipe, n=9)
+                    fillers = generate_filler_sentences(reference, word, pipe, n=9, context_word=context_word)
 
                     record = {
                         "audio_path": audio_path,

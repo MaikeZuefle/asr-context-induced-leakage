@@ -152,8 +152,8 @@ def evaluate(results_path, out_path):
     txt_path = out_path.replace(".json", ".txt")
     with open(txt_path, "w", encoding="utf-8") as f:
         f.write(f"Samples: {results['n_samples']}\n\n")
-        f.write(f"{'Condition':<25} {'WER':>8} {'CER':>8} {'bg-WER':>8} {'tgt %':>7} {'ctx %':>7} {'neither %':>10}"
-                f" {'tgt correct':>12} {'tgt->ctx':>10} {'tgt->other':>11} {'tgt del':>8}\n")
+        f.write(f"{'Condition':<25} {'WER':>8} {'CER':>8} {'bg-WER':>8} {'tgt %':>7} {'distr %':>8} {'neither %':>10}"
+                f" {'tgt correct':>12} {'tgt->distr':>11} {'tgt->other':>11} {'tgt del':>8}\n")
         sep = "-" * 118 + "\n"
         f.write(sep)
 
@@ -172,8 +172,8 @@ def evaluate(results_path, out_path):
                     continue
                 f.write(
                     f"{condition:<25} {m['wer']:>8.3f} {m['cer']:>8.3f} {m['background_wer']:>8.3f}"
-                    f" {m['target_word_rate']:>6.1%} {m['context_word_rate']:>6.1%} {m['neither_rate']:>9.1%}"
-                    f" {m['target_correct']:>11.1%} {m['target_to_context']:>9.1%}"
+                    f" {m['target_word_rate']:>6.1%} {m['context_word_rate']:>7.1%} {m['neither_rate']:>9.1%}"
+                    f" {m['target_correct']:>11.1%} {m['target_to_context']:>10.1%}"
                     f" {m['target_to_other']:>10.1%} {m['target_deleted']:>7.1%}\n"
                 )
                 printed.append(condition)
@@ -183,8 +183,8 @@ def evaluate(results_path, out_path):
             if condition not in printed:
                 f.write(
                     f"{condition:<25} {m['wer']:>8.3f} {m['cer']:>8.3f} {m['background_wer']:>8.3f}"
-                    f" {m['target_word_rate']:>6.1%} {m['context_word_rate']:>6.1%} {m['neither_rate']:>9.1%}"
-                    f" {m['target_correct']:>11.1%} {m['target_to_context']:>9.1%}"
+                    f" {m['target_word_rate']:>6.1%} {m['context_word_rate']:>7.1%} {m['neither_rate']:>9.1%}"
+                    f" {m['target_correct']:>11.1%} {m['target_to_context']:>10.1%}"
                     f" {m['target_to_other']:>10.1%} {m['target_deleted']:>7.1%}\n"
                 )
         f.write("\n")
@@ -194,10 +194,10 @@ def evaluate(results_path, out_path):
         f.write("  bg-WER       - Background WER: target word masked in reference, both target+context\n")
         f.write("                 masked in hypothesis. Isolates errors unrelated to the target word.\n")
         f.write("  tgt %        - % of samples where the target word appears anywhere in the hypothesis\n")
-        f.write("  ctx %        - % of samples where the context word appears anywhere in the hypothesis\n")
-        f.write("  neither %    - % of samples where neither target nor context word appears in the hypothesis\n")
+        f.write("  distractor % - % of samples where the distractor word appears anywhere in the hypothesis\n")
+        f.write("  neither %    - % of samples where neither target nor distractor word appears in the hypothesis\n")
         f.write("  tgt correct  - % of target word positions (by alignment) transcribed correctly\n")
-        f.write("  tgt->ctx     - % of target word positions substituted with the context word (privacy leak signal)\n")
+        f.write("  tgt->distr   - % of target word positions substituted with the distractor word (privacy leak signal)\n")
         f.write("  tgt->other   - % of target word positions substituted with an unrelated word\n")
         f.write("  tgt del      - % of target word positions deleted (not transcribed at all)\n")
 
