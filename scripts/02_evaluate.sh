@@ -12,7 +12,7 @@ for MODEL in "${MODELS[@]}"; do
 done
 
 # Fine-tuned models
-FT_MODELS=( "context_word" "target_word" "both" )
+FT_MODELS=( "context_word" "target_word" "both" "fleurs_context_1" "fleurs_context_5" "fleurs_context_10" "fleurs_context_mixed" )
 
 for BASE in "phi" "qwen"; do
     for MODEL in "${FT_MODELS[@]}"; do

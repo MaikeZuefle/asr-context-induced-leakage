@@ -25,34 +25,55 @@ GROUPS = {
     },
 }
 
-# ── color scheme: zeroshot=blue, finetuned=pink→red shades ───────────────────
+# ── color scheme ─────────────────────────────────────────────────────────────
+# zeroshot=blue, eval-data ft=pink→red, fleurs-context ft=light→dark green
 _PALETTE = {
-    "zeroshot":    {"color": "#1565C0", "lw": 2.0, "marker": "o"},
-    "ft-context":  {"color": "#F48FB1", "lw": 1.5, "marker": "o"},
-    "ft-target":   {"color": "#E53935", "lw": 1.5, "marker": "o"},
-    "ft-both":     {"color": "#880E4F", "lw": 1.5, "marker": "o"},
+    "zeroshot":         {"color": "#1565C0", "lw": 2.0, "marker": "o"},
+    "ft-context":       {"color": "#F48FB1", "lw": 1.5, "marker": "o"},
+    "ft-target":        {"color": "#E53935", "lw": 1.5, "marker": "o"},
+    "ft-both":          {"color": "#880E4F", "lw": 1.5, "marker": "o"},
+    "ft-fleurs-1":      {"color": "#C8E6C9", "lw": 1.5, "marker": "s"},
+    "ft-fleurs-5":      {"color": "#66BB6A", "lw": 1.5, "marker": "s"},
+    "ft-fleurs-10":     {"color": "#1B5E20", "lw": 1.5, "marker": "s"},
+    "ft-fleurs-mixed":  {"color": "#00897B", "lw": 1.5, "marker": "s"},
 }
 
 MODEL_STYLES = {
-    "qwen_omni":                    _PALETTE["zeroshot"],
-    "finetuned/qwen/context_word":  _PALETTE["ft-context"],
-    "finetuned/qwen/target_word":   _PALETTE["ft-target"],
-    "finetuned/qwen/both":          _PALETTE["ft-both"],
-    "phi_multimodal":               _PALETTE["zeroshot"],
-    "finetuned/phi/context_word":   _PALETTE["ft-context"],
-    "finetuned/phi/target_word":    _PALETTE["ft-target"],
-    "finetuned/phi/both":           _PALETTE["ft-both"],
+    "qwen_omni":                         _PALETTE["zeroshot"],
+    "finetuned/qwen/context_word":       _PALETTE["ft-context"],
+    "finetuned/qwen/target_word":        _PALETTE["ft-target"],
+    "finetuned/qwen/both":               _PALETTE["ft-both"],
+    "finetuned/qwen/fleurs_context_1":   _PALETTE["ft-fleurs-1"],
+    "finetuned/qwen/fleurs_context_5":   _PALETTE["ft-fleurs-5"],
+    "finetuned/qwen/fleurs_context_10":  _PALETTE["ft-fleurs-10"],
+    "finetuned/qwen/fleurs_context_mixed": _PALETTE["ft-fleurs-mixed"],
+    "phi_multimodal":                    _PALETTE["zeroshot"],
+    "finetuned/phi/context_word":        _PALETTE["ft-context"],
+    "finetuned/phi/target_word":         _PALETTE["ft-target"],
+    "finetuned/phi/both":                _PALETTE["ft-both"],
+    "finetuned/phi/fleurs_context_1":    _PALETTE["ft-fleurs-1"],
+    "finetuned/phi/fleurs_context_5":    _PALETTE["ft-fleurs-5"],
+    "finetuned/phi/fleurs_context_10":   _PALETTE["ft-fleurs-10"],
+    "finetuned/phi/fleurs_context_mixed":  _PALETTE["ft-fleurs-mixed"],
 }
 
 DISPLAY_NAMES = {
-    "qwen_omni":                    "Qwen2.5-Omni (zeroshot)",
-    "finetuned/qwen/context_word":  "Qwen ft-distractor",
-    "finetuned/qwen/target_word":   "Qwen ft-target",
-    "finetuned/qwen/both":          "Qwen ft-both",
-    "phi_multimodal":               "Phi-4-multimodal (zeroshot)",
-    "finetuned/phi/context_word":   "Phi ft-distractor",
-    "finetuned/phi/target_word":    "Phi ft-target",
-    "finetuned/phi/both":           "Phi ft-both",
+    "qwen_omni":                         "Qwen2.5-Omni (zeroshot)",
+    "finetuned/qwen/context_word":       "Qwen ft-distractor",
+    "finetuned/qwen/target_word":        "Qwen ft-target",
+    "finetuned/qwen/both":               "Qwen ft-both",
+    "finetuned/qwen/fleurs_context_1":   "Qwen ft-fleurs-1sent",
+    "finetuned/qwen/fleurs_context_5":   "Qwen ft-fleurs-5sent",
+    "finetuned/qwen/fleurs_context_10":  "Qwen ft-fleurs-10sent",
+    "finetuned/qwen/fleurs_context_mixed": "Qwen ft-fleurs-mixed",
+    "phi_multimodal":                    "Phi-4-multimodal (zeroshot)",
+    "finetuned/phi/context_word":        "Phi ft-distractor",
+    "finetuned/phi/target_word":         "Phi ft-target",
+    "finetuned/phi/both":                "Phi ft-both",
+    "finetuned/phi/fleurs_context_1":    "Phi ft-fleurs-1sent",
+    "finetuned/phi/fleurs_context_5":    "Phi ft-fleurs-5sent",
+    "finetuned/phi/fleurs_context_10":   "Phi ft-fleurs-10sent",
+    "finetuned/phi/fleurs_context_mixed":  "Phi ft-fleurs-mixed",
 }
 
 MODEL_ORDER = list(MODEL_STYLES.keys())
