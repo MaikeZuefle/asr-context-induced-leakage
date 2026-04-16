@@ -22,7 +22,7 @@ import soundfile as sf
 import torch
 from accelerate import Accelerator
 from accelerate.utils import gather_object
-from torch.utils.data import Dataset
+from torch.utils.data import ConcatDataset, Dataset
 from tqdm import tqdm
 from transformers import (
     AutoModelForCausalLM,
@@ -334,14 +334,21 @@ DATASET_SOURCES = {
     "both":         ["context_sentence", "target_context_sentence"],
 }
 
-_EVAL_DATASETS    = list(DATASET_SOURCES.keys())
-_FLEURS_DATASETS  = list(_FLEURS_CONTEXT_FIELDS.keys()) + ["fleurs_context_mixed"]
+COMBINED_DATASETS = {
+    "context_word_fleurs_mixed": ("context_word", "fleurs_context_mixed"),
+    "target_word_fleurs_mixed":  ("target_word",  "fleurs_context_mixed"),
+    "both_fleurs_mixed":         ("both",          "fleurs_context_mixed"),
+}
+
+_EVAL_DATASETS      = list(DATASET_SOURCES.keys())
+_FLEURS_DATASETS    = list(_FLEURS_CONTEXT_FIELDS.keys()) + ["fleurs_context_mixed"]
+_COMBINED_DATASETS  = list(COMBINED_DATASETS.keys())
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset",
-                        choices=_EVAL_DATASETS + _FLEURS_DATASETS,
+                        choices=_EVAL_DATASETS + _FLEURS_DATASETS + _COMBINED_DATASETS,
                         required=True)
     parser.add_argument("--tts_jsonl", default="data/tts/en.jsonl")
     parser.add_argument("--ft_jsonl",  default="data/ft/fleurs_context/en.jsonl")
@@ -372,6 +379,14 @@ def main():
         sources = DATASET_SOURCES[args.dataset]
         train_dataset = TTSDataset(processor, args.tts_jsonl, sources=sources)
         print(f"Training on {len(train_dataset)} samples (sources: {sources})")
+    elif args.dataset in _COMBINED_DATASETS:
+        eval_key, fleurs_key = COMBINED_DATASETS[args.dataset]
+        sources = DATASET_SOURCES[eval_key]
+        tts_dataset = TTSDataset(processor, args.tts_jsonl, sources=sources)
+        context_field = _FLEURS_CONTEXT_FIELDS.get(fleurs_key)  # None for mixed
+        fleurs_dataset = FleursContextDataset(processor, args.ft_jsonl, context_field=context_field)
+        train_dataset = ConcatDataset([tts_dataset, fleurs_dataset])
+        print(f"Training on {len(tts_dataset)} TTS + {len(fleurs_dataset)} FLEURS context samples")
     else:
         context_field = _FLEURS_CONTEXT_FIELDS.get(args.dataset)  # None for mixed
         train_dataset = FleursContextDataset(processor, args.ft_jsonl, context_field=context_field)
