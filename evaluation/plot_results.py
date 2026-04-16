@@ -173,35 +173,61 @@ def plot_two_row_figure(all_models, metric_main, metric_secondary, ylabel, supti
     plt.close(fig)
 
 
+_FLEURS_FT_KEYS = {k for k in MODEL_STYLES if "fleurs" in k}
+_EVAL_FT_KEYS   = {k for k in MODEL_STYLES if "finetuned" in k and "fleurs" not in k}
+
+MODEL_SUBSETS = {
+    "all":        None,   # no filter
+    "zeroshot_fleurs": lambda k: "finetuned" not in k or k in _FLEURS_FT_KEYS,
+    "zeroshot_eval":   lambda k: "finetuned" not in k or k in _EVAL_FT_KEYS,
+}
+
+SUBSET_SUFFIX = {
+    "all":             "",
+    "zeroshot_fleurs": "_fleurs_ft",
+    "zeroshot_eval":   "_eval_ft",
+}
+
+
+def _filter_models(models, subset_fn):
+    if subset_fn is None:
+        return models
+    return {k: v for k, v in models.items() if subset_fn(k)}
+
+
 def make_plots(eval_root="generated_eval", out_dir="generated_eval"):
-    models = load_results(eval_root)
+    all_models = load_results(eval_root)
 
-    plot_two_row_figure(
-        models,
-        metric_main="background_wer", metric_secondary=None,
-        ylabel="bg-WER",
-        suptitle="Background Word Error Rate",
-        fmt=lambda v: v,
-        out_path=os.path.join(out_dir, "results_wer.pdf"),
-    )
+    for subset_name, subset_fn in MODEL_SUBSETS.items():
+        models = _filter_models(all_models, subset_fn)
+        suffix = SUBSET_SUFFIX[subset_name]
 
-    plot_two_row_figure(
-        models,
-        metric_main="target_to_context", metric_secondary=None,
-        ylabel="tgt → distractor (%)",
-        suptitle="Privacy leakage: target word transcribed as distractor word",
-        fmt=lambda v: v * 100,
-        out_path=os.path.join(out_dir, "results_leakage.pdf"),
-    )
+        plot_two_row_figure(
+            models,
+            metric_main="background_wer", metric_secondary=None,
+            ylabel="bg-WER",
+            suptitle="Background Word Error Rate",
+            fmt=lambda v: v,
+            out_path=os.path.join(out_dir, f"results_wer{suffix}.pdf"),
+        )
 
-    plot_two_row_figure(
-        models,
-        metric_main="target_correct", metric_secondary=None,
-        ylabel="tgt correct (%)",
-        suptitle="Target word transcription accuracy (target word in speech)",
-        fmt=lambda v: v * 100,
-        out_path=os.path.join(out_dir, "results_target_correct.pdf"),
-    )
+        plot_two_row_figure(
+            models,
+            metric_main="target_to_context", metric_secondary=None,
+            ylabel="tgt → distractor (%)",
+            suptitle="Privacy leakage: target word transcribed as distractor word",
+            fmt=lambda v: v * 100,
+            out_path=os.path.join(out_dir, f"results_leakage{suffix}.pdf"),
+        )
+
+        plot_two_row_figure(
+            models,
+            metric_main="target_correct", metric_secondary=None,
+            ylabel="tgt correct (%)",
+            suptitle="Target word transcription accuracy (target word in speech)",
+            fmt=lambda v: v * 100,
+            out_path=os.path.join(out_dir, f"results_target_correct{suffix}.pdf"),
+        )
 
 
 if __name__ == "__main__":
