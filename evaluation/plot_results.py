@@ -26,54 +26,70 @@ GROUPS = {
 }
 
 # ── color scheme ─────────────────────────────────────────────────────────────
-# zeroshot=blue, eval-data ft=pink→red, fleurs-context ft=light→dark green
+# zeroshot=blue, eval-data ft=pink→red, fleurs-context ft=light→dark green,
+# combined (eval-data + fleurs-context) ft=light→dark purple
 _PALETTE = {
-    "zeroshot":         {"color": "#1565C0", "lw": 2.0, "marker": "o"},
-    "ft-context":       {"color": "#F48FB1", "lw": 1.5, "marker": "o"},
-    "ft-target":        {"color": "#E53935", "lw": 1.5, "marker": "o"},
-    "ft-both":          {"color": "#880E4F", "lw": 1.5, "marker": "o"},
-    "ft-fleurs-1":      {"color": "#C8E6C9", "lw": 1.5, "marker": "s"},
-    "ft-fleurs-5":      {"color": "#66BB6A", "lw": 1.5, "marker": "s"},
-    "ft-fleurs-10":     {"color": "#1B5E20", "lw": 1.5, "marker": "s"},
-    "ft-fleurs-mixed":  {"color": "#00897B", "lw": 1.5, "marker": "s"},
+    "zeroshot":                  {"color": "#1565C0", "lw": 2.0, "marker": "o"},
+    "ft-context":                {"color": "#F48FB1", "lw": 1.5, "marker": "o"},
+    "ft-target":                 {"color": "#E53935", "lw": 1.5, "marker": "o"},
+    "ft-both":                   {"color": "#880E4F", "lw": 1.5, "marker": "o"},
+    "ft-fleurs-1":               {"color": "#C8E6C9", "lw": 1.5, "marker": "s"},
+    "ft-fleurs-5":               {"color": "#66BB6A", "lw": 1.5, "marker": "s"},
+    "ft-fleurs-10":              {"color": "#1B5E20", "lw": 1.5, "marker": "s"},
+    "ft-fleurs-mixed":           {"color": "#00897B", "lw": 1.5, "marker": "s"},
+    "ft-combined-context":       {"color": "#CE93D8", "lw": 1.5, "marker": "^"},
+    "ft-combined-target":        {"color": "#8E24AA", "lw": 1.5, "marker": "^"},
+    "ft-combined-both":          {"color": "#4A148C", "lw": 1.5, "marker": "^"},
 }
 
 MODEL_STYLES = {
-    "qwen_omni":                         _PALETTE["zeroshot"],
-    "finetuned/qwen/context_word":       _PALETTE["ft-context"],
-    "finetuned/qwen/target_word":        _PALETTE["ft-target"],
-    "finetuned/qwen/both":               _PALETTE["ft-both"],
-    "finetuned/qwen/fleurs_context_1":   _PALETTE["ft-fleurs-1"],
-    "finetuned/qwen/fleurs_context_5":   _PALETTE["ft-fleurs-5"],
-    "finetuned/qwen/fleurs_context_10":  _PALETTE["ft-fleurs-10"],
-    "finetuned/qwen/fleurs_context_mixed": _PALETTE["ft-fleurs-mixed"],
-    "phi_multimodal":                    _PALETTE["zeroshot"],
-    "finetuned/phi/context_word":        _PALETTE["ft-context"],
-    "finetuned/phi/target_word":         _PALETTE["ft-target"],
-    "finetuned/phi/both":                _PALETTE["ft-both"],
-    "finetuned/phi/fleurs_context_1":    _PALETTE["ft-fleurs-1"],
-    "finetuned/phi/fleurs_context_5":    _PALETTE["ft-fleurs-5"],
-    "finetuned/phi/fleurs_context_10":   _PALETTE["ft-fleurs-10"],
-    "finetuned/phi/fleurs_context_mixed":  _PALETTE["ft-fleurs-mixed"],
+    "qwen_omni":                                  _PALETTE["zeroshot"],
+    "finetuned/qwen/context_word":                _PALETTE["ft-context"],
+    "finetuned/qwen/target_word":                 _PALETTE["ft-target"],
+    "finetuned/qwen/both":                        _PALETTE["ft-both"],
+    "finetuned/qwen/fleurs_context_1":            _PALETTE["ft-fleurs-1"],
+    "finetuned/qwen/fleurs_context_5":            _PALETTE["ft-fleurs-5"],
+    "finetuned/qwen/fleurs_context_10":           _PALETTE["ft-fleurs-10"],
+    "finetuned/qwen/fleurs_context_mixed":        _PALETTE["ft-fleurs-mixed"],
+    "finetuned/qwen/context_word_fleurs_mixed":   _PALETTE["ft-combined-context"],
+    "finetuned/qwen/target_word_fleurs_mixed":    _PALETTE["ft-combined-target"],
+    "finetuned/qwen/both_fleurs_mixed":           _PALETTE["ft-combined-both"],
+    "phi_multimodal":                             _PALETTE["zeroshot"],
+    "finetuned/phi/context_word":                 _PALETTE["ft-context"],
+    "finetuned/phi/target_word":                  _PALETTE["ft-target"],
+    "finetuned/phi/both":                         _PALETTE["ft-both"],
+    "finetuned/phi/fleurs_context_1":             _PALETTE["ft-fleurs-1"],
+    "finetuned/phi/fleurs_context_5":             _PALETTE["ft-fleurs-5"],
+    "finetuned/phi/fleurs_context_10":            _PALETTE["ft-fleurs-10"],
+    "finetuned/phi/fleurs_context_mixed":         _PALETTE["ft-fleurs-mixed"],
+    "finetuned/phi/context_word_fleurs_mixed":    _PALETTE["ft-combined-context"],
+    "finetuned/phi/target_word_fleurs_mixed":     _PALETTE["ft-combined-target"],
+    "finetuned/phi/both_fleurs_mixed":            _PALETTE["ft-combined-both"],
 }
 
 DISPLAY_NAMES = {
-    "qwen_omni":                         "Qwen2.5-Omni (zeroshot)",
-    "finetuned/qwen/context_word":       "Qwen ft-distractor",
-    "finetuned/qwen/target_word":        "Qwen ft-target",
-    "finetuned/qwen/both":               "Qwen ft-both",
-    "finetuned/qwen/fleurs_context_1":   "Qwen ft-fleurs-1sent",
-    "finetuned/qwen/fleurs_context_5":   "Qwen ft-fleurs-5sent",
-    "finetuned/qwen/fleurs_context_10":  "Qwen ft-fleurs-10sent",
-    "finetuned/qwen/fleurs_context_mixed": "Qwen ft-fleurs-mixed",
-    "phi_multimodal":                    "Phi-4-multimodal (zeroshot)",
-    "finetuned/phi/context_word":        "Phi ft-distractor",
-    "finetuned/phi/target_word":         "Phi ft-target",
-    "finetuned/phi/both":                "Phi ft-both",
-    "finetuned/phi/fleurs_context_1":    "Phi ft-fleurs-1sent",
-    "finetuned/phi/fleurs_context_5":    "Phi ft-fleurs-5sent",
-    "finetuned/phi/fleurs_context_10":   "Phi ft-fleurs-10sent",
-    "finetuned/phi/fleurs_context_mixed":  "Phi ft-fleurs-mixed",
+    "qwen_omni":                                  "Qwen2.5-Omni (zeroshot)",
+    "finetuned/qwen/context_word":                "Qwen ft-distractor",
+    "finetuned/qwen/target_word":                 "Qwen ft-target",
+    "finetuned/qwen/both":                        "Qwen ft-both",
+    "finetuned/qwen/fleurs_context_1":            "Qwen ft-fleurs-1sent",
+    "finetuned/qwen/fleurs_context_5":            "Qwen ft-fleurs-5sent",
+    "finetuned/qwen/fleurs_context_10":           "Qwen ft-fleurs-10sent",
+    "finetuned/qwen/fleurs_context_mixed":        "Qwen ft-fleurs-mixed",
+    "finetuned/qwen/context_word_fleurs_mixed":   "Qwen ft-distractor+fleurs",
+    "finetuned/qwen/target_word_fleurs_mixed":    "Qwen ft-target+fleurs",
+    "finetuned/qwen/both_fleurs_mixed":           "Qwen ft-both+fleurs",
+    "phi_multimodal":                             "Phi-4-multimodal (zeroshot)",
+    "finetuned/phi/context_word":                 "Phi ft-distractor",
+    "finetuned/phi/target_word":                  "Phi ft-target",
+    "finetuned/phi/both":                         "Phi ft-both",
+    "finetuned/phi/fleurs_context_1":             "Phi ft-fleurs-1sent",
+    "finetuned/phi/fleurs_context_5":             "Phi ft-fleurs-5sent",
+    "finetuned/phi/fleurs_context_10":            "Phi ft-fleurs-10sent",
+    "finetuned/phi/fleurs_context_mixed":         "Phi ft-fleurs-mixed",
+    "finetuned/phi/context_word_fleurs_mixed":    "Phi ft-distractor+fleurs",
+    "finetuned/phi/target_word_fleurs_mixed":     "Phi ft-target+fleurs",
+    "finetuned/phi/both_fleurs_mixed":            "Phi ft-both+fleurs",
 }
 
 MODEL_ORDER = list(MODEL_STYLES.keys())
@@ -173,19 +189,22 @@ def plot_two_row_figure(all_models, metric_main, metric_secondary, ylabel, supti
     plt.close(fig)
 
 
-_FLEURS_FT_KEYS = {k for k in MODEL_STYLES if "fleurs" in k}
-_EVAL_FT_KEYS   = {k for k in MODEL_STYLES if "finetuned" in k and "fleurs" not in k}
+_FLEURS_FT_KEYS   = {k for k in MODEL_STYLES if "fleurs_context" in k}
+_EVAL_FT_KEYS     = {k for k in MODEL_STYLES if "finetuned" in k and "fleurs" not in k}
+_COMBINED_FT_KEYS = {k for k in MODEL_STYLES if k.endswith("_fleurs_mixed")}
 
 MODEL_SUBSETS = {
-    "all":        None,   # no filter
-    "zeroshot_fleurs": lambda k: "finetuned" not in k or k in _FLEURS_FT_KEYS,
-    "zeroshot_eval":   lambda k: "finetuned" not in k or k in _EVAL_FT_KEYS,
+    "all":              None,   # no filter
+    "zeroshot_fleurs":  lambda k: "finetuned" not in k or k in _FLEURS_FT_KEYS,
+    "zeroshot_eval":    lambda k: "finetuned" not in k or k in _EVAL_FT_KEYS,
+    "zeroshot_combined": lambda k: "finetuned" not in k or k in _COMBINED_FT_KEYS,
 }
 
 SUBSET_SUFFIX = {
-    "all":             "",
-    "zeroshot_fleurs": "_fleurs_ft",
-    "zeroshot_eval":   "_eval_ft",
+    "all":               "",
+    "zeroshot_fleurs":   "_fleurs_ft",
+    "zeroshot_eval":     "_eval_ft",
+    "zeroshot_combined": "_combined_ft",
 }
 
 
