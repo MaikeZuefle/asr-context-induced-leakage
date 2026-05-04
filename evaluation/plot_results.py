@@ -280,31 +280,36 @@ _SHARED_STYLE = {
     "combined": {"color": "#FF8F00", "lw": 1.5, "marker": "s"},
 }
 
-_BASELINE_LINES = {
-    "qwen": [
-        ("qwen_omni",                          "Base model",                        _SHARED_STYLE["base"]),
-        ("qwen/fleurs_context_mixed",          "Prompt-adapted",                    _SHARED_STYLE["ctx_ft"]),
-        ("qwen/target_word_fleurs_mixed",      "Acoustic word FT + prompt-adapted", _SHARED_STYLE["combined"]),
-    ],
-    "phi": [
-        ("phi_multimodal",                     "Base model",                        _SHARED_STYLE["base"]),
-        ("phi/fleurs_context_mixed",           "Prompt-adapted",                    _SHARED_STYLE["ctx_ft"]),
-        ("phi/target_word_fleurs_mixed",       "Acoustic word FT + prompt-adapted", _SHARED_STYLE["combined"]),
-    ],
-}
+def _make_baseline_lines(prefix=""):
+    return {
+        "qwen": [
+            ("qwen_omni",                                            "Base model",                        _SHARED_STYLE["base"]),
+            ("qwen/fleurs_context_mixed",                            "Prompt-adapted",                    _SHARED_STYLE["ctx_ft"]),
+            (f"qwen/{prefix}target_word_fleurs_mixed",               "Acoustic word FT + prompt-adapted", _SHARED_STYLE["combined"]),
+        ],
+        "phi": [
+            ("phi_multimodal",                                       "Base model",                        _SHARED_STYLE["base"]),
+            ("phi/fleurs_context_mixed",                             "Prompt-adapted",                    _SHARED_STYLE["ctx_ft"]),
+            (f"phi/{prefix}target_word_fleurs_mixed",                "Acoustic word FT + prompt-adapted", _SHARED_STYLE["combined"]),
+        ],
+    }
 
-_ATTACK_LINES = {
-    "qwen": [
-        ("qwen_omni",                          "Base model",                        _SHARED_STYLE["base"]),
-        ("qwen/fleurs_context_mixed",          "Prompt-adapted",                    _SHARED_STYLE["ctx_ft"]),
-        ("qwen/context_word_fleurs_mixed",     "Context word FT + prompt-adapted",  _SHARED_STYLE["combined"]),
-    ],
-    "phi": [
-        ("phi_multimodal",                     "Base model",                        _SHARED_STYLE["base"]),
-        ("phi/fleurs_context_mixed",           "Prompt-adapted",                    _SHARED_STYLE["ctx_ft"]),
-        ("phi/context_word_fleurs_mixed",      "Context word FT + prompt-adapted",  _SHARED_STYLE["combined"]),
-    ],
-}
+def _make_attack_lines(prefix=""):
+    return {
+        "qwen": [
+            ("qwen_omni",                                            "Base model",                        _SHARED_STYLE["base"]),
+            ("qwen/fleurs_context_mixed",                            "Prompt-adapted",                    _SHARED_STYLE["ctx_ft"]),
+            (f"qwen/{prefix}context_word_fleurs_mixed",              "Context word FT + prompt-adapted",  _SHARED_STYLE["combined"]),
+        ],
+        "phi": [
+            ("phi_multimodal",                                       "Base model",                        _SHARED_STYLE["base"]),
+            ("phi/fleurs_context_mixed",                             "Prompt-adapted",                    _SHARED_STYLE["ctx_ft"]),
+            (f"phi/{prefix}context_word_fleurs_mixed",               "Context word FT + prompt-adapted",  _SHARED_STYLE["combined"]),
+        ],
+    }
+
+_BASELINE_LINES = _make_baseline_lines()
+_ATTACK_LINES   = _make_attack_lines()
 
 
 def plot_two_panel(all_models, lines_dict, conditions, labels, metric, ylabel, out_path, fmt=lambda v: v * 100):
@@ -407,70 +412,40 @@ def plot_attack_with_mitigation(all_models, lines_dict, metric, ylabel, out_path
     plt.close(fig)
 
 
-def make_plots(eval_root="generated_eval", out_dir="generated_eval"):
-    all_models = load_results(eval_root)
-
-    # Section A — baseline (helpful context)
+def _plot_all_sections(all_models, out_dir, baseline_lines, attack_lines):
+    """Generate plots for sections A, B and C."""
     plot_two_panel(
-        all_models, _BASELINE_LINES, _CONTEXT_CONDITIONS, _COND_LABELS,
+        all_models, baseline_lines, _CONTEXT_CONDITIONS, _COND_LABELS,
         metric="target_correct", ylabel="Acoustic word accuracy (%)",
         out_path=os.path.join(out_dir, "plot_results_a", "results_baseline_acoustic_accuracy.pdf"),
     )
     plot_two_panel(
-        all_models, _BASELINE_LINES, _CONTEXT_CONDITIONS, _COND_LABELS,
+        all_models, baseline_lines, _CONTEXT_CONDITIONS, _COND_LABELS,
         metric="background_wer", ylabel="Background WER", fmt=lambda v: v,
         out_path=os.path.join(out_dir, "plot_results_a", "results_baseline_wer.pdf"),
     )
-
-    # Section B — attack (context word injected)
     plot_two_panel(
-        all_models, _ATTACK_LINES, _ATTACK_CONDITIONS, _COND_LABELS,
+        all_models, attack_lines, _ATTACK_CONDITIONS, _COND_LABELS,
         metric="target_to_context", ylabel="Leakage rate (%)",
         out_path=os.path.join(out_dir, "plot_results_b", "results_attack_leakage.pdf"),
     )
     plot_two_panel(
-        all_models, _ATTACK_LINES, _ATTACK_CONDITIONS, _COND_LABELS,
+        all_models, attack_lines, _ATTACK_CONDITIONS, _COND_LABELS,
         metric="background_wer", ylabel="Background WER", fmt=lambda v: v,
         out_path=os.path.join(out_dir, "plot_results_b", "results_attack_wer.pdf"),
     )
-
-    # Section C — mitigation (attack solid, mitigated dotted)
     plot_attack_with_mitigation(
-        all_models, _ATTACK_LINES,
+        all_models, attack_lines,
         metric="target_to_context", ylabel="Leakage rate (%)",
         out_path=os.path.join(out_dir, "plot_results_c", "results_mitigation_leakage.pdf"),
     )
 
-    for subset_name, subset_fn in MODEL_SUBSETS.items():
-        models = _filter_models(all_models, subset_fn)
-        suffix = SUBSET_SUFFIX[subset_name]
 
-        plot_two_row_figure(
-            models,
-            metric_main="background_wer", metric_secondary=None,
-            ylabel="bg-WER",
-            suptitle="Background Word Error Rate",
-            fmt=lambda v: v,
-            out_path=os.path.join(out_dir, f"results_wer{suffix}.pdf"),
-        )
-
-        plot_two_row_figure(
-            models,
-            metric_main="target_to_context", metric_secondary=None,
-            ylabel="tgt → distractor (%)",
-            suptitle="Privacy leakage: target word transcribed as distractor word",
-            fmt=lambda v: v * 100,
-            out_path=os.path.join(out_dir, f"results_leakage{suffix}.pdf"),
-        )
-
-        plot_two_row_figure(
-            models,
-            metric_main="target_correct", metric_secondary=None,
-            ylabel="tgt correct (%)",
-            suptitle="Target word transcription accuracy (target word in speech)",
-            fmt=lambda v: v * 100,
-            out_path=os.path.join(out_dir, f"results_target_correct{suffix}.pdf"),
-        )
+def make_plots(eval_root="generated_eval", out_dir="generated_eval", dataset_prefix=""):
+    all_models = load_results(eval_root)
+    baseline_lines = _make_baseline_lines(dataset_prefix)
+    attack_lines   = _make_attack_lines(dataset_prefix)
+    _plot_all_sections(all_models, out_dir, baseline_lines, attack_lines)
 
 
 _SIM_GROUPS       = ["distinct", "related", "near-identical"]
@@ -698,40 +673,21 @@ if __name__ == "__main__":
                         help="If set, run similarity group analysis plot from this root folder.")
     parser.add_argument("--distance_analysis", default=None,
                         help="If set, run phoneme distance analysis plot from this root folder.")
+    parser.add_argument("--dataset_prefix", default="",
+                        help="Prefix for dataset-specific combined model keys, e.g. 'acl6060_' or 'voxpopuli_'.")
     args = parser.parse_args()
+
+    dataset_prefix = args.dataset_prefix or ""
+    baseline_lines = _make_baseline_lines(dataset_prefix)
+    attack_lines   = _make_attack_lines(dataset_prefix)
 
     if args.average_datasets:
         all_models = load_results_averaged(args.eval_root, args.average_datasets)
         os.makedirs(args.out_dir, exist_ok=True)
-
-        plot_two_panel(
-            all_models, _BASELINE_LINES, _CONTEXT_CONDITIONS, _COND_LABELS,
-            metric="target_correct", ylabel="Acoustic word accuracy (%)",
-            out_path=os.path.join(args.out_dir, "plot_results_a", "results_baseline_acoustic_accuracy.pdf"),
-        )
-        plot_two_panel(
-            all_models, _BASELINE_LINES, _CONTEXT_CONDITIONS, _COND_LABELS,
-            metric="background_wer", ylabel="Background WER", fmt=lambda v: v,
-            out_path=os.path.join(args.out_dir, "plot_results_a", "results_baseline_wer.pdf"),
-        )
-        plot_two_panel(
-            all_models, _ATTACK_LINES, _ATTACK_CONDITIONS, _COND_LABELS,
-            metric="target_to_context", ylabel="Leakage rate (%)",
-            out_path=os.path.join(args.out_dir, "plot_results_b", "results_attack_leakage.pdf"),
-        )
-        plot_two_panel(
-            all_models, _ATTACK_LINES, _ATTACK_CONDITIONS, _COND_LABELS,
-            metric="background_wer", ylabel="Background WER", fmt=lambda v: v,
-            out_path=os.path.join(args.out_dir, "plot_results_b", "results_attack_wer.pdf"),
-        )
-        plot_attack_with_mitigation(
-            all_models, _ATTACK_LINES,
-            metric="target_to_context", ylabel="Leakage rate (%)",
-            out_path=os.path.join(args.out_dir, "plot_results_c", "results_mitigation_leakage.pdf"),
-        )
+        _plot_all_sections(all_models, args.out_dir, baseline_lines, attack_lines)
     elif args.similarity_analysis:
         plot_similarity_analysis(args.similarity_analysis, args.out_dir)
     elif args.distance_analysis:
         plot_distance_analysis(args.distance_analysis, args.out_dir)
     else:
-        make_plots(args.eval_root, args.out_dir)
+        make_plots(args.eval_root, args.out_dir, dataset_prefix=dataset_prefix)
