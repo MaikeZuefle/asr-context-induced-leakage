@@ -1,7 +1,10 @@
 import argparse
+import glob
 import json
 import os
 import re
+
+import numpy as np
 
 from jiwer import cer, wer, process_words, Compose, ToLowerCase, RemovePunctuation, RemoveMultipleSpaces, Strip, ExpandCommonEnglishContractions
 
@@ -17,6 +20,7 @@ CONDITIONS = [
     "no_context",
     "word_context",
     "word_target",
+    "word_mixed",
     "sentence_context",
     "sentence_target",
     "sentences_2_mixed",
@@ -202,15 +206,175 @@ def evaluate(results_path, out_path):
         f.write("  tgt del      - % of target word positions deleted (not transcribed at all)\n")
 
 
+def evaluate_similarity_groups(results_path: str, prepared_path: str, out_folder: str):
+    """Split inference results by context-sentence similarity and evaluate each group separately."""
+    from difflib import SequenceMatcher
+
+    # Build similarity lookup from prepared data
+    sim_lookup = {}
+    with open(prepared_path, "r", encoding="utf-8") as f:
+        for line in f:
+            if not line.strip():
+                continue
+            s = json.loads(line)
+            key = (s["reference"].lower(), s["target_word"].lower(), s["context_word"].lower())
+            a, b = s["reference"].lower(), s["context_sentence"].lower()
+            sim_lookup[key] = SequenceMatcher(None, a, b).ratio()
+
+    samples = load_results(results_path)
+
+    groups = {"different": [], "similar": [], "near-copy": []}
+    for s in samples:
+        key = (s["reference"].lower(), s["target_word"].lower(), s["context_word"].lower())
+        sim = sim_lookup.get(key, 0.5)
+        if sim <= 0.4:
+            groups["different"].append(s)
+        elif sim <= 0.7:
+            groups["similar"].append(s)
+        else:
+            groups["near-copy"].append(s)
+
+    os.makedirs(out_folder, exist_ok=True)
+    model_tag = os.path.splitext(os.path.basename(results_path.replace("/privacy/en.jsonl", "")))[0]
+
+    for group_name, group_samples in groups.items():
+        if not group_samples:
+            print(f"  {group_name}: 0 samples, skipping.")
+            continue
+        print(f"  {group_name}: {len(group_samples)} samples")
+        # write temp results and evaluate
+        tmp_path = os.path.join(out_folder, f"{group_name}_tmp.jsonl")
+        with open(tmp_path, "w") as f:
+            for s in group_samples:
+                f.write(json.dumps(s, ensure_ascii=False) + "\n")
+        out_path = os.path.join(out_folder, f"{group_name}.json")
+        evaluate(tmp_path, out_path)
+        os.remove(tmp_path)
+
+    # Summary JSON with n_samples per group
+    summary = {g: len(v) for g, v in groups.items()}
+    with open(os.path.join(out_folder, "group_sizes.json"), "w") as f:
+        json.dump(summary, f, indent=2)
+    print(f"  Group sizes: {summary}")
+
+
+def evaluate_distance_groups(results_path: str, prepared_path: str, out_folder: str):
+    """Split inference results by phoneme edit distance and evaluate each group separately."""
+    dist_lookup = {}
+    with open(prepared_path, "r", encoding="utf-8") as f:
+        for line in f:
+            if not line.strip():
+                continue
+            s = json.loads(line)
+            key = (s["reference"].lower(), s["target_word"].lower(), s["context_word"].lower())
+            dist_lookup[key] = s["phoneme_distance"]
+
+    samples = load_results(results_path)
+    groups = {1: [], 2: []}
+    for s in samples:
+        key = (s["reference"].lower(), s["target_word"].lower(), s["context_word"].lower())
+        dist = dist_lookup.get(key, 1)
+        groups[dist].append(s)
+
+    os.makedirs(out_folder, exist_ok=True)
+    for dist, group_samples in groups.items():
+        if not group_samples:
+            print(f"  distance-{dist}: 0 samples, skipping.")
+            continue
+        print(f"  distance-{dist}: {len(group_samples)} samples")
+        tmp_path = os.path.join(out_folder, f"distance_{dist}_tmp.jsonl")
+        with open(tmp_path, "w") as f:
+            for s in group_samples:
+                f.write(json.dumps(s, ensure_ascii=False) + "\n")
+        evaluate(tmp_path, os.path.join(out_folder, f"distance_{dist}.json"))
+        os.remove(tmp_path)
+
+    with open(os.path.join(out_folder, "group_sizes.json"), "w") as f:
+        json.dump({f"distance_{d}": len(v) for d, v in groups.items()}, f, indent=2)
+
+
+def evaluate_combined(dataset_roots: list[str], out_folder: str):
+    """Average evaluation metrics across multiple dataset eval folders and write tables."""
+
+    all_dataset_results = {}  # dataset -> {model_key -> conditions_dict}
+    for root in dataset_roots:
+        if not os.path.isdir(root):
+            print(f"Warning: {root} not found, skipping.")
+            continue
+        dataset_name = os.path.basename(root)
+        all_dataset_results[dataset_name] = {}
+        for path in sorted(glob.glob(f"{root}/**/privacy/en.json", recursive=True)):
+            rel = os.path.relpath(path, root)
+            key = "/".join(rel.split(os.sep)[:-2])
+            with open(path) as f:
+                all_dataset_results[dataset_name][key] = json.load(f)["conditions"]
+
+    if not all_dataset_results:
+        print("No results found.")
+        return
+
+    all_keys = set(k for d in all_dataset_results.values() for k in d)
+    averaged = {}
+    for key in sorted(all_keys):
+        per_dataset = [d[key] for d in all_dataset_results.values() if key in d]
+        all_conditions = set(c for d in per_dataset for c in d)
+        avg_conds = {}
+        for cond in all_conditions:
+            all_metrics = set(m for d in per_dataset if cond in d for m in d[cond])
+            avg_conds[cond] = {
+                metric: float(np.mean([d[cond][metric] for d in per_dataset if cond in d and metric in d[cond]]))
+                for metric in all_metrics
+            }
+        averaged[key] = avg_conds
+
+    os.makedirs(out_folder, exist_ok=True)
+    datasets_str = ", ".join(all_dataset_results.keys())
+
+    # JSON
+    json_path = os.path.join(out_folder, "averaged_results.json")
+    with open(json_path, "w") as f:
+        json.dump({"datasets": list(all_dataset_results.keys()), "conditions": averaged}, f, indent=2)
+    print(f"Saved {json_path}")
+
+    # Text table
+    txt_path = os.path.join(out_folder, "averaged_results.txt")
+    with open(txt_path, "w") as f:
+        f.write(f"Averaged results across: {datasets_str}\n\n")
+        f.write(f"{'Model':<45} {'Condition':<25} {'bg-WER':>8} {'tgt correct':>12} {'leakage':>8}\n")
+        f.write("-" * 105 + "\n")
+        for key, conds in averaged.items():
+            for cond in sorted(conds):
+                m = conds[cond]
+                f.write(f"{key:<45} {cond:<25} "
+                        f"{m.get('background_wer', float('nan')):>8.3f} "
+                        f"{m.get('target_correct', float('nan')):>12.3f} "
+                        f"{m.get('target_to_context', float('nan')):>8.3f}\n")
+            f.write("\n")
+    print(f"Saved {txt_path}")
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--results_path", required=True, help="Path to output JSONL file")
+    parser.add_argument("--results_path", default=None, help="Path to inference JSONL file")
     parser.add_argument("--out_folder", default="generated_eval", help="Folder to save evaluation results")
+    parser.add_argument("--prepared_path", default=None, help="Path to prepared data JSONL (needed for --similarity_groups)")
+    parser.add_argument("--similarity_groups", action="store_true",
+                        help="Split results by context-sentence similarity and evaluate each group")
+    parser.add_argument("--distance_groups", action="store_true",
+                        help="Split results by phoneme edit distance and evaluate each group")
+    parser.add_argument("--average_datasets", nargs="+", default=None,
+                        help="Average results across these eval subfolders")
     args = parser.parse_args()
 
-    # Strip leading generated_output*/ so paths from generated_output_finetuned/
-    # end up cleanly under out_folder just like those from generated_output/
-    relative = re.sub(r'^generated_output[^/]*/', '', args.results_path)
-    out_path = os.path.join(args.out_folder, relative.replace(".jsonl", ".json"))
-
-    evaluate(args.results_path, out_path)
+    if args.average_datasets:
+        evaluate_combined(args.average_datasets, args.out_folder)
+    elif args.similarity_groups:
+        assert args.prepared_path, "--prepared_path required with --similarity_groups"
+        evaluate_similarity_groups(args.results_path, args.prepared_path, args.out_folder)
+    elif args.distance_groups:
+        assert args.prepared_path, "--prepared_path required with --distance_groups"
+        evaluate_distance_groups(args.results_path, args.prepared_path, args.out_folder)
+    else:
+        relative = re.sub(r'^generated_output[^/]*/', '', args.results_path)
+        out_path = os.path.join(args.out_folder, relative.replace(".jsonl", ".json"))
+        evaluate(args.results_path, out_path)

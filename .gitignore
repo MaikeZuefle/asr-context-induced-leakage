@@ -1,4 +1,7 @@
 data/asr/
+data/prepared/
+data/tts/
+data/ft/
 generated_output/
 generated_output_finetuned/
 generated_eval/

@@ -29,8 +29,8 @@ import os
 INSTRUCTION = "Please transcribe the audio."
 
 DATASET_NAMES = {
-    "context_sentence":         "privacy_context_word",
-    "target_context_sentence":  "privacy_target_word",
+    "context_sentence":         "context_word",
+    "target_context_sentence":  "target_word",
 }
 
 
@@ -45,7 +45,7 @@ def build_entry(audio_path: str, transcript: str, data_dir: str) -> dict:
     }
 
 
-def main(tts_jsonl: str, data_dir: str):
+def main(tts_jsonl: str, data_dir: str, prefix: str = "privacy"):
     os.makedirs(data_dir, exist_ok=True)
 
     with open(tts_jsonl, "r", encoding="utf-8") as f:
@@ -61,20 +61,18 @@ def main(tts_jsonl: str, data_dir: str):
         entries[source].append(build_entry(sample["audio_path"], sample["transcript"], data_dir))
 
     # Write dataset JSON files
-    dataset_info_entries = {}
-    for source, dataset_name in DATASET_NAMES.items():
+    new_entries = {}
+    for source, base_name in DATASET_NAMES.items():
+        dataset_name = f"{prefix}_{base_name}"
         out_path = os.path.join(data_dir, f"{dataset_name}.json")
         with open(out_path, "w", encoding="utf-8") as f:
             json.dump(entries[source], f, ensure_ascii=False, indent=2)
         print(f"Wrote {len(entries[source])} entries to {out_path}")
 
-        dataset_info_entries[dataset_name] = {
+        new_entries[dataset_name] = {
             "file_name": f"{dataset_name}.json",
             "formatting": "sharegpt",
-            "columns": {
-                "messages": "conversations",
-                "audios": "audios",
-            },
+            "columns": {"messages": "conversations", "audios": "audios"},
             "tags": {
                 "role_tag": "from",
                 "content_tag": "value",
@@ -83,16 +81,22 @@ def main(tts_jsonl: str, data_dir: str):
             },
         }
 
-    # Write dataset_info.json into data_dir (where LLaMA Factory looks via dataset_dir)
+    # Merge into existing dataset_info.json
     dataset_info_path = os.path.join(data_dir, "dataset_info.json")
+    existing = {}
+    if os.path.exists(dataset_info_path):
+        with open(dataset_info_path, "r", encoding="utf-8") as f:
+            existing = json.load(f)
+    existing.update(new_entries)
     with open(dataset_info_path, "w", encoding="utf-8") as f:
-        json.dump(dataset_info_entries, f, ensure_ascii=False, indent=2)
-    print(f"Written {dataset_info_path} with entries: {list(dataset_info_entries.keys())}")
+        json.dump(existing, f, ensure_ascii=False, indent=2)
+    print(f"Updated {dataset_info_path} — datasets: {list(existing.keys())}")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--tts_jsonl", default="data/tts/en.jsonl", help="Path to TTS output JSONL")
-    parser.add_argument("--data_dir", default="data/llama_factory", help="Output dir for dataset JSON files (stays in repo)")
+    parser.add_argument("--tts_jsonl", default="data/tts/fleurs/en.jsonl")
+    parser.add_argument("--data_dir", default="data/llama_factory")
+    parser.add_argument("--prefix", default="privacy", help="Dataset name prefix (e.g. 'privacy' or 'acl6060')")
     args = parser.parse_args()
-    main(args.tts_jsonl, args.data_dir)
+    main(args.tts_jsonl, args.data_dir, prefix=args.prefix)

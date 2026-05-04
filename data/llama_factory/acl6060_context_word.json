@@ -1,0 +1,362 @@
+[
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "I'm aland from the Institute for Advanced Study, and this is a collaborative project with Sarah Chen from MIT."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/0_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This analysis builds on the data presented in the PageRank paper."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/1_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "For example, um, in these questions we are asking how many bananas does Geck have?"
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/2_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "But we have some extra information like seventeen fewer pictures, and Sleven has eight pictures, which is totally irrelevant."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/3_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "For comparison, we also tested it on the roberti large model."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/4_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Consequently, roberti shows improved performance in these evaluations."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/5_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Hi, my name is Artois and I'm from Maastricht University."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/6_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "I will be presenting my joint work with gebbie which is about a New Dataset for Statutory Article Retrieval."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/7_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We also explored roberti, alongside other context dependent embedding models."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/8_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Hello, we are happy to present our work on VALSE; a ptak-Independent Benchmark meant for testing vision and language models with specific linguistic phenomena."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/9_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "By adapting a technique initially used for audio processing by rabin and colleagues, and extending it with our prior research."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/10_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We experiment with five vision and language models on VALSE, namely with Clap, LXMert, ViLBERT, ViLBERT twelve in one, and VisualBERT."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/11_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The results suggest that CLIP, or perhaps a similar model like clap, can achieve impressive zero-shot performance."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/12_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Hello, my name is Tanaka from Universal's Studios Japan."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/13_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The second is a platform called Aretha, released in twenty seventeen."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/14_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "It is available on the internet and can be installed via paap."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/15_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "A classifier using BERT or CodeBERT and a generator using Baar."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/16_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Several approaches were evaluated: filtering, smoothing, pruning, cluttering, and the baseline method, Bloom."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/17_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Finally, we also calculate the specificity because raj and BLEU cannot be calculated if the release notes are empty."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/18_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "CAB and other models showed a significant improvement over the initial tests."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/19_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Our cab achieved a higher BLEU score than the baseline, indicating a benefit to incorporating a retrieval component."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/20_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Cab-Basic tended to yield higher ROUGE-L than Cab-Advanced."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/21_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "In the figure on the right, the reference sentence has three or four sentences, while a cab has only one."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/22_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Hello. My name is ahsahka."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/23_context_sentence.wav"
+    ]
+  }
+]

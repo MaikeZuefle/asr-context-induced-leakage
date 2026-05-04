@@ -5,6 +5,7 @@ import glob
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
 import matplotlib.lines as mlines
+import numpy as np
 
 # ── condition groups ──────────────────────────────────────────────────────────
 GROUPS = {
@@ -43,53 +44,105 @@ _PALETTE = {
 }
 
 MODEL_STYLES = {
-    "qwen_omni":                                  _PALETTE["zeroshot"],
-    "finetuned/qwen/context_word":                _PALETTE["ft-context"],
-    "finetuned/qwen/target_word":                 _PALETTE["ft-target"],
-    "finetuned/qwen/both":                        _PALETTE["ft-both"],
-    "finetuned/qwen/fleurs_context_1":            _PALETTE["ft-fleurs-1"],
-    "finetuned/qwen/fleurs_context_5":            _PALETTE["ft-fleurs-5"],
-    "finetuned/qwen/fleurs_context_10":           _PALETTE["ft-fleurs-10"],
-    "finetuned/qwen/fleurs_context_mixed":        _PALETTE["ft-fleurs-mixed"],
-    "finetuned/qwen/context_word_fleurs_mixed":   _PALETTE["ft-combined-context"],
-    "finetuned/qwen/target_word_fleurs_mixed":    _PALETTE["ft-combined-target"],
-    "finetuned/qwen/both_fleurs_mixed":           _PALETTE["ft-combined-both"],
-    "phi_multimodal":                             _PALETTE["zeroshot"],
-    "finetuned/phi/context_word":                 _PALETTE["ft-context"],
-    "finetuned/phi/target_word":                  _PALETTE["ft-target"],
-    "finetuned/phi/both":                         _PALETTE["ft-both"],
-    "finetuned/phi/fleurs_context_1":             _PALETTE["ft-fleurs-1"],
-    "finetuned/phi/fleurs_context_5":             _PALETTE["ft-fleurs-5"],
-    "finetuned/phi/fleurs_context_10":            _PALETTE["ft-fleurs-10"],
-    "finetuned/phi/fleurs_context_mixed":         _PALETTE["ft-fleurs-mixed"],
-    "finetuned/phi/context_word_fleurs_mixed":    _PALETTE["ft-combined-context"],
-    "finetuned/phi/target_word_fleurs_mixed":     _PALETTE["ft-combined-target"],
-    "finetuned/phi/both_fleurs_mixed":            _PALETTE["ft-combined-both"],
+    # ── zero-shot ─────────────────────────────────────────────────────────────
+    "qwen_omni":                                       _PALETTE["zeroshot"],
+    "phi_multimodal":                                  _PALETTE["zeroshot"],
+    # ── FLEURS fine-tuned ─────────────────────────────────────────────────────
+    "qwen/context_word":                               _PALETTE["ft-context"],
+    "qwen/target_word":                                _PALETTE["ft-target"],
+    "qwen/both":                                       _PALETTE["ft-both"],
+    "qwen/fleurs_context_1":                           _PALETTE["ft-fleurs-1"],
+    "qwen/fleurs_context_5":                           _PALETTE["ft-fleurs-5"],
+    "qwen/fleurs_context_10":                          _PALETTE["ft-fleurs-10"],
+    "qwen/fleurs_context_mixed":                       _PALETTE["ft-fleurs-mixed"],
+    "qwen/context_word_fleurs_mixed":                  _PALETTE["ft-combined-context"],
+    "qwen/target_word_fleurs_mixed":                   _PALETTE["ft-combined-target"],
+    "qwen/both_fleurs_mixed":                          _PALETTE["ft-combined-both"],
+    "phi/context_word":                                _PALETTE["ft-context"],
+    "phi/target_word":                                 _PALETTE["ft-target"],
+    "phi/both":                                        _PALETTE["ft-both"],
+    "phi/fleurs_context_1":                            _PALETTE["ft-fleurs-1"],
+    "phi/fleurs_context_5":                            _PALETTE["ft-fleurs-5"],
+    "phi/fleurs_context_10":                           _PALETTE["ft-fleurs-10"],
+    "phi/fleurs_context_mixed":                        _PALETTE["ft-fleurs-mixed"],
+    "phi/context_word_fleurs_mixed":                   _PALETTE["ft-combined-context"],
+    "phi/target_word_fleurs_mixed":                    _PALETTE["ft-combined-target"],
+    "phi/both_fleurs_mixed":                           _PALETTE["ft-combined-both"],
+    # ── ACL6060 fine-tuned ────────────────────────────────────────────────────
+    "qwen/acl6060_context_word":                       _PALETTE["ft-context"],
+    "qwen/acl6060_target_word":                        _PALETTE["ft-target"],
+    "qwen/acl6060_both":                               _PALETTE["ft-both"],
+    "qwen/acl6060_context_word_fleurs_mixed":          _PALETTE["ft-combined-context"],
+    "qwen/acl6060_target_word_fleurs_mixed":           _PALETTE["ft-combined-target"],
+    "qwen/acl6060_both_fleurs_mixed":                  _PALETTE["ft-combined-both"],
+    "phi/acl6060_context_word":                        _PALETTE["ft-context"],
+    "phi/acl6060_target_word":                         _PALETTE["ft-target"],
+    "phi/acl6060_both":                                _PALETTE["ft-both"],
+    "phi/acl6060_context_word_fleurs_mixed":           _PALETTE["ft-combined-context"],
+    "phi/acl6060_target_word_fleurs_mixed":            _PALETTE["ft-combined-target"],
+    "phi/acl6060_both_fleurs_mixed":                   _PALETTE["ft-combined-both"],
+    # ── VoxPopuli fine-tuned ──────────────────────────────────────────────────
+    "qwen/voxpopuli_context_word":                     _PALETTE["ft-context"],
+    "qwen/voxpopuli_target_word":                      _PALETTE["ft-target"],
+    "qwen/voxpopuli_both":                             _PALETTE["ft-both"],
+    "qwen/voxpopuli_context_word_fleurs_mixed":        _PALETTE["ft-combined-context"],
+    "qwen/voxpopuli_target_word_fleurs_mixed":         _PALETTE["ft-combined-target"],
+    "qwen/voxpopuli_both_fleurs_mixed":                _PALETTE["ft-combined-both"],
+    "phi/voxpopuli_context_word":                      _PALETTE["ft-context"],
+    "phi/voxpopuli_target_word":                       _PALETTE["ft-target"],
+    "phi/voxpopuli_both":                              _PALETTE["ft-both"],
+    "phi/voxpopuli_context_word_fleurs_mixed":         _PALETTE["ft-combined-context"],
+    "phi/voxpopuli_target_word_fleurs_mixed":          _PALETTE["ft-combined-target"],
+    "phi/voxpopuli_both_fleurs_mixed":                 _PALETTE["ft-combined-both"],
 }
 
 DISPLAY_NAMES = {
-    "qwen_omni":                                  "Qwen2.5-Omni (zeroshot)",
-    "finetuned/qwen/context_word":                "Qwen ft-distractor",
-    "finetuned/qwen/target_word":                 "Qwen ft-target",
-    "finetuned/qwen/both":                        "Qwen ft-both",
-    "finetuned/qwen/fleurs_context_1":            "Qwen ft-fleurs-1sent",
-    "finetuned/qwen/fleurs_context_5":            "Qwen ft-fleurs-5sent",
-    "finetuned/qwen/fleurs_context_10":           "Qwen ft-fleurs-10sent",
-    "finetuned/qwen/fleurs_context_mixed":        "Qwen ft-fleurs-mixed",
-    "finetuned/qwen/context_word_fleurs_mixed":   "Qwen ft-distractor+fleurs",
-    "finetuned/qwen/target_word_fleurs_mixed":    "Qwen ft-target+fleurs",
-    "finetuned/qwen/both_fleurs_mixed":           "Qwen ft-both+fleurs",
-    "phi_multimodal":                             "Phi-4-multimodal (zeroshot)",
-    "finetuned/phi/context_word":                 "Phi ft-distractor",
-    "finetuned/phi/target_word":                  "Phi ft-target",
-    "finetuned/phi/both":                         "Phi ft-both",
-    "finetuned/phi/fleurs_context_1":             "Phi ft-fleurs-1sent",
-    "finetuned/phi/fleurs_context_5":             "Phi ft-fleurs-5sent",
-    "finetuned/phi/fleurs_context_10":            "Phi ft-fleurs-10sent",
-    "finetuned/phi/fleurs_context_mixed":         "Phi ft-fleurs-mixed",
-    "finetuned/phi/context_word_fleurs_mixed":    "Phi ft-distractor+fleurs",
-    "finetuned/phi/target_word_fleurs_mixed":     "Phi ft-target+fleurs",
-    "finetuned/phi/both_fleurs_mixed":            "Phi ft-both+fleurs",
+    "qwen_omni":                                       "Qwen2.5-Omni (zeroshot)",
+    "phi_multimodal":                                  "Phi-4-multimodal (zeroshot)",
+    "qwen/context_word":                               "Qwen ft-distractor",
+    "qwen/target_word":                                "Qwen ft-target",
+    "qwen/both":                                       "Qwen ft-both",
+    "qwen/fleurs_context_1":                           "Qwen ft-fleurs-1sent",
+    "qwen/fleurs_context_5":                           "Qwen ft-fleurs-5sent",
+    "qwen/fleurs_context_10":                          "Qwen ft-fleurs-10sent",
+    "qwen/fleurs_context_mixed":                       "Qwen ft-fleurs-mixed",
+    "qwen/context_word_fleurs_mixed":                  "Qwen ft-distractor+fleurs",
+    "qwen/target_word_fleurs_mixed":                   "Qwen ft-target+fleurs",
+    "qwen/both_fleurs_mixed":                          "Qwen ft-both+fleurs",
+    "phi/context_word":                                "Phi ft-distractor",
+    "phi/target_word":                                 "Phi ft-target",
+    "phi/both":                                        "Phi ft-both",
+    "phi/fleurs_context_1":                            "Phi ft-fleurs-1sent",
+    "phi/fleurs_context_5":                            "Phi ft-fleurs-5sent",
+    "phi/fleurs_context_10":                           "Phi ft-fleurs-10sent",
+    "phi/fleurs_context_mixed":                        "Phi ft-fleurs-mixed",
+    "phi/context_word_fleurs_mixed":                   "Phi ft-distractor+fleurs",
+    "phi/target_word_fleurs_mixed":                    "Phi ft-target+fleurs",
+    "phi/both_fleurs_mixed":                           "Phi ft-both+fleurs",
+    "qwen/acl6060_context_word":                       "Qwen ft-distractor (ACL)",
+    "qwen/acl6060_target_word":                        "Qwen ft-target (ACL)",
+    "qwen/acl6060_both":                               "Qwen ft-both (ACL)",
+    "qwen/acl6060_context_word_fleurs_mixed":          "Qwen ft-distractor+fleurs (ACL)",
+    "qwen/acl6060_target_word_fleurs_mixed":           "Qwen ft-target+fleurs (ACL)",
+    "qwen/acl6060_both_fleurs_mixed":                  "Qwen ft-both+fleurs (ACL)",
+    "phi/acl6060_context_word":                        "Phi ft-distractor (ACL)",
+    "phi/acl6060_target_word":                         "Phi ft-target (ACL)",
+    "phi/acl6060_both":                                "Phi ft-both (ACL)",
+    "phi/acl6060_context_word_fleurs_mixed":           "Phi ft-distractor+fleurs (ACL)",
+    "phi/acl6060_target_word_fleurs_mixed":            "Phi ft-target+fleurs (ACL)",
+    "phi/acl6060_both_fleurs_mixed":                   "Phi ft-both+fleurs (ACL)",
+    "qwen/voxpopuli_context_word":                     "Qwen ft-distractor (VP)",
+    "qwen/voxpopuli_target_word":                      "Qwen ft-target (VP)",
+    "qwen/voxpopuli_both":                             "Qwen ft-both (VP)",
+    "qwen/voxpopuli_context_word_fleurs_mixed":        "Qwen ft-distractor+fleurs (VP)",
+    "qwen/voxpopuli_target_word_fleurs_mixed":         "Qwen ft-target+fleurs (VP)",
+    "qwen/voxpopuli_both_fleurs_mixed":                "Qwen ft-both+fleurs (VP)",
+    "phi/voxpopuli_context_word":                      "Phi ft-distractor (VP)",
+    "phi/voxpopuli_target_word":                       "Phi ft-target (VP)",
+    "phi/voxpopuli_both":                              "Phi ft-both (VP)",
+    "phi/voxpopuli_context_word_fleurs_mixed":         "Phi ft-distractor+fleurs (VP)",
+    "phi/voxpopuli_target_word_fleurs_mixed":          "Phi ft-target+fleurs (VP)",
+    "phi/voxpopuli_both_fleurs_mixed":                 "Phi ft-both+fleurs (VP)",
 }
 
 MODEL_ORDER = list(MODEL_STYLES.keys())
@@ -190,14 +243,16 @@ def plot_two_row_figure(all_models, metric_main, metric_secondary, ylabel, supti
 
 
 _FLEURS_FT_KEYS   = {k for k in MODEL_STYLES if "fleurs_context" in k}
-_EVAL_FT_KEYS     = {k for k in MODEL_STYLES if "finetuned" in k and "fleurs" not in k}
+_EVAL_FT_KEYS     = {k for k in MODEL_STYLES if "/" in k and "fleurs" not in k}
 _COMBINED_FT_KEYS = {k for k in MODEL_STYLES if k.endswith("_fleurs_mixed")}
 
+_ZEROSHOT_KEYS = {"qwen_omni", "phi_multimodal"}
+
 MODEL_SUBSETS = {
-    "all":              None,   # no filter
-    "zeroshot_fleurs":  lambda k: "finetuned" not in k or k in _FLEURS_FT_KEYS,
-    "zeroshot_eval":    lambda k: "finetuned" not in k or k in _EVAL_FT_KEYS,
-    "zeroshot_combined": lambda k: "finetuned" not in k or k in _COMBINED_FT_KEYS,
+    "all":               None,
+    "zeroshot_fleurs":   lambda k: k in _ZEROSHOT_KEYS or k in _FLEURS_FT_KEYS,
+    "zeroshot_eval":     lambda k: k in _ZEROSHOT_KEYS or k in _EVAL_FT_KEYS,
+    "zeroshot_combined": lambda k: k in _ZEROSHOT_KEYS or k in _COMBINED_FT_KEYS,
 }
 
 SUBSET_SUFFIX = {
@@ -214,8 +269,177 @@ def _filter_models(models, subset_fn):
     return {k: v for k, v in models.items() if subset_fn(k)}
 
 
+_CONTEXT_CONDITIONS    = ["no_context", "word_target", "sentence_target", "sentences_5_target", "sentences_10_target"]
+_ATTACK_CONDITIONS     = ["no_context", "word_context", "sentence_context", "sentences_5_context", "sentences_10_context"]
+_MITIGATION_CONDITIONS = ["no_context", None, "sentences_2_mixed", "sentences_5_mixed", "sentences_10_mixed"]
+_COND_LABELS           = ["no context", "word", "1/2-sent", "5-sent", "10-sent"]
+
+_SHARED_STYLE = {
+    "base":     {"color": "#90CAF9", "lw": 1.5, "marker": "o"},
+    "ctx_ft":   {"color": "#1565C0", "lw": 1.5, "marker": "o"},
+    "combined": {"color": "#FF8F00", "lw": 1.5, "marker": "s"},
+}
+
+_BASELINE_LINES = {
+    "qwen": [
+        ("qwen_omni",                          "Base model",                        _SHARED_STYLE["base"]),
+        ("qwen/fleurs_context_mixed",          "Prompt-adapted",                    _SHARED_STYLE["ctx_ft"]),
+        ("qwen/target_word_fleurs_mixed",      "Acoustic word FT + prompt-adapted", _SHARED_STYLE["combined"]),
+    ],
+    "phi": [
+        ("phi_multimodal",                     "Base model",                        _SHARED_STYLE["base"]),
+        ("phi/fleurs_context_mixed",           "Prompt-adapted",                    _SHARED_STYLE["ctx_ft"]),
+        ("phi/target_word_fleurs_mixed",       "Acoustic word FT + prompt-adapted", _SHARED_STYLE["combined"]),
+    ],
+}
+
+_ATTACK_LINES = {
+    "qwen": [
+        ("qwen_omni",                          "Base model",                        _SHARED_STYLE["base"]),
+        ("qwen/fleurs_context_mixed",          "Prompt-adapted",                    _SHARED_STYLE["ctx_ft"]),
+        ("qwen/context_word_fleurs_mixed",     "Context word FT + prompt-adapted",  _SHARED_STYLE["combined"]),
+    ],
+    "phi": [
+        ("phi_multimodal",                     "Base model",                        _SHARED_STYLE["base"]),
+        ("phi/fleurs_context_mixed",           "Prompt-adapted",                    _SHARED_STYLE["ctx_ft"]),
+        ("phi/context_word_fleurs_mixed",      "Context word FT + prompt-adapted",  _SHARED_STYLE["combined"]),
+    ],
+}
+
+
+def plot_two_panel(all_models, lines_dict, conditions, labels, metric, ylabel, out_path, fmt=lambda v: v * 100):
+    """Generic two-panel plot (Qwen | Phi)."""
+    fig, axes = plt.subplots(1, 2, figsize=(12, 3), sharey=True)
+    x = list(range(len(conditions)))
+
+    for ax, (family, lines) in zip(axes, lines_dict.items()):
+        for key, label, style in lines:
+            if key not in all_models:
+                continue
+            vals = [fmt(all_models[key].get(c, {}).get(metric, float("nan"))) for c in conditions]
+            ax.plot(x, vals, color=style["color"], linewidth=style["lw"],
+                    marker=style["marker"], markersize=5, label=label, linestyle="-")
+
+        ax.set_xticks(x)
+        ax.set_xticklabels(labels, rotation=25, ha="right", fontsize=11)
+        ax.set_title("Qwen2.5-Omni-7B" if family == "qwen" else "Phi-4-Multimodal", fontsize=12)
+        ax.axvline(x=0.5, color="#cccccc", linewidth=1.0, linestyle=":", zorder=0)
+        ax.grid(axis="y", linewidth=0.4, alpha=0.5)
+        ax.yaxis.set_major_formatter(mtick.PercentFormatter() if "%" in ylabel else mtick.ScalarFormatter())
+        ax.tick_params(axis="y", labelsize=11)
+
+    axes[0].set_ylabel(ylabel, fontsize=12)
+    handles = [
+        mlines.Line2D([], [], color=style["color"], linestyle="-",
+                      marker=style["marker"], markersize=6,
+                      linewidth=style["lw"], label=label)
+        for _, label, style in list(lines_dict.values())[0]
+    ]
+    axes[1].legend(handles=handles, fontsize=11, loc="best", frameon=True)
+    fig.tight_layout()
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
+    fig.savefig(out_path, bbox_inches="tight")
+    print(f"Saved {out_path}")
+    plt.close(fig)
+
+
+def plot_attack_with_mitigation(all_models, lines_dict, metric, ylabel, out_path, fmt=lambda v: v * 100):
+    """Attack (solid) + mitigation (dotted) on the same axes.
+
+    X positions 0-4: no context, word, 1/2-sent, 5-sent, 10-sent.
+    Attack plotted at [0,1,2,3,4]; mitigation at [0,2,3,4] (no word-level mixed).
+    """
+    fig, axes = plt.subplots(1, 2, figsize=(12, 3.5), sharey=True)
+    x_atk = [0, 1, 2, 3, 4]
+    x_mit = [0, 2, 3, 4]
+    mit_conds = ["no_context", "sentences_2_mixed", "sentences_5_mixed", "sentences_10_mixed"]
+
+    for ax, (family, lines) in zip(axes, lines_dict.items()):
+        for key, label, style in lines:
+            if key not in all_models:
+                continue
+            atk_vals = [fmt(all_models[key].get(c, {}).get(metric, float("nan")))
+                        for c in _ATTACK_CONDITIONS]
+            ax.plot(x_atk, atk_vals, color=style["color"], linewidth=style["lw"],
+                    marker=style["marker"], markersize=5, linestyle="-")
+            mit_vals = [fmt(all_models[key].get(c, {}).get(metric, float("nan")))
+                        for c in mit_conds]
+            ax.plot(x_mit, mit_vals, color=style["color"], linewidth=style["lw"],
+                    marker=style["marker"], markersize=6, linestyle=":",
+                    markerfacecolor="white", markeredgewidth=1.5)
+
+        ax.set_xticks([0, 1, 2, 3, 4])
+        ax.set_xticklabels(["no context", "word\n(2 words)", "1-sent\n(2-sent)", "5-sent", "10-sent"],
+                           rotation=0, ha="center", fontsize=11)
+        ax.set_title("Qwen2.5-Omni-7B" if family == "qwen" else "Phi-4-Multimodal", fontsize=12)
+        ax.axvline(x=0.5, color="#cccccc", linewidth=1.0, linestyle=":", zorder=0)
+        ax.grid(axis="y", linewidth=0.4, alpha=0.5)
+        ax.yaxis.set_major_formatter(mtick.PercentFormatter() if "%" in ylabel else mtick.ScalarFormatter())
+        ax.tick_params(axis="y", labelsize=11)
+        # dotted underline only under the parenthesised (mitigation) second line at positions 1 and 2
+        for pos in [1, 2]:
+            ax.annotate("", xy=(pos + 0.25, -0.18), xytext=(pos - 0.25, -0.18),
+                        xycoords=("data", "axes fraction"),
+                        textcoords=("data", "axes fraction"),
+                        arrowprops=dict(arrowstyle="-", linestyle=(0, (3, 3)),
+                                        color="dimgray", lw=1.5))
+
+    axes[0].set_ylabel(ylabel, fontsize=12)
+
+    # legend below both panels
+    model_handles = [
+        mlines.Line2D([], [], color=style["color"], linestyle="-",
+                      marker=style["marker"], markersize=5,
+                      linewidth=style["lw"], label=label)
+        for _, label, style in list(lines_dict.values())[0]
+    ]
+    style_handles = [
+        mlines.Line2D([], [], color="grey", linestyle=":", linewidth=1.5, marker="o", markersize=6,
+                      markerfacecolor="white", markeredgewidth=1.5, label="mitigated"),
+    ]
+    fig.legend(handles=model_handles + style_handles, fontsize=11, loc="lower center",
+               bbox_to_anchor=(0.5, -0.18), ncol=len(model_handles) + 2, frameon=True)
+
+    fig.tight_layout()
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
+    fig.savefig(out_path, bbox_inches="tight")
+    print(f"Saved {out_path}")
+    plt.close(fig)
+
+
 def make_plots(eval_root="generated_eval", out_dir="generated_eval"):
     all_models = load_results(eval_root)
+
+    # Section A — baseline (helpful context)
+    plot_two_panel(
+        all_models, _BASELINE_LINES, _CONTEXT_CONDITIONS, _COND_LABELS,
+        metric="target_correct", ylabel="Acoustic word accuracy (%)",
+        out_path=os.path.join(out_dir, "plot_results_a", "results_baseline_acoustic_accuracy.pdf"),
+    )
+    plot_two_panel(
+        all_models, _BASELINE_LINES, _CONTEXT_CONDITIONS, _COND_LABELS,
+        metric="background_wer", ylabel="Background WER", fmt=lambda v: v,
+        out_path=os.path.join(out_dir, "plot_results_a", "results_baseline_wer.pdf"),
+    )
+
+    # Section B — attack (context word injected)
+    plot_two_panel(
+        all_models, _ATTACK_LINES, _ATTACK_CONDITIONS, _COND_LABELS,
+        metric="target_to_context", ylabel="Leakage rate (%)",
+        out_path=os.path.join(out_dir, "plot_results_b", "results_attack_leakage.pdf"),
+    )
+    plot_two_panel(
+        all_models, _ATTACK_LINES, _ATTACK_CONDITIONS, _COND_LABELS,
+        metric="background_wer", ylabel="Background WER", fmt=lambda v: v,
+        out_path=os.path.join(out_dir, "plot_results_b", "results_attack_wer.pdf"),
+    )
+
+    # Section C — mitigation (attack solid, mitigated dotted)
+    plot_attack_with_mitigation(
+        all_models, _ATTACK_LINES,
+        metric="target_to_context", ylabel="Leakage rate (%)",
+        out_path=os.path.join(out_dir, "plot_results_c", "results_mitigation_leakage.pdf"),
+    )
 
     for subset_name, subset_fn in MODEL_SUBSETS.items():
         models = _filter_models(all_models, subset_fn)
@@ -249,10 +473,265 @@ def make_plots(eval_root="generated_eval", out_dir="generated_eval"):
         )
 
 
+_SIM_GROUPS       = ["distinct", "related", "near-identical"]
+_SIM_HATCHES      = {"distinct": "", "related": "///", "near-identical": "xxx"}
+_SIM_GROUP_LABELS = {"distinct": "Distinct (≤0.4)", "related": "Related (0.4–0.7)", "near-identical": "Near-identical (>0.7)"}
+# map from group name used in filenames to new display names
+_SIM_GROUP_FILE_MAP = {"different": "distinct", "similar": "related", "near-copy": "near-identical"}
+_SIM_ATTACK_CONDS = ["no_context", "word_context", "sentence_context", "sentences_5_context", "sentences_10_context"]
+_SIM_COND_LABELS  = ["no ctx", "word", "1-sent", "5-sent", "10-sent"]
+
+_SIM_MODEL_COLORS = {
+    "Prompt-adapted":                    _SHARED_STYLE["ctx_ft"]["color"],
+    "Context word FT + prompt-adapted":  _SHARED_STYLE["combined"]["color"],
+}
+
+_SIM_MODELS = {
+    "qwen": [
+        ("fleurs/qwen/fleurs_context_mixed",         "Prompt-adapted"),
+        ("fleurs/qwen/context_word_fleurs_mixed",    "Context word FT + prompt-adapted"),
+    ],
+    "phi": [
+        ("fleurs/phi/fleurs_context_mixed",          "Prompt-adapted"),
+        ("fleurs/phi/context_word_fleurs_mixed",     "Context word FT + prompt-adapted"),
+    ],
+}
+
+
+def plot_similarity_analysis(sim_root: str, out_dir: str, metric: str = "target_to_context", ylabel: str = "Leakage rate (%)"):
+    """Bar chart: model colors match main plots, hatch patterns encode similarity bin."""
+    from matplotlib.patches import Patch
+
+    data = {}
+    for family, models in _SIM_MODELS.items():
+        for model_key, model_label in models:
+            # files are named after old labels (different/similar/near-copy)
+            for file_name, group in _SIM_GROUP_FILE_MAP.items():
+                path = os.path.join(sim_root, model_key.replace("/", os.sep), f"{file_name}.json")
+                if not os.path.exists(path):
+                    continue
+                with open(path) as f:
+                    conds = json.load(f)["conditions"]
+                vals = [conds.get(c, {}).get(metric, float("nan")) * 100
+                        for c in _SIM_ATTACK_CONDS]
+                data[(family, model_label, group)] = vals
+
+    if not data:
+        print(f"No similarity analysis results found in {sim_root}")
+        return
+
+    n_models = len(_SIM_MODELS["qwen"])
+    fig, axes = plt.subplots(2, n_models, figsize=(12, 6), sharey=True)
+    x = np.arange(len(_SIM_COND_LABELS))
+    width = 0.28
+
+    for row, family in enumerate(["qwen", "phi"]):
+        for col, (model_key, model_label) in enumerate(_SIM_MODELS[family]):
+            ax = axes[row][col]
+            color = _SIM_MODEL_COLORS[model_label]
+            for i, group in enumerate(_SIM_GROUPS):
+                vals = data.get((family, model_label, group), [float("nan")] * len(_SIM_ATTACK_CONDS))
+                ax.bar(x + (i - 1) * width, vals, width,
+                       color=color, hatch=_SIM_HATCHES[group],
+                       edgecolor="white", linewidth=0.5, alpha=0.9)
+            ax.set_xticks(x)
+            ax.set_xticklabels(_SIM_COND_LABELS, fontsize=11)
+            ax.set_title(model_label, fontsize=12)
+            ax.grid(axis="y", linewidth=0.4, alpha=0.5)
+            ax.yaxis.set_major_formatter(mtick.PercentFormatter())
+            ax.tick_params(axis="y", labelsize=11)
+            if col == 0:
+                family_name = "Qwen2.5-Omni" if family == "qwen" else "Phi-4-Multimodal"
+                ax.set_ylabel(f"{family_name}\n{ylabel}", fontsize=12)
+
+    model_handles = [Patch(facecolor=_SIM_MODEL_COLORS[lbl], label=lbl)
+                     for lbl in _SIM_MODEL_COLORS]
+    bin_handles   = [Patch(facecolor="grey", hatch=_SIM_HATCHES[g], edgecolor="white",
+                           label=_SIM_GROUP_LABELS[g]) for g in _SIM_GROUPS]
+    fig.legend(handles=model_handles + [Patch(visible=False)] + bin_handles,
+               fontsize=11, loc="lower center",
+               bbox_to_anchor=(0.5, -0.08), ncol=len(model_handles) + 1 + len(bin_handles),
+               frameon=True)
+    fig.tight_layout()
+    os.makedirs(out_dir, exist_ok=True)
+    out_path = os.path.join(out_dir, "similarity_analysis_leakage.pdf")
+    fig.savefig(out_path, bbox_inches="tight")
+    print(f"Saved {out_path}")
+    plt.close(fig)
+
+
+_DIST_GROUPS  = [1, 2]
+_DIST_COLORS  = {1: _SHARED_STYLE["ctx_ft"]["color"], 2: _SHARED_STYLE["combined"]["color"]}
+_DIST_LABELS  = {1: "Distance 1", 2: "Distance 2"}
+_DIST_HATCHES = {1: "", 2: "///"}
+
+_DIST_MODELS = {
+    "qwen": [
+        ("fleurs/qwen/fleurs_context_mixed",         "Prompt-adapted"),
+        ("fleurs/qwen/context_word_fleurs_mixed",    "Context word FT + prompt-adapted"),
+    ],
+    "phi": [
+        ("fleurs/phi/fleurs_context_mixed",          "Prompt-adapted"),
+        ("fleurs/phi/context_word_fleurs_mixed",     "Context word FT + prompt-adapted"),
+    ],
+}
+
+
+def plot_distance_analysis(dist_root: str, out_dir: str, metric: str = "target_to_context", ylabel: str = "Leakage rate (%)"):
+    """Bar chart comparing metric for phoneme distance 1 vs 2."""
+    from matplotlib.patches import Patch
+
+    data = {}
+    for family, models in _DIST_MODELS.items():
+        for model_key, model_label in models:
+            for dist in _DIST_GROUPS:
+                path = os.path.join(dist_root, model_key.replace("/", os.sep), f"distance_{dist}.json")
+                if not os.path.exists(path):
+                    continue
+                with open(path) as f:
+                    conds = json.load(f)["conditions"]
+                vals = [conds.get(c, {}).get(metric, float("nan")) * 100
+                        for c in _SIM_ATTACK_CONDS]
+                data[(family, model_label, dist)] = vals
+
+    if not data:
+        print(f"No distance analysis results found in {dist_root}")
+        return
+
+    n_models = len(_DIST_MODELS["qwen"])
+    fig, axes = plt.subplots(2, n_models, figsize=(12, 6), sharey=True)
+    x = np.arange(len(_SIM_COND_LABELS))
+    width = 0.35
+
+    for row, family in enumerate(["qwen", "phi"]):
+        for col, (model_key, model_label) in enumerate(_DIST_MODELS[family]):
+            ax = axes[row][col]
+            color = _SIM_MODEL_COLORS[model_label]
+            for i, dist in enumerate(_DIST_GROUPS):
+                vals = data.get((family, model_label, dist), [float("nan")] * len(_SIM_ATTACK_CONDS))
+                ax.bar(x + (i - 0.5) * width, vals, width,
+                       color=color, hatch=_DIST_HATCHES[dist],
+                       edgecolor="white", linewidth=0.5, alpha=0.9)
+            ax.set_xticks(x)
+            ax.set_xticklabels(_SIM_COND_LABELS, fontsize=11)
+            ax.set_title(model_label, fontsize=12)
+            ax.grid(axis="y", linewidth=0.4, alpha=0.5)
+            ax.yaxis.set_major_formatter(mtick.PercentFormatter())
+            ax.tick_params(axis="y", labelsize=11)
+            if col == 0:
+                family_name = "Qwen2.5-Omni" if family == "qwen" else "Phi-4-Multimodal"
+                ax.set_ylabel(f"{family_name}\n{ylabel}", fontsize=12)
+
+    model_handles = [Patch(facecolor=_SIM_MODEL_COLORS[lbl], label=lbl)
+                     for lbl in _SIM_MODEL_COLORS]
+    dist_handles  = [Patch(facecolor="grey", hatch=_DIST_HATCHES[d], edgecolor="white",
+                           label=_DIST_LABELS[d]) for d in _DIST_GROUPS]
+    fig.legend(handles=model_handles + [Patch(visible=False)] + dist_handles,
+               fontsize=11, loc="lower center",
+               bbox_to_anchor=(0.5, -0.08), ncol=len(model_handles) + 1 + len(dist_handles),
+               frameon=True)
+    fig.tight_layout()
+    os.makedirs(out_dir, exist_ok=True)
+    out_path = os.path.join(out_dir, "distance_analysis_leakage.pdf")
+    fig.savefig(out_path, bbox_inches="tight")
+    print(f"Saved {out_path}")
+    plt.close(fig)
+
+
+def load_results_averaged(eval_root: str, datasets: list[str]) -> dict:
+    """Load results from multiple dataset subfolders and average metrics across them."""
+    import numpy as np
+
+    all_dataset_results = []
+    for dataset in datasets:
+        dataset_root = os.path.join(eval_root, dataset)
+        if not os.path.isdir(dataset_root):
+            print(f"Warning: {dataset_root} not found, skipping.")
+            continue
+        results = load_results(dataset_root)
+        if results:
+            all_dataset_results.append(results)
+
+    if not all_dataset_results:
+        return {}
+
+    # Collect all model keys present in any dataset
+    all_keys = set()
+    for r in all_dataset_results:
+        all_keys.update(r.keys())
+
+    averaged = {}
+    for key in MODEL_ORDER:
+        if key not in all_keys:
+            continue
+        # Collect conditions dicts from each dataset that has this model
+        per_dataset = [r[key] for r in all_dataset_results if key in r]
+        if not per_dataset:
+            continue
+        # Average each metric across datasets
+        all_conditions = set()
+        for d in per_dataset:
+            all_conditions.update(d.keys())
+        avg_conds = {}
+        for cond in all_conditions:
+            all_metrics = set()
+            for d in per_dataset:
+                if cond in d:
+                    all_metrics.update(d[cond].keys())
+            avg_conds[cond] = {}
+            for metric in all_metrics:
+                vals = [d[cond][metric] for d in per_dataset if cond in d and metric in d[cond]]
+                avg_conds[cond][metric] = float(np.mean(vals)) if vals else float("nan")
+        averaged[key] = avg_conds
+
+    return averaged
+
+
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--eval_root", default="generated_eval")
     parser.add_argument("--out_dir",   default="generated_eval")
+    parser.add_argument("--average_datasets", nargs="+", default=None,
+                        help="Average results across these dataset subfolders.")
+    parser.add_argument("--similarity_analysis", default=None,
+                        help="If set, run similarity group analysis plot from this root folder.")
+    parser.add_argument("--distance_analysis", default=None,
+                        help="If set, run phoneme distance analysis plot from this root folder.")
     args = parser.parse_args()
-    make_plots(args.eval_root, args.out_dir)
+
+    if args.average_datasets:
+        all_models = load_results_averaged(args.eval_root, args.average_datasets)
+        os.makedirs(args.out_dir, exist_ok=True)
+
+        plot_two_panel(
+            all_models, _BASELINE_LINES, _CONTEXT_CONDITIONS, _COND_LABELS,
+            metric="target_correct", ylabel="Acoustic word accuracy (%)",
+            out_path=os.path.join(args.out_dir, "plot_results_a", "results_baseline_acoustic_accuracy.pdf"),
+        )
+        plot_two_panel(
+            all_models, _BASELINE_LINES, _CONTEXT_CONDITIONS, _COND_LABELS,
+            metric="background_wer", ylabel="Background WER", fmt=lambda v: v,
+            out_path=os.path.join(args.out_dir, "plot_results_a", "results_baseline_wer.pdf"),
+        )
+        plot_two_panel(
+            all_models, _ATTACK_LINES, _ATTACK_CONDITIONS, _COND_LABELS,
+            metric="target_to_context", ylabel="Leakage rate (%)",
+            out_path=os.path.join(args.out_dir, "plot_results_b", "results_attack_leakage.pdf"),
+        )
+        plot_two_panel(
+            all_models, _ATTACK_LINES, _ATTACK_CONDITIONS, _COND_LABELS,
+            metric="background_wer", ylabel="Background WER", fmt=lambda v: v,
+            out_path=os.path.join(args.out_dir, "plot_results_b", "results_attack_wer.pdf"),
+        )
+        plot_attack_with_mitigation(
+            all_models, _ATTACK_LINES,
+            metric="target_to_context", ylabel="Leakage rate (%)",
+            out_path=os.path.join(args.out_dir, "plot_results_c", "results_mitigation_leakage.pdf"),
+        )
+    elif args.similarity_analysis:
+        plot_similarity_analysis(args.similarity_analysis, args.out_dir)
+    elif args.distance_analysis:
+        plot_distance_analysis(args.distance_analysis, args.out_dir)
+    else:
+        make_plots(args.eval_root, args.out_dir)

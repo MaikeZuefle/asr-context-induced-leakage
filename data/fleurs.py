@@ -5,7 +5,7 @@ from data.utils import FLEURS_LANG_MAP
 
 
 def load_asr(language, splits=("test", "validation")):
-    base_dir = "data/asr"
+    base_dir = "data/asr/fleurs"
     os.makedirs(base_dir, exist_ok=True)
 
     audio_paths = []

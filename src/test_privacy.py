@@ -47,6 +47,7 @@ def _get_scenarios(sample: dict) -> list[tuple[str, str | None]]:
         # 1-word contexts
         ("word_context",         sample["context_word"]),
         ("word_target",          sample["target_word"]),
+        ("word_mixed",           f"{sample['context_word']} {sample['target_word']}"),
         # 1-sentence contexts
         ("sentence_context",     sample["context_sentence"]),
         ("sentence_target",      sample["target_context_sentence"]),
@@ -93,44 +94,61 @@ def main(out_folder, model_name, prepared_path, model_path=None):
         logging.info(f"Found {len(existing_outputs)} already processed samples.")
 
     logging.info("Starting generation.")
-    skipped = processed = 0
+    skipped = processed = updated = 0
+    all_scenario_keys = [key for key, _ in _get_scenarios(samples[0])]
+    results = dict(existing_outputs)  # idx -> output dict
 
-    with open(output_file_path, "a", encoding="utf-8") as f_out:
-        for idx, sample in enumerate(tqdm(samples, desc="Generating")):
-            if idx in existing_outputs:
+    for idx, sample in enumerate(tqdm(samples, desc="Generating")):
+        existing = results.get(idx)
+        scenarios = _get_scenarios(sample)
+
+        if existing is not None:
+            missing = [(k, c) for k, c in scenarios if k not in existing["predicted"]]
+            if not missing:
                 skipped += 1
                 continue
-
+            # run only missing scenarios and merge into existing record
+            for scenario_key, context in missing:
+                prompt_text = PROMPT_NO_CONTEXT if context is None else PROMPT_WITH_CONTEXT.format(context=context)
+                existing["predicted"][scenario_key] = generate(
+                    model_instance, make_prompt(prompt_text),
+                    sample["audio_path"], modality="audio",
+                    output_modality="text", out_wav=None,
+                )
+            results[idx] = existing
+            updated += 1
+        else:
             predictions = {}
-            for scenario_key, context in _get_scenarios(sample):
+            for scenario_key, context in scenarios:
                 prompt_text = PROMPT_NO_CONTEXT if context is None else PROMPT_WITH_CONTEXT.format(context=context)
                 predictions[scenario_key] = generate(
-                    model_instance,
-                    make_prompt(prompt_text),
-                    sample["audio_path"],
-                    modality="audio",
-                    output_modality="text",
-                    out_wav=None,
+                    model_instance, make_prompt(prompt_text),
+                    sample["audio_path"], modality="audio",
+                    output_modality="text", out_wav=None,
                 )
-
-            out = {
+            results[idx] = {
                 "reference":    sample["reference"],
                 "target_word":  sample["target_word"],
                 "context_word": sample["context_word"],
                 "predicted":    predictions,
             }
-            f_out.write(json.dumps(out, ensure_ascii=False) + "\n")
-            f_out.flush()
             processed += 1
 
-    logging.info(f"Skipped {skipped}, processed {processed} samples.")
+    # rewrite the full output file to capture any updates
+    if updated > 0 or processed > 0:
+        with open(output_file_path, "w", encoding="utf-8") as f_out:
+            for idx in range(len(samples)):
+                if idx in results:
+                    f_out.write(json.dumps(results[idx], ensure_ascii=False) + "\n")
+
+    logging.info(f"Skipped {skipped}, processed {processed} new, updated {updated} existing.")
     logging.info(f"Output written to {output_file_path}")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", choices=["phi_multimodal", "qwen_omni"], required=True)
-    parser.add_argument("--prepared_path", default="data/prepared/en.jsonl")
+    parser.add_argument("--prepared_path", default="data/prepared/fleurs.jsonl")
     parser.add_argument("--out_folder", default="generated_output")
     parser.add_argument("--model_path", default=None, help="Path to merged model (overrides default HF model)")
     args = parser.parse_args()

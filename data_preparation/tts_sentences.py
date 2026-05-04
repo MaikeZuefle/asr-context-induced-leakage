@@ -109,8 +109,8 @@ def main(prepared_path: str, out_dir: str, out_jsonl: str):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--prepared_path", default="data/prepared/en.jsonl")
-    parser.add_argument("--out_dir", default="data/tts")
-    parser.add_argument("--out_jsonl", default="data/tts/en.jsonl")
+    parser.add_argument("--out_dir", default="data/tts/fleurs")
+    parser.add_argument("--out_jsonl", default="data/tts/fleurs/en.jsonl")
     parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
     set_seed(args.seed)

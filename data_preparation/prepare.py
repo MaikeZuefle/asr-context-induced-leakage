@@ -58,9 +58,17 @@ nltk.download("cmudict", quiet=True)
 _STEMMER = PorterStemmer()
 
 
+def _strip_possessive(word: str) -> str:
+    return word[:-2] if word.lower().endswith("'s") else word
+
+
 def _are_morphological_variants(word1: str, word2: str) -> bool:
-    """Return True if the two words share the same Porter stem (e.g. mariana/marianas)."""
-    return _STEMMER.stem(word1.lower()) == _STEMMER.stem(word2.lower())
+    """Return True if the two words are morphological variants (same stem or same-root possessive)."""
+    w1, w2 = word1.lower(), word2.lower()
+    # same-root possessive: stripping 's gives the same word
+    if _strip_possessive(w1) == _strip_possessive(w2):
+        return True
+    return _STEMMER.stem(w1) == _STEMMER.stem(w2)
 
 
 # ---------------------------------------------------------------------------
@@ -194,7 +202,17 @@ def main(language: str, out_path: str, max_distance: int, gemma_model_path: str)
     os.makedirs(os.path.dirname(out_path) if os.path.dirname(out_path) else ".", exist_ok=True)
 
     kept, dropped = 0, 0
-    with open(out_path, "w", encoding="utf-8") as f_out:
+    # load already-processed pairs to skip on re-runs (append mode)
+    seen_pairs: set[tuple[str, str, str]] = set()
+    if os.path.exists(out_path):
+        with open(out_path, "r", encoding="utf-8") as f_existing:
+            for line in f_existing:
+                if line.strip():
+                    s = json.loads(line)
+                    seen_pairs.add((s["audio_path"], s["target_word"], s["context_word"]))
+        print(f"Resuming: {len(seen_pairs)} already-processed pairs found.")
+
+    with open(out_path, "a", encoding="utf-8") as f_out:
         for audio_path, reference in tqdm(
             zip(audio_paths, references), total=len(audio_paths), desc="Preparing"
         ):
@@ -204,6 +222,9 @@ def main(language: str, out_path: str, max_distance: int, gemma_model_path: str)
             for word in candidates:
                 context_word, dist = find_similar_word(word, max_distance=max_distance)
                 if context_word is not None:
+                    if (audio_path, word, context_word) in seen_pairs:
+                        continue
+                    seen_pairs.add((audio_path, word, context_word))
                     # 3 LLM calls; all multi-sentence scenarios are assembled from these
                     ctx_sent = generate_context_sentence(reference, word, context_word, pipe)
                     tgt_sent = generate_target_sentence(reference, word, pipe)

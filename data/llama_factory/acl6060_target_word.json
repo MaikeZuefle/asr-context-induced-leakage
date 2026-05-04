@@ -1,0 +1,362 @@
+[
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Allan will be presenting our findings today."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/0_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We're using results reported in the PaLM paper to evaluate this approach."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/1_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "So, we’re checking to see how many oranges Jake picked."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/2_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Steven's contribution just doesn't factor into this discussion."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/3_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Similarly, Roberta large showed a three-point gain."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/4_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Consequently, Roberta demonstrates superior language comprehension compared to BERT."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/5_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Hi Antoine, it's nice to meet you from Maastricht University."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/6_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "I’m also collaborating with Jerry on some related research."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/7_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We also explored techniques like Roberta for capturing nuanced language representations."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/8_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This Task aims to evaluate how well models handle nuanced language understanding."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/9_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ravi's work, along with that of his collaborators, built on prior approaches to language modeling."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/10_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We also compared CLIP's performance against other state-of-the-art models."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/11_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Our analysis indicates that CLIP performs better than VisualBERT in this zero-shot setting."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/12_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "I'm a researcher at the University of California, Berkeley."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/13_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Another tool they've developed is also called ARENA."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/14_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "You can easily get it using pip."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/15_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We combined a BERT-based model with BART for generation."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/16_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The analysis also included Clustering as one of the techniques evaluated."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/17_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "ROUGE scores are useful, but they require some content to evaluate."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/18_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "CAS also outperformed the baselines in BLEU score."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/19_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Interestingly, CAS didn't perform as well as CEAS in this evaluation."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/20_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "CAS-Pair also showed promising results compared to CAS-Baseline."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/21_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "CAS’s approach is notably more concise."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/22_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Nice to meet you, Asaf."
+      }
+    ],
+    "audios": [
+      "data/tts/acl6060/23_target_context_sentence.wav"
+    ]
+  }
+]

@@ -1,0 +1,7517 @@
+[
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Activists in Beijing often face significant restrictions on their ability to organize."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/0_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We should also encourage member states to leverage european cohesion policy for skills development."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/1_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Many within china view him as a symbol of hope for change."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/2_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We should also encourage investment in social programs to support vulnerable groups."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/3_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The situation in romania demands an immediate and thorough international investigation."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/4_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "These actions directly threaten the security of saudi Arabia and regional stability."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/5_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The march summit addressed ongoing concerns about energy security."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/6_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We need to lobby europe to address this issue, given the company’s international scope."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/7_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The stability of Iraq remains a crucial concern for the region."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/8_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "France and germany are both committed to supporting these evacuation efforts."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/9_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Perhaps mr. Duff would like to offer a clarification, too."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/10_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We need to ensure parliament’s views are fully considered."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/11_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This measure aims to foster greater engagement with european policy-making."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/12_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Kim’s leadership is inextricably linked to these military capabilities."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/13_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The facility's proximity to belarus raises significant security concerns."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/14_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Europe is grappling with a rapidly evolving crisis."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/15_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Securing affordable data access was a key objective for our team."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/16_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Aligning closely with nato remains our top priority."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/17_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We urge baroness Ashton to prioritize these values over political expediency."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/18_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This resolution is a vital step towards addressing public health challenges across Europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/19_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We really need to champion films coming out of Europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/20_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Russia's actions necessitate a firm and consistent response from the international community."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/21_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We must stand together to protect European workers from exploitation."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/22_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Many countries in europe face similar demographic challenges."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/23_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "To demonstrate real progress, cop twenty-seven needs to deliver stronger action on emissions cuts."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/24_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, Isis and similar organizations exploit online platforms to recruit vulnerable individuals with deceptive messaging."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/25_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Meanwhile, the united kingdom faces similar challenges in bolstering its defenses."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/26_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Sadly, boris became a victim of those promoting division and animosity."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/27_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Lithuania’s leadership role will be closely watched throughout these negotiations."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/28_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We really need to understand modern europe better."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/29_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This debate highlights a crucial challenge for ensuring fairness and legal protections across europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/30_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Authorities are increasingly concerned about the flow of foreign fighters to Isis."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/31_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Frankly, it's difficult to envision a scenario where we’d support turkey."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/32_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "I’m planning a trip north to understand the situation better."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/33_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The final policy decisions will likely be shaped by what comes out of the council."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/34_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Friends of the environment have also highlighted the need for accessible green jobs."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/35_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Greece needs support to uphold its democratic values."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/36_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Italy, like all EU nations, is obligated to adhere to these regulations."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/37_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "European standards often improve product safety."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/38_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Concerns have also been raised about the treatment of activists in spain."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/39_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Surely the united states should also be held to similar standards of ethical conduct."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/40_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The complexities surrounding Ireland and its relationship with the EU remain a significant political concern."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/41_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The company's g force rating is quite impressive."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/42_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Europe needs to be stronger in its stance on these fundamental values."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/43_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "I trust the parliament will support the proposed commission."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/44_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The us makes its own laws and decisions."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/45_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The situation in crimea demands our unwavering support for those facing persecution."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/46_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The european response will ultimately determine the success of the plan."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/47_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Russia needs to understand that continued aggression will have serious consequences."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/48_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "It’s hurting europe’s economy."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/49_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The European side should also prioritize fostering dialogue on trade and investment within Central Asia."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/50_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The european agency also works to ensure consistent application of asylum rules across member states."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/51_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Moldova is now pursuing closer ties with the European Union."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/52_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Furthermore, european cohesion policy should prioritise skills development and social inclusion."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/53_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Strengthening vocational education across europe remains a key priority for policymakers."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/54_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "From washington, the perception of regional risks can vary considerably."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/55_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Margaret's policies were a response to a very different, yet comparable, set of challenges."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/56_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Furthermore, a number of french citizens are also claiming support in germany."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/57_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Several members of the house also attended the briefing."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/58_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The stability of the middle east hinges on supporting those nations striving for freedom."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/59_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Russia also agreed to maintain existing export duty rates."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/60_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Further action against russia remains an option if their behavior doesn't change."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/61_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Warsaw is where we’ll have that discussion."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/62_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "A strong euro also bolsters economic stability in the region."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/63_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The European project demonstrates a viable model for blending different levels of governance."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/64_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Across england, systemic issues often go unaddressed to avoid controversy."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/65_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Russia's actions demand a united and resolute response from Europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/66_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The council and commission regularly coordinate policy initiatives."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/67_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The commission must prioritize collaborative initiatives to address these pressing public health concerns."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/68_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We need to finalize everything before the Paris discussions begin."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/69_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Achieving lasting peace requires addressing the systemic injustices impacting people across the middle of the region."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/70_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Furthermore, the government of Iraq is committed to upholding its national sovereignty."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/71_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "There are persistent questions about european policy regarding agricultural subsidies."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/72_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "As minister Davies pointed out, morgan’s perspective is vital to this discussion."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/73_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The middle of the conflict requires continued international cooperation."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/74_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "It's disturbing how the usa profits from conflict, even when it's devastating."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/75_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The eastern partnership aims to promote reforms across the region."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/76_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We also commend chile for its humanitarian response to the crisis."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/77_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The evolving energy landscape highlights the importance of international partnerships."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/78_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The commission should actively support collaborative initiatives for long-term stability."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/79_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We must ensure a truly European vision for all citizens, regardless of their entry date."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/80_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Access to tb screening and care also differs significantly across regions."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/81_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Many members of the house debated the proposal extensively."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/82_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "They'll be able to easily connect with others, whether they're in Lisbon or elsewhere in Europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/83_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The parallels between past struggles in ireland and contemporary discontent are striking."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/84_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Have a stellar day!"
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/85_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Europe needs to ensure platforms are held accountable and that copyright is strongly defended online."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/86_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The us withdrawal impacts international climate cooperation significantly."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/87_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We’re also increasing resources for ebola prevention."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/88_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Mosques can also offer educational programs to counter extremist narratives."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/89_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "That whole system still feels very soviet in its bureaucracy."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/90_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The union's legislative authority is therefore limited by the scope of those treaties."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/91_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The emir's guidance should focus on mitigating the impact on businesses outside the financial sector."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/92_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We're also very interested in developments across asia."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/93_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "I too recall fondly the years we spent working in this house."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/94_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "European initiatives are crucial for coordinating these efforts effectively."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/95_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The senate couldn't come to a consensus."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/96_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The commission should also prioritize funding for these crucial initiatives."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/97_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "It's crucial we educate voters about how their choices affect both themselves and europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/98_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Oman has really demonstrated impressive progress in recent years."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/99_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Looking ahead, the next round of funding needs to prioritize equitable distribution."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/100_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "These principles underpin our commitments as a European collective."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/101_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The situation is further complicated by political interference from iran."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/102_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Her leadership was also instrumental in facilitating dialogue between serbia and Kosovo."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/103_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, economic growth across europe depends on this change."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/104_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, our vision for europe is one of inclusivity and connection."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/105_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The commission also stated it will review existing environmental standards for agricultural goods."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/106_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Russia's government continues to consolidate power in the region."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/107_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Parliament is proposing a new financial instrument to handle certain types of lending."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/108_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Madrid then moved to suspend Catalonia's autonomous parliament."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/109_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The study focused on economic development outside of athens."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/110_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "These goals are now a key focus for the un worldwide."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/111_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The revised budget includes adjustments for the acer agency's operational expenses."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/112_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "All island cooperation is vital for supporting communities and businesses."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/113_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The ongoing violence in the Congo demands a swift and decisive response."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/114_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Many conservative and tory politicians have echoed similar concerns about the impact of free movement."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/115_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "That disputed territory ultimately belongs to cambodia."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/116_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, accountability must extend to those who planned and executed the intervention in Iraq."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/117_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The un has also condemned the ongoing violence."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/118_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, this initiative represents a crucial element within our broader european strategy."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/119_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This isn't a deal dictated by business interests alone."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/120_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We really need to update the electoral framework we’ve been using."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/121_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This agreement outlines partnerships with nations across africa, the Caribbean, and the Pacific."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/122_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Switzerland, Norway, and Iceland are all grappling with significant numbers of EU citizens entering their job markets."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/123_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Many still recall her influential visit to bruges and the debate it ignited."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/124_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Romania has strong historical ties to western europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/125_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Russia’s influence extends to several countries beyond just Ukraine."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/126_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Let's follow the lead of Mrs. Puri and the UN Women leadership in prioritizing these crucial goals."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/127_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Eventually, folks from asia, europe, and australia will connect too."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/128_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Given the global economic concerns, we must consider the g seven’s stance on trade."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/129_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Therefore, I'd like to ask Mr. Kurz to champion this initiative across the entire continent."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/130_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The marshall islands are demonstrating leadership in addressing climate change."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/131_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The ongoing human rights abuses demand continued scrutiny of Russia's actions."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/132_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This downturn echoes the economic challenges of the second half of the twentieth century."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/133_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "It’s a sad situation, and greece faces a long road to recovery."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/134_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The challenges facing europe today echo those of past generations."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/135_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Discrimination against roma is unacceptable and requires immediate action."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/136_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Furthermore, ali rabbani stated there was no progress to report."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/137_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The popular ruling highlighted the ongoing need for greater clarity."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/138_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Such a move would undermine our existing conservation strategies."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/139_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, the EU’s leverage is limited if Russia fails to uphold its end of the deal."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/140_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "If nato can’t intervene, we need to consider our own options."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/141_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Interestingly, federica also highlighted the lack of progress in previous discussions."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/142_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We're counting on europe to stand with us during this difficult time."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/143_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Russia's history is full of significant artistic contributions as well."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/144_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, any agreement should prioritize the long-term prosperity of africa."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/145_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Supporting this legislation will strengthen our local transport network."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/146_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Supporting democratic progress in countries like Ukraine, Georgia, and Moldova remains crucial."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/147_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We all stood around in the square, watching the commotion."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/148_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "China's economic transformation is largely attributable to its wto membership."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/149_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This house recognises the considerable challenges ahead."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/150_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The European authorities have mobilized resources to address the escalating situation."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/151_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We shouldn't normalize relations with russia simply for the sake of expediency."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/152_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Germany’s financial stability is crucial for global markets."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/153_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Iraqi forces continue to restrict access to the Ashraf camp."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/154_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Peter, thanks again for letting me ask about it."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/155_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The european parliament shouldn't dictate outcomes, but rather facilitate discussion."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/156_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We appreciate the council's collaborative approach to improving these processes."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/157_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This administration's rhetoric increasingly threatens israel's very existence."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/158_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Greece is facing hardship due to these failures."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/159_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The transport committee will be reviewing proposals for improved rail infrastructure next month."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/160_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Many countries are exploring central bank digital currencies as a response to libra and similar projects."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/161_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The epp group also prioritizes transparency in EU decision-making processes."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/162_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Las violence highlights the urgent need for a shift in priorities."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/163_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Following my time in asia, it's clear there's a renewed openness to dialogue."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/164_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Eritrea's continued human rights abuses demand international condemnation."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/165_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "All references to countries other than the united kingdom should also be removed."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/166_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Concerns about the plan are also surfacing throughout europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/167_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We urge the philippines to uphold international law and protect its citizens."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/168_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We need to prioritize the well-being of citizens across Europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/169_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Israel’s actions regarding these settlements are demonstrably obstructing any hope for a lasting peace."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/170_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Christine said she saw the riot police moving in."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/171_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "So, what specific policies are you backing in London to combat money laundering?"
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/172_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The european project aims to foster economic growth and social progress for all."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/173_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "All timber entering europe must be legally harvested."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/174_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The EU also prioritizes development initiatives in the middle of Asia."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/175_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We must ensure europe actively supports those facing oppression elsewhere."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/176_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Europe also recognizes the importance of sustainable resource management."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/177_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The us and our allies are committed to supporting these efforts."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/178_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This updated approach aligns well with the evolving digital landscape."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/179_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The commission is committed to ensuring the scheme effectively reaches those in need."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/180_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The basel guidelines seem likely to create significant transatlantic economic disparities."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/181_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Addressing these market distortions would level the playing field for CBS against government bonds."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/182_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We also hope to clarify the joint responsibilities of these bodies."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/183_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We should also consider social programs when planning infrastructure improvements."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/184_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Surely europe doesn't want to be seen as taking advantage of the United States."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/185_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "It seems the troika’s pressure has really shaped his policy positions."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/186_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Concerns about european oversight remain a significant challenge."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/187_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "I believe we should examine the policy’s impact on the middle of the conflict."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/188_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We're closely watching how turkey responds to this crisis."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/189_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Consequently, countless Iranians have sought refuge in europe and surrounding nations."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/190_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Georgia's continued democratic progress is encouraging for the region."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/191_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "China’s growing influence complicates efforts to stabilize the region."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/192_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Europe needs to invest in research to stay ahead."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/193_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We should also explore leveraging European partnerships to expand access to these resources."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/194_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Authorities are concerned about foreign fighters joining Isis."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/195_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The government maintains ongoing consultations with the council on proposed legislative changes."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/196_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Birmingham has always been a place shaped by people moving here and away in pursuit of a better life."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/197_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Consequently, protecting these areas is as vital as safeguarding the amazon."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/198_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The parliament’s resolution must precede the commission’s decision regarding trade with japan."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/199_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The situation across europe remains incredibly uncertain for businesses."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/200_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Spain's cooperation is essential for any meaningful EU influence in this matter."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/201_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The european parliament needs to acknowledge this shift in relations."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/202_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, many global issues aren't dictated by the european model alone."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/203_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "A stronger european defense capability is essential for addressing current global challenges."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/204_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Negotiations will be difficult given the overlapping interests in the west."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/205_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Soon you'll be working with a united team on this project."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/206_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Georgia also needs to prioritize strengthening democratic institutions."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/207_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The pilot confirmed a smooth arrival in ireland."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/208_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We will need to finalize some details regarding the external action service's role after the budget reallocations."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/209_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "It’s vital to invest in africa’s future for everyone’s well-being."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/210_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The situation in Iraq continues to deteriorate rapidly."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/211_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Concerns remain about the potential impact of these measures on communities in africa."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/212_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Europe's complex position means it must actively engage in combating these trafficking routes."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/213_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We also thank ms thun for her expertise on this matter."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/214_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The international community is also urging us to accelerate our climate action."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/215_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Regulatory changes have also impacted lending practices throughout europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/216_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Recent political developments in israel suggest a desire for stronger national security measures."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/217_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Meanwhile, europe continues to invest heavily in fossil fuel projects."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/218_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ireland stands to gain considerably from this shift in the European landscape."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/219_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We should submit the findings to the court."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/220_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, a sustainable future for europe depends on these changes."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/221_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "James and I are committed to fighting for these communities."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/222_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We need to strengthen skills and opportunities across europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/223_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The revised proposal indicates an increase of two ast posts, bringing the permanent total to five and the temporary to three hundred and forty four."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/224_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, we're all hoping for a positive future for russia."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/225_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "I'd also like to acknowledge the dedication shown by everyone involved in the fisheries negotiations."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/226_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Europe could lead by example with commitments that inspire global action."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/227_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Following the conflict in Iraq, many displaced Iraqis sought refuge in neighboring countries."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/228_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The situation in Turkey is concerning."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/229_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Has there been any communication with the national liberation front?"
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/230_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The us government's actions often reflect a complex interplay of executive and legislative priorities."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/231_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "They just don't seem to understand ireland at all."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/232_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The situation in the middle of the negotiations is quite delicate."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/233_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "I commend Mr. Brok's work, but share concerns about the potential impact of Brexit."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/234_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The ongoing turmoil in syria reflects a broader pattern of regional unrest."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/235_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Europe needs investment in digital solutions to achieve its environmental goals."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/236_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We need to capitalize on the momentum and ensure mexico yields more positive results."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/237_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Could Mrs. Ashton clarify the nature of their engagement with those groups?"
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/238_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Canada’s role in international diplomacy can sometimes be surprisingly significant."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/239_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Secondly, a stronger european presence could foster greater stability in the region."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/240_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This house recognises the need for thorough preparation ahead of that meeting."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/241_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Malawi has also made strides in promoting girls' education."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/242_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The community will forever remember Memory Banda’s courageous efforts."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/243_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Concerns remain about foreign land grabs impacting food security, particularly in africa, and the need for equitable trade practices."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/244_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Many european countries are facing similar economic challenges."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/245_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "I am delighted to welcome members of the parliament."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/246_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Despite the withdrawal, the future of the Paris accord remains uncertain."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/247_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Minister Vondra, are you now backtracking on that commitment?"
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/248_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Many refugees arriving from the horn are facing significant challenges."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/249_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Should the organization leverage its standing at cites and other forums to advocate for a unified stance on this matter?"
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/250_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "To ensure a smooth flight, our airbus a320 operations require strict adherence to safety protocols."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/251_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Unlike germany, the uk currently lacks similar restrictions on this practice."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/252_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "He's championing these digital initiatives across europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/253_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Scotland needs a strong voice in discussions about future trade deals."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/254_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Meanwhile, swift progress is needed on international agreements regarding data privacy."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/255_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Europe must understand that lasting peace requires addressing the profound human cost of this conflict."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/256_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "It feels unfair that Sweden might be subsidizing youth employment programs in nations facing far greater challenges."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/257_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We need to make it clear to the Lebanese that supporting hezbollah jeopardizes international aid."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/258_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Concerns have also been raised about labor practices at other major events around the world."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/259_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "It was a brutal effort to secure europe's liberation."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/260_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, moldova's progress depends on sustained commitment to these reforms."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/261_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "It’s vital that europe considers how to best leverage these strengths for the benefit of all."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/262_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, achieving the goals set out in paris is crucial for global cooperation."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/263_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The people of europe deserve a parliament that prioritizes fiscal responsibility."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/264_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The un guidelines on humanitarian assistance must be carefully considered."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/265_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Unicef has consistently highlighted the widespread impact on young people."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/266_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The challenges faced by eastern nations highlight the importance of sustained civic engagement for a thriving democracy."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/267_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, addressing the future of ireland requires serious consideration."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/268_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, the failings of the CFP for Scotland reflect a pattern of decisions made at a UK level."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/269_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "It can also happen in countries with established democracies in the middle of Europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/270_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We hope the european parliament will consider our proposal."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/271_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Elmar Brok and Bernd Lange will represent parliament in these negotiations."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/272_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Hopefully, greece can move forward after the next vote."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/273_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The ongoing conflicts in Syria and Iraq continue to destabilize the region."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/274_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Protecting digital innovation will be vital for europe's future."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/275_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Us, it's pretty rare to see that kind of public display."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/276_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The repeated failings of Westminster have demonstrably harmed scotland."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/277_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "It's crucial we back the south’s efforts to de-escalate tensions."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/278_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The agency will work closely with the commission and other stakeholders on this initiative."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/279_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Furthermore, the national education system requires urgent reform."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/280_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Many regions of europe are struggling to cope with the surge."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/281_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Significant support has been dedicated to fostering stability and progress in Colombia."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/282_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "There is no time for nato to lose."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/283_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Turkey is keen to see progress on both fronts."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/284_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Cathy’s work has clearly been invaluable, but challenges remain."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/285_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We could revisit the Geneva discussions to include both the EU and the US."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/286_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, a stable and unified europe is crucial for fostering economic growth and self-determination."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/287_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We need the commission's support to ensure these initiatives succeed."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/288_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The commission will then monitor each country's implementation of the rules."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/289_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Effective crisis response requires robust coordination and readily available resources."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/290_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Greater cohesion between these funding streams could unlock significant potential for European research."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/291_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The north Pacific humpback whale population also saw a slight rise."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/292_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Russia's reputation is being damaged by these legal proceedings."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/293_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Nigeria is really trying to improve things with outside assistance."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/294_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "it's a deeply destabilizing situation in the middle of Europe too."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/295_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We must protect the economic stability of european citizens."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/296_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Several businesses are struggling due to reduced investment across europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/297_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We are grateful for the significant contributions of dagmar Roth Berendt and the reform working group."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/298_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Europe has achieved a remarkable level of stability and cooperation."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/299_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This could further damage europe's already fragile financial standing."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/300_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Cyprus’s integration continues to be complicated by ongoing issues with the acquis and recognition."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/301_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Europe also plays a significant role in international diplomacy."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/302_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "How will europe respond to challenges discussed at the upcoming G20 summit?"
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/303_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "President Trump could strengthen his position by collaborating with other nations."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/304_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We're working closely with the Estonian authorities to investigate these matters."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/305_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We should consider similar protections for artists as we did when regulating uber."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/306_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Finding a lasting peace for israel and its neighbors remains a crucial goal."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/307_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Europe continues to champion values like freedom and equality."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/308_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Similar concerns are now being raised about situations unfolding in europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/309_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Member states must adhere to guidelines established by the council regarding detainee treatment."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/310_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The current minsk framework isn't working, and we need to adjust our approach."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/311_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Japan has also previously banned imports of other food products due to safety concerns."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/312_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Investing in spectrum policy is crucial for continued innovation and growth across europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/313_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The parliament has also been instrumental in shaping our approach to biodiversity."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/314_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "A european regulatory framework is essential for consistent enforcement."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/315_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Similarly, spain faced challenges with joblessness among young people."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/316_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The committee will now consider the proposed revisions."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/317_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ireland's future stability hinges on navigating these complex relationships with the UK and the EU."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/318_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, europe benefited from a new era of stability."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/319_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The european parliament will also consider these recommendations."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/320_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Western leaders often fail to grasp the significance of eastern nations uniting."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/321_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Strengthening industry is crucial for europe's continued prosperity and innovation."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/322_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Several nations, united in their economic strategies, face varying trade outcomes."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/323_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The alliance emphasized the shared economic interests of the united nations."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/324_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The european regulatory approach to derivatives trading is also being closely examined by other jurisdictions."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/325_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "European integration could offer significant benefits."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/326_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Consequently, poland was also instructed to oversee the disposal of assets to recoup the unlawful subsidies."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/327_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "It seems the troika’s pressure has really shaped his policy positions."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/328_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We're also collaborating with several other nations, including the united states, on this initiative."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/329_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Croatia subsequently provided additional information regarding his qualifications."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/330_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "It's a shame to see Greece struggling so much."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/331_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Many iranians are risking everything to demand change."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/332_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Pakistan's involvement will be crucial for any lasting peace."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/333_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Hopefully, greece will move forward after the upcoming vote."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/334_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The middle of this crisis demands a new approach."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/335_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We need to consider the challenges facing europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/336_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "These projects should align with european environmental standards."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/337_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Alternatively, it could choose a more authoritarian course and remain outside of nato."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/338_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Therefore, defending israel’s position is something we must do."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/339_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Navigating the tax landscape is a significant challenge for businesses considering expansion into europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/340_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The european parliament must also take a clear stance on this matter."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/341_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "In denmark, homeownership is often achieved through these accessible, low-risk mortgages."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/342_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, prospective european nations need to align with our security priorities."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/343_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This situation ultimately hinders economic progress across the european market."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/344_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The un and other international bodies should condemn these actions unequivocally."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/345_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, our goal is a stronger and more connected europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/346_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The european project prioritizes dignity and equality for all."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/347_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This house needs to be aware of the obstruction we faced."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/348_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The European Commission continues to monitor the effectiveness of these measures."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/349_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Furthermore, this support is vital for the overall economic health of the European market."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/350_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Supporting producers and their organizations is crucial for achieving these EU goals."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/351_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "All sectors of the Irish economy are interconnected."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/352_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Next year, a new initiative will support coastal communities facing rising sea levels."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/353_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Protecting the integrity of europe is paramount."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/354_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The committee will review proposals aligned with the united efforts of member states."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/355_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "It’s a key russian objective."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/356_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Similarly, estonia's progress highlights broader EU concerns."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/357_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Furthermore, we should acknowledge the right of palestine to self-determination."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/358_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "These initiatives should benefit all european citizens."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/359_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, securing sufficient capital will be crucial for the project's success."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/360_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ignoring the needs of communities across europe is simply unacceptable."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/361_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We also need to consider the external impact of these sanctions."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/362_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The government also plans to relocate residents from another camp near the border."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/363_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Russia's actions continue to destabilize the region and demand a firm response."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/364_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, this initiative aims to enhance europe's overall research capabilities."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/365_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "That's helped us achieve some real progress."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/366_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "I'm interested in understanding how these tools support europe's progress on those targets."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/367_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "It's understandable why people are following the situation in Spain so closely."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/368_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Considering our strengthened ties with africa, regional coordination remains a key consideration."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/369_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The european commission is also involved in coordinating various initiatives to address these challenges."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/370_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Denying asylum seekers access to the european continent is inhumane."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/371_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Furthermore, the deliberate targeting of historical sites in iraq demands international condemnation."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/372_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The future of iraq's christian population hangs in the balance."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/373_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The commission will need to work with all parties to break this impasse."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/374_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We need to press the danish authorities for clarification on this matter."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/375_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The united kingdom could eventually include Scotland and Wales more fully."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/376_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Europe actively promotes these systems internationally to foster fair trade practices."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/377_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "it’s a delicate situation in the middle of ongoing peace talks."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/378_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The high volume of requests is placing a significant strain on resources."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/379_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "I concur with King’s assessment of the need for improved intelligence coordination."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/380_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Considering pakistan, it's clear we all need to fight to ensure our future."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/381_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, a robust and collaborative relationship with our European partners is essential."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/382_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This initiative aims to strengthen our collective understanding of europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/383_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Could you also clarify what specific initiatives london is backing to combat money laundering?"
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/384_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Unlike china, we can offer a more constructive approach to Zimbabwe's development."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/385_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We also urge them to cease evictions and restrictions impacting residents of the west."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/386_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The us economy is facing some uncertainty right now."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/387_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "There's a similar situation with the united kingdom, too."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/388_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Turkey continues to deny the situation."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/389_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We later learned that the residents of khan al-Wihdan had faced similar displacement."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/390_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This aligns with broader efforts to support europe's economic development."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/391_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Similarly, china and russia control what their citizens see online."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/392_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Will they be able to reach safety in europe?"
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/393_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "While europe faces challenges, this is a global issue."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/394_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Similar patterns of intervention have been seen in countries like iraq."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/395_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The european parliament will then debate the implications of this decision."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/396_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Currently, relations between Spain and Gibraltar remain complex."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/397_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Is it right to penalize Ukrainians because of the ongoing situation involving the illegal annexation of crimea and Russian interference?"
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/398_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Support economic growth for european businesses and neighboring countries."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/399_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Russia is encouraged to coordinate with relevant bodies beforehand."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/400_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The European project strives for inclusivity and fairness for everyone."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/401_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The programme also supports numerous smaller, european charities involved in similar relief efforts."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/402_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The european parliament seems increasingly powerless to address the growing challenges."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/403_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Negotiations involving israel are essential for a lasting peace."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/404_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We're collaborating closely with african nations on this initiative."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/405_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "I'm grateful for the work of the government in malta."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/406_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The european market offers significant opportunities for renewable energy investment."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/407_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The court ultimately upheld the decision to withdraw care, despite the family’s desire for further options."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/408_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We hope that further dialogue with Russia will lead to a resolution."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/409_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We've also seen increased collaboration with our European counterparts."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/410_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Greater transparency is needed regarding moldova's government actions."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/411_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Many businesses are also focused on the gulf region."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/412_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We commend the vital role played by many nations in the east."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/413_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "I appreciate de commitment you’ve shown to supporting small businesses."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/414_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "I urge europe to lend its assistance to this critical endeavor."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/415_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Across Europe, there’s a growing need to connect with people directly."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/416_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Furthermore, ali rabiei confirmed there were no breakthroughs."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/417_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Following the Pittsburgh G20 agreement, we should prioritize eliminating these counterproductive financial supports."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/418_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Across india, deeply ingrained cultural norms often contribute to early marriage."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/419_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Surely, authorities need to locate jan and explain his whereabouts."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/420_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Furthermore, fishing quotas in the north are subject to these joint recommendations."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/421_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "India could really benefit from strengthened ties with the european institutions."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/422_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Many people want to understand the impact of european policies on their daily lives."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/423_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "In estonia, this collaborative approach has also led to generous parental leave policies."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/424_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Addressing the significant migration challenge, the european Union prioritizes supporting development and conflict resolution in Africa."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/425_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Our concern regarding Poland is solely about upholding the rule of law."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/426_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "It’s incredibly humbling to be mentioned alongside figures like Nelson Mandela."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/427_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, a stronger european perspective would benefit us all."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/428_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, tehran's actions will determine the extent of future cooperation with Europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/429_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The situation in the middle of Iran demands our full attention."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/430_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The situation in Iraq is deeply concerning for minority groups."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/431_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Scotland deserves the chance to chart its own course once more."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/432_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Turkey's economy is at a crossroads."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/433_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Finding a lasting solution in the middle of this conflict will require sustained effort."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/434_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The parliament continues to advocate for this shift in legal framework."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/435_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Therefore, I'd like to ask Mr. Kurz to champion this initiative across the entire continent."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/436_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Europe also requires stronger cooperation on border security."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/437_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Concerns have also been raised about similar situations in dublin recently."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/438_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The un recognizes the vital role parents play in families and communities globally."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/439_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Turkey's geographic position also makes it vital for regional stability and trade."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/440_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "That represents a significant portion of latvia's residents."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/441_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Exploring a country-by-country strategy in the gulf could yield valuable insights."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/442_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We also urge the european parliament to formally condemn these actions."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/443_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "What steps will the commission take to mitigate the crisis’s effects on employment across europe?"
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/444_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Surely the countries of the north can agree on a fair solution."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/445_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This action disregards Poland's legal framework and the will of its citizens."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/446_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This development aims to safeguard europe from future energy-related political manipulation."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/447_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Concerns remain about external interference impacting stability in bahrain."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/448_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Fishing communities in the north will need to adapt to these changing regulations."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/449_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, the future of Iraq depends on prioritizing the needs of its workers."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/450_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We must also support the un’s humanitarian work throughout the region."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/451_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Diplomatic pressure should encourage a united front against further aggression."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/452_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Machiavelli’s influence diminishes as we prioritize human agency over absolute authority."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/453_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The deal emphasized the shared security interests of the united nations."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/454_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The world economy is facing significant challenges."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/455_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The european commission is also considering new regulations on data privacy."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/456_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Europe has a vital role to play in shaping the future of global innovation."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/457_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This stance further undermines faith in a leader threatening israel's existence."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/458_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The committee's findings offer valuable insights into the challenges facing European citizens."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/459_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The future of the agreement hinges on what washington decides after the election."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/460_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We also urge them to halt settlement expansion in the west bank."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/461_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Strengthening our partnerships, including nato, is vital for a stable future."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/462_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The demolition of khan structures like these is a recurring tragedy."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/463_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, fostering greater mobility across Europe is key to strengthening our shared identity."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/464_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Nord pipeline extensions also fall short."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/465_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "I also support continued negotiations with iran."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/466_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We can learn from non-standard approaches too."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/467_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We appreciate pat's efforts in facilitating these discussions."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/468_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We should also reassess our diplomatic engagement with eritrea."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/469_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "This agreement will also facilitate closer collaboration between the EU and Australia."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/470_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Facilitating access to capital for these assets is a key element of the union's goals."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/471_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We're discussing potential partnerships with japan as well."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/472_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Surely, a coordinated approach is needed to counter russia's destabilizing actions."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/473_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "France is playing a crucial role alongside the UK and other nations in responding to the Ebola crisis."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/474_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Furthermore, ensuring adequate resources for the european agency for fundamental rights is crucial."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/475_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ensuring meaningful Roma representation within key government bodies is crucial for effective policy implementation."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/476_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The epp group played a crucial role in shaping this legislation."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/477_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We aim to renew our focus on sustainable growth while addressing immediate societal challenges."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/478_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, a global effort is needed to resolve the crisis in syria."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/479_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The European project prioritizes inclusivity and fairness for everyone."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/480_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "It's vital that israel continues to uphold the rights of all its citizens."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/481_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "I'm also grateful to morin and her colleagues for their diligent efforts."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/482_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, a strengthened european framework will require greater parliamentary oversight."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/483_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "If the house wishes to maintain its autonomy, I urge members to reject these changes."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/484_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The European commitment to development aid is substantial, yet improvements in policy coordination are still needed."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/485_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "My grandmother's memory always cautioned against relying on others for security."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/486_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Mr. Schulz then sharply criticized the committee's decision."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/487_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We later learned that similar situations were unfolding in other places like khan al-yum."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/488_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "They're not getting support from europe either."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/489_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The concerns raised by Heine’s account demand a swift response."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/490_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, a stronger european identity could emerge from these shared policies."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/491_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The region remains strategically central to Russia's foreign policy."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/492_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Ultimately, this union seeks to consolidate power within Europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/493_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Furthermore, the epp hasn't formally addressed this internally either."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/494_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Schulz had assured us back then that we wouldn't see another vote like it."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/495_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The ongoing challenge of tb, alongside HIV and HCV, highlights the complex interplay of disease and socioeconomic factors."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/496_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The us government's stance differed significantly from the views of many within its own legislature."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/497_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "Researchers at Birmingham also noted minimal effects on wages for existing workers."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/498_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "We can't rely on just one pipeline from Russia."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/499_target_context_sentence.wav"
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<audio>Please transcribe the audio."
+      },
+      {
+        "from": "gpt",
+        "value": "The subsequent economic challenges were deeply intertwined with the financial systems of the united kingdom and europe."
+      }
+    ],
+    "audios": [
+      "data/tts/voxpopuli/500_target_context_sentence.wav"
+    ]
+  }
+]

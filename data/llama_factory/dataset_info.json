@@ -82,5 +82,61 @@
       "user_tag": "human",
       "assistant_tag": "gpt"
     }
+  },
+  "acl6060_context_word": {
+    "file_name": "acl6060_context_word.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "audios": "audios"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
+  },
+  "acl6060_target_word": {
+    "file_name": "acl6060_target_word.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "audios": "audios"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
+  },
+  "voxpopuli_context_word": {
+    "file_name": "voxpopuli_context_word.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "audios": "audios"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
+  },
+  "voxpopuli_target_word": {
+    "file_name": "voxpopuli_target_word.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "audios": "audios"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
   }
 }

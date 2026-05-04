@@ -1,6 +1,6 @@
 # Privacy Leakage in Speech LLMs via Context Injection
 
-This project investigates whether Speech LLMs can be biased into mis-transcribing audio by injecting phonetically similar words as context. We construct controlled examples from the [FLEURS](https://huggingface.co/datasets/google/fleurs) dataset and evaluate two models: Phi-4 Multimodal and Qwen2.5-Omni.
+This project investigates whether Speech LLMs can be biased into mis-transcribing audio by injecting phonetically similar words as context. We construct controlled evaluation sets from FLEURS, VoxPopuli, and ACL6060, and evaluate two models: Phi-4-Multimodal and Qwen2.5-Omni.
 
 ## Setup
 
@@ -11,14 +11,12 @@ python -m nltk.downloader cmudict
 python -m spacy download en_core_web_trf
 ```
 
-Then install model-specific dependencies depending on which model you want to run.
-
-**Phi-4 Multimodal:**
+**Phi-4-Multimodal:**
 ```bash
 pip install -e ".[phi]"
 ```
 
-**Qwen2.5-Omni** (requires a custom `transformers` fork — uninstall the standard version first):
+**Qwen2.5-Omni** (requires a custom `transformers` fork):
 ```bash
 pip uninstall transformers
 pip install git+https://github.com/huggingface/transformers@v4.51.3-Qwen2.5-Omni-preview
@@ -28,64 +26,47 @@ pip install -e ".[qwen]"
 ## Project Structure
 
 ```
-├── data/                   # Data loading code and storage
-│   ├── fleurs.py           # FLEURS dataset loader
-│   └── asr/ / prepared/    # Downloaded audio and prepared JSONL (gitignored)
-├── data_preparation/       # Dataset preparation pipeline
-│   └── prepare.py          # NER extraction, phoneme matching, context generation
-├── models/                 # Model wrappers
-│   ├── phi_multimodal.py
-│   └── qwen_omni.py
-├── src/                    # Main experiment code
-│   ├── test_privacy.py     # Runs inference under three context conditions
-│   └── utils.py
-├── evaluation/
-│   └── evaluate.py         # WER, CER, and word match rates
-└── scripts/                # End-to-end pipeline
-    ├── 01_prepare_data.sh
-    ├── 02_run_models.sh
-    └── 03_evaluate.sh
+├── data/                          # Loaders + storage (asr/, prepared/, tts/, ft/ gitignored)
+│   ├── {fleurs,voxpopuli,acl6060}.py   # Dataset loaders (one per dataset)
+│   └── llama_factory/             # LlamaFactory-format training datasets
+├── data_preparation/              # Preparation pipeline (NER, phoneme matching, TTS, FT data)
+├── models/                        # Model wrappers (phi_multimodal.py, qwen_omni.py)
+├── src/                           # Inference (test_privacy.py) + Phi FT (finetune_phi.py)
+├── evaluation/                    # evaluate.py, plot_results.py
+├── configs/                       # LlamaFactory YAML configs for Qwen fine-tuning
+└── scripts/
+    ├── 01_inference-data-preparation/   # Prepare evaluation JSONL (one script per dataset)
+    ├── 02_ft-data-generation/           # TTS synthesis + LlamaFactory data prep
+    ├── 03_ft-scripts/                   # Fine-tuning  per dataset
+    ├── 04_inference-scripts/            # Inference per dataset
+    └── 05_eval_analysis/                # Evaluation and plotting
 ```
 
 ## Pipeline
 
-### 1. Prepare data
+> **Pre-generated data available.** The evaluation sets (`data/prepared/`), TTS audio (`data/tts/`), prompt-adaptation FT data (`data/ft/`), and LlamaFactory training datasets (`data/llama_factory/`) have already been generated and are available. Steps 1 and 2 below only need to be re-run if you want to regenerate them from scratch.
 
-The prepared data is already available in `data/prepared/en.jsonl` — you can skip this step and go straight to running the models.
+### 1. Prepare evaluation data
 
-If you want to regenerate it: for each FLEURS sample, extract named entities, find a phonetically similar substitute via CMU pronouncing dictionary, and generate a context sentence using Gemma 12B.
+For each dataset, run NER, find phonetically similar substitutes via CMU Pronouncing Dictionary, and generate context sentences with Gemma-3-12B. Scripts in `scripts/01_inference-data-preparation/`. Output: `data/prepared/{dataset}.jsonl`.
 
-```bash
-bash scripts/01_prepare_data.sh
-```
+### 2. Prepare fine-tuning data
 
-Output: `data/prepared/en.jsonl`, one record per kept sample:
-```json
-{
-  "audio_path": "data/asr/fleurs_en_42.wav",
-  "reference": "...lord byron recorded its splendours...",
-  "target_word": "byron",
-  "context_word": "baron",
-  "phoneme_distance": 1,
-  "context_sentence": "The baron was celebrated for his travels through Portugal."
-}
-```
+Generate TTS audio and LlamaFactory training datasets. Scripts in `scripts/02_ft-data-generation/`. Also generates the FLEURS prompt-adaptation FT data used for all three datasets.
 
-### 2. Run models
+### 3. Fine-tuning
 
-Each sample is transcribed under three conditions:
-- `no_context` — plain transcription prompt
-- `with_context_word` — context prompt containing only the substitute word
-- `with_context_sentence` — context prompt containing the generated sentence
+Scripts in `scripts/FT-scripts/{fleurs,acl6060,voxpopuli}/`. Each folder has scripts for Axis 2 data FT, Axis 3 combined FT, Qwen LoRA merging, and convenience `run_all` scripts. FLEURS additionally has prompt-adaptation FT scripts.
+
+### 4. Inference
+
+Scripts in `scripts/04_inference-scripts/{fleurs,acl6060,voxpopuli}/`. Run zero-shot and fine-tuned inference for each model. Results go to `generated_output/{dataset}/` and `generated_output_finetuned/{dataset}/`.
+
+### 5. Evaluation and plotting
 
 ```bash
-bash scripts/02_run_models.sh
+bash scripts/05_eval_analysis/01_evaluate.sh
+bash scripts/05_eval_analysis/02_plot.sh
 ```
 
-### 3. Evaluate
-
-```bash
-bash scripts/03_evaluate.sh
-```
-
-Reports WER and CER per condition, plus the rate at which `target_word` and `context_word` appear in the predicted transcription.
+Results in `generated_eval/{fleurs,acl6060,voxpopuli}/`, combined averages in `generated_eval/combined/`, similarity analysis in `generated_eval/similarity_analysis/`.

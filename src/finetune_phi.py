@@ -329,15 +329,27 @@ def evaluate(model, processor, dataset, save_path=None, batch_size=1):
 # ---------------------------------------------------------------------------
 
 DATASET_SOURCES = {
-    "context_word": ["context_sentence"],
-    "target_word":  ["target_context_sentence"],
-    "both":         ["context_sentence", "target_context_sentence"],
+    "context_word":         ["context_sentence"],
+    "target_word":          ["target_context_sentence"],
+    "both":                 ["context_sentence", "target_context_sentence"],
+    "acl6060_context_word":      ["context_sentence"],
+    "acl6060_target_word":       ["target_context_sentence"],
+    "acl6060_both":              ["context_sentence", "target_context_sentence"],
+    "voxpopuli_context_word":    ["context_sentence"],
+    "voxpopuli_target_word":     ["target_context_sentence"],
+    "voxpopuli_both":            ["context_sentence", "target_context_sentence"],
 }
 
 COMBINED_DATASETS = {
-    "context_word_fleurs_mixed": ("context_word", "fleurs_context_mixed"),
-    "target_word_fleurs_mixed":  ("target_word",  "fleurs_context_mixed"),
-    "both_fleurs_mixed":         ("both",          "fleurs_context_mixed"),
+    "context_word_fleurs_mixed":              ("context_word",         "fleurs_context_mixed"),
+    "target_word_fleurs_mixed":               ("target_word",          "fleurs_context_mixed"),
+    "both_fleurs_mixed":                      ("both",                 "fleurs_context_mixed"),
+    "acl6060_context_word_fleurs_mixed":      ("acl6060_context_word", "fleurs_context_mixed"),
+    "acl6060_target_word_fleurs_mixed":       ("acl6060_target_word",  "fleurs_context_mixed"),
+    "acl6060_both_fleurs_mixed":              ("acl6060_both",         "fleurs_context_mixed"),
+    "voxpopuli_context_word_fleurs_mixed":    ("voxpopuli_context_word", "fleurs_context_mixed"),
+    "voxpopuli_target_word_fleurs_mixed":     ("voxpopuli_target_word",  "fleurs_context_mixed"),
+    "voxpopuli_both_fleurs_mixed":            ("voxpopuli_both",         "fleurs_context_mixed"),
 }
 
 _EVAL_DATASETS      = list(DATASET_SOURCES.keys())
@@ -350,7 +362,7 @@ def main():
     parser.add_argument("--dataset",
                         choices=_EVAL_DATASETS + _FLEURS_DATASETS + _COMBINED_DATASETS,
                         required=True)
-    parser.add_argument("--tts_jsonl", default="data/tts/en.jsonl")
+    parser.add_argument("--tts_jsonl", default="data/tts/fleurs/en.jsonl")
     parser.add_argument("--ft_jsonl",  default="data/ft/fleurs_context/en.jsonl")
     parser.add_argument("--output_dir", default=None)
     parser.add_argument("--use_flash_attention", action="store_true")
