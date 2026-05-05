@@ -348,6 +348,38 @@ def plot_two_panel(all_models, lines_dict, conditions, labels, metric, ylabel, o
     plt.close(fig)
 
 
+def plot_single_panel(all_models, lines, conditions, labels, metric, ylabel, out_path, fmt=lambda v: v * 100):
+    """Single-panel line plot (Qwen only)."""
+    fig, ax = plt.subplots(1, 1, figsize=(6, 3))
+    x = list(range(len(conditions)))
+    for key, label, style in lines:
+        if key not in all_models:
+            continue
+        vals = [fmt(all_models[key].get(c, {}).get(metric, float("nan"))) for c in conditions]
+        ax.plot(x, vals, color=style["color"], linewidth=style["lw"],
+                marker=style["marker"], markersize=5, label=label, linestyle="-")
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, rotation=25, ha="right", fontsize=11)
+    ax.set_title("Qwen2.5-Omni-7B", fontsize=12)
+    ax.axvline(x=0.5, color="#cccccc", linewidth=1.0, linestyle=":", zorder=0)
+    ax.grid(axis="y", linewidth=0.4, alpha=0.5)
+    ax.yaxis.set_major_formatter(mtick.PercentFormatter() if "%" in ylabel else mtick.ScalarFormatter())
+    ax.tick_params(axis="y", labelsize=11)
+    ax.set_ylabel(ylabel, fontsize=12)
+    handles = [
+        mlines.Line2D([], [], color=style["color"], linestyle="-",
+                      marker=style["marker"], markersize=6,
+                      linewidth=style["lw"], label=label)
+        for _, label, style in lines
+    ]
+    ax.legend(handles=handles, fontsize=11, loc="best", frameon=True)
+    fig.tight_layout()
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
+    fig.savefig(out_path, bbox_inches="tight")
+    print(f"Saved {out_path}")
+    plt.close(fig)
+
+
 def plot_attack_with_mitigation(all_models, lines_dict, metric, ylabel, out_path, fmt=lambda v: v * 100):
     """Attack (solid) + mitigation (dotted) on the same axes.
 
@@ -424,6 +456,17 @@ def _plot_all_sections(all_models, out_dir, baseline_lines, attack_lines):
         metric="background_wer", ylabel="Background WER", fmt=lambda v: v,
         out_path=os.path.join(out_dir, "plot_results_a", "results_baseline_wer.pdf"),
     )
+    # Qwen-only versions for the paper body
+    plot_single_panel(
+        all_models, baseline_lines["qwen"], _CONTEXT_CONDITIONS, _COND_LABELS,
+        metric="target_correct", ylabel="Acoustic word accuracy (%)",
+        out_path=os.path.join(out_dir, "plot_results_a", "results_baseline_acoustic_accuracy_qwen.pdf"),
+    )
+    plot_single_panel(
+        all_models, baseline_lines["qwen"], _CONTEXT_CONDITIONS, _COND_LABELS,
+        metric="background_wer", ylabel="Background WER", fmt=lambda v: v,
+        out_path=os.path.join(out_dir, "plot_results_a", "results_baseline_wer_qwen.pdf"),
+    )
     plot_two_panel(
         all_models, attack_lines, _ATTACK_CONDITIONS, _COND_LABELS,
         metric="target_to_context", ylabel="Leakage rate (%)",
@@ -463,12 +506,20 @@ _SIM_MODEL_COLORS = {
 
 _SIM_MODELS = {
     "qwen": [
-        ("fleurs/qwen/fleurs_context_mixed",         "Prompt-adapted"),
-        ("fleurs/qwen/context_word_fleurs_mixed",    "Context word FT + prompt-adapted"),
+        ("fleurs/qwen/fleurs_context_mixed",                        "Prompt-adapted"),
+        ("acl6060/qwen/fleurs_context_mixed",                       "Prompt-adapted"),
+        ("voxpopuli/qwen/fleurs_context_mixed",                     "Prompt-adapted"),
+        ("fleurs/qwen/context_word_fleurs_mixed",                   "Context word FT + prompt-adapted"),
+        ("acl6060/qwen/acl6060_context_word_fleurs_mixed",          "Context word FT + prompt-adapted"),
+        ("voxpopuli/qwen/voxpopuli_context_word_fleurs_mixed",      "Context word FT + prompt-adapted"),
     ],
     "phi": [
-        ("fleurs/phi/fleurs_context_mixed",          "Prompt-adapted"),
-        ("fleurs/phi/context_word_fleurs_mixed",     "Context word FT + prompt-adapted"),
+        ("fleurs/phi/fleurs_context_mixed",                         "Prompt-adapted"),
+        ("acl6060/phi/fleurs_context_mixed",                        "Prompt-adapted"),
+        ("voxpopuli/phi/fleurs_context_mixed",                      "Prompt-adapted"),
+        ("fleurs/phi/context_word_fleurs_mixed",                    "Context word FT + prompt-adapted"),
+        ("acl6060/phi/acl6060_context_word_fleurs_mixed",           "Context word FT + prompt-adapted"),
+        ("voxpopuli/phi/voxpopuli_context_word_fleurs_mixed",       "Context word FT + prompt-adapted"),
     ],
 }
 
@@ -477,10 +528,9 @@ def plot_similarity_analysis(sim_root: str, out_dir: str, metric: str = "target_
     """Bar chart: model colors match main plots, hatch patterns encode similarity bin."""
     from matplotlib.patches import Patch
 
-    data = {}
+    raw = {}
     for family, models in _SIM_MODELS.items():
         for model_key, model_label in models:
-            # files are named after old labels (different/similar/near-copy)
             for file_name, group in _SIM_GROUP_FILE_MAP.items():
                 path = os.path.join(sim_root, model_key.replace("/", os.sep), f"{file_name}.json")
                 if not os.path.exists(path):
@@ -489,19 +539,21 @@ def plot_similarity_analysis(sim_root: str, out_dir: str, metric: str = "target_
                     conds = json.load(f)["conditions"]
                 vals = [conds.get(c, {}).get(metric, float("nan")) * 100
                         for c in _SIM_ATTACK_CONDS]
-                data[(family, model_label, group)] = vals
+                raw.setdefault((family, model_label, group), []).append(vals)
+    data = {k: list(np.nanmean(v, axis=0)) for k, v in raw.items()}
 
     if not data:
         print(f"No similarity analysis results found in {sim_root}")
         return
 
-    n_models = len(_SIM_MODELS["qwen"])
+    unique_labels = list(dict.fromkeys(lbl for _, lbl in _SIM_MODELS["qwen"]))
+    n_models = len(unique_labels)
     fig, axes = plt.subplots(2, n_models, figsize=(12, 6), sharey=True)
     x = np.arange(len(_SIM_COND_LABELS))
     width = 0.28
 
     for row, family in enumerate(["qwen", "phi"]):
-        for col, (model_key, model_label) in enumerate(_SIM_MODELS[family]):
+        for col, model_label in enumerate(unique_labels):
             ax = axes[row][col]
             color = _SIM_MODEL_COLORS[model_label]
             for i, group in enumerate(_SIM_GROUPS):
@@ -535,6 +587,56 @@ def plot_similarity_analysis(sim_root: str, out_dir: str, metric: str = "target_
     plt.close(fig)
 
 
+def plot_similarity_analysis_qwen(sim_root: str, out_dir: str, metric: str = "target_to_context", ylabel: str = "Leakage rate (%)"):
+    """Single-panel bar chart for Qwen context_word_fleurs_mixed only."""
+    from matplotlib.patches import Patch
+
+    model_label = "Context word FT + prompt-adapted"
+    color       = _SIM_MODEL_COLORS[model_label]
+    model_keys  = [k for k, lbl in _SIM_MODELS["qwen"] if lbl == model_label]
+
+    raw = {}
+    for model_key in model_keys:
+        for file_name, group in _SIM_GROUP_FILE_MAP.items():
+            path = os.path.join(sim_root, model_key.replace("/", os.sep), f"{file_name}.json")
+            if not os.path.exists(path):
+                continue
+            with open(path) as f:
+                conds = json.load(f)["conditions"]
+            vals = [conds.get(c, {}).get(metric, float("nan")) * 100 for c in _SIM_ATTACK_CONDS]
+            raw.setdefault(group, []).append(vals)
+    data = {g: list(np.nanmean(v, axis=0)) for g, v in raw.items()}
+
+    if not data:
+        print(f"No similarity analysis results found in {sim_root}")
+        return
+
+    fig, ax = plt.subplots(1, 1, figsize=(6, 3))
+    x     = np.arange(len(_SIM_COND_LABELS))
+    width = 0.28
+    for i, group in enumerate(_SIM_GROUPS):
+        vals = data.get(group, [float("nan")] * len(_SIM_ATTACK_CONDS))
+        ax.bar(x + (i - 1) * width, vals, width,
+               color=color, hatch=_SIM_HATCHES[group],
+               edgecolor="white", linewidth=0.5, alpha=0.9)
+    ax.set_xticks(x)
+    ax.set_xticklabels(_SIM_COND_LABELS, fontsize=11)
+    ax.set_title("Qwen2.5-Omni-7B (Context word FT + prompt-adapted)", fontsize=12)
+    ax.set_ylabel(ylabel, fontsize=12)
+    ax.grid(axis="y", linewidth=0.4, alpha=0.5)
+    ax.yaxis.set_major_formatter(mtick.PercentFormatter())
+    ax.tick_params(axis="y", labelsize=11)
+    bin_handles = [Patch(facecolor=color, hatch=_SIM_HATCHES[g], edgecolor="white",
+                         label=_SIM_GROUP_LABELS[g]) for g in _SIM_GROUPS]
+    ax.legend(handles=bin_handles, fontsize=11, loc="best", frameon=True)
+    fig.tight_layout()
+    os.makedirs(out_dir, exist_ok=True)
+    out_path = os.path.join(out_dir, "similarity_analysis_leakage_qwen.pdf")
+    fig.savefig(out_path, bbox_inches="tight")
+    print(f"Saved {out_path}")
+    plt.close(fig)
+
+
 _DIST_GROUPS  = [1, 2]
 _DIST_COLORS  = {1: _SHARED_STYLE["ctx_ft"]["color"], 2: _SHARED_STYLE["combined"]["color"]}
 _DIST_LABELS  = {1: "Distance 1", 2: "Distance 2"}
@@ -542,12 +644,20 @@ _DIST_HATCHES = {1: "", 2: "///"}
 
 _DIST_MODELS = {
     "qwen": [
-        ("fleurs/qwen/fleurs_context_mixed",         "Prompt-adapted"),
-        ("fleurs/qwen/context_word_fleurs_mixed",    "Context word FT + prompt-adapted"),
+        ("fleurs/qwen/fleurs_context_mixed",                        "Prompt-adapted"),
+        ("acl6060/qwen/fleurs_context_mixed",                       "Prompt-adapted"),
+        ("voxpopuli/qwen/fleurs_context_mixed",                     "Prompt-adapted"),
+        ("fleurs/qwen/context_word_fleurs_mixed",                   "Context word FT + prompt-adapted"),
+        ("acl6060/qwen/acl6060_context_word_fleurs_mixed",          "Context word FT + prompt-adapted"),
+        ("voxpopuli/qwen/voxpopuli_context_word_fleurs_mixed",      "Context word FT + prompt-adapted"),
     ],
     "phi": [
-        ("fleurs/phi/fleurs_context_mixed",          "Prompt-adapted"),
-        ("fleurs/phi/context_word_fleurs_mixed",     "Context word FT + prompt-adapted"),
+        ("fleurs/phi/fleurs_context_mixed",                         "Prompt-adapted"),
+        ("acl6060/phi/fleurs_context_mixed",                        "Prompt-adapted"),
+        ("voxpopuli/phi/fleurs_context_mixed",                      "Prompt-adapted"),
+        ("fleurs/phi/context_word_fleurs_mixed",                    "Context word FT + prompt-adapted"),
+        ("acl6060/phi/acl6060_context_word_fleurs_mixed",           "Context word FT + prompt-adapted"),
+        ("voxpopuli/phi/voxpopuli_context_word_fleurs_mixed",       "Context word FT + prompt-adapted"),
     ],
 }
 
@@ -556,7 +666,7 @@ def plot_distance_analysis(dist_root: str, out_dir: str, metric: str = "target_t
     """Bar chart comparing metric for phoneme distance 1 vs 2."""
     from matplotlib.patches import Patch
 
-    data = {}
+    raw = {}
     for family, models in _DIST_MODELS.items():
         for model_key, model_label in models:
             for dist in _DIST_GROUPS:
@@ -567,19 +677,21 @@ def plot_distance_analysis(dist_root: str, out_dir: str, metric: str = "target_t
                     conds = json.load(f)["conditions"]
                 vals = [conds.get(c, {}).get(metric, float("nan")) * 100
                         for c in _SIM_ATTACK_CONDS]
-                data[(family, model_label, dist)] = vals
+                raw.setdefault((family, model_label, dist), []).append(vals)
+    data = {k: list(np.nanmean(v, axis=0)) for k, v in raw.items()}
 
     if not data:
         print(f"No distance analysis results found in {dist_root}")
         return
 
-    n_models = len(_DIST_MODELS["qwen"])
+    unique_labels = list(dict.fromkeys(lbl for _, lbl in _DIST_MODELS["qwen"]))
+    n_models = len(unique_labels)
     fig, axes = plt.subplots(2, n_models, figsize=(12, 6), sharey=True)
     x = np.arange(len(_SIM_COND_LABELS))
     width = 0.35
 
     for row, family in enumerate(["qwen", "phi"]):
-        for col, (model_key, model_label) in enumerate(_DIST_MODELS[family]):
+        for col, model_label in enumerate(unique_labels):
             ax = axes[row][col]
             color = _SIM_MODEL_COLORS[model_label]
             for i, dist in enumerate(_DIST_GROUPS):
@@ -608,6 +720,125 @@ def plot_distance_analysis(dist_root: str, out_dir: str, metric: str = "target_t
     fig.tight_layout()
     os.makedirs(out_dir, exist_ok=True)
     out_path = os.path.join(out_dir, "distance_analysis_leakage.pdf")
+    fig.savefig(out_path, bbox_inches="tight")
+    print(f"Saved {out_path}")
+    plt.close(fig)
+
+
+def plot_distance_analysis_qwen(dist_root: str, out_dir: str, metric: str = "target_to_context", ylabel: str = "Leakage rate (%)"):
+    """Single-panel bar chart for Qwen context_word_fleurs_mixed only."""
+    from matplotlib.patches import Patch
+
+    model_label = "Context word FT + prompt-adapted"
+    color       = _SIM_MODEL_COLORS[model_label]
+    model_keys  = [k for k, lbl in _DIST_MODELS["qwen"] if lbl == model_label]
+
+    raw = {}
+    for model_key in model_keys:
+        for dist in _DIST_GROUPS:
+            path = os.path.join(dist_root, model_key.replace("/", os.sep), f"distance_{dist}.json")
+            if not os.path.exists(path):
+                continue
+            with open(path) as f:
+                conds = json.load(f)["conditions"]
+            vals = [conds.get(c, {}).get(metric, float("nan")) * 100 for c in _SIM_ATTACK_CONDS]
+            raw.setdefault(dist, []).append(vals)
+    data = {d: list(np.nanmean(v, axis=0)) for d, v in raw.items()}
+
+    if not data:
+        print(f"No distance analysis results found in {dist_root}")
+        return
+
+    fig, ax = plt.subplots(1, 1, figsize=(6, 3))
+    x     = np.arange(len(_SIM_COND_LABELS))
+    width = 0.35
+    for i, dist in enumerate(_DIST_GROUPS):
+        vals = data.get(dist, [float("nan")] * len(_SIM_ATTACK_CONDS))
+        ax.bar(x + (i - 0.5) * width, vals, width,
+               color=color, hatch=_DIST_HATCHES[dist],
+               edgecolor="white", linewidth=0.5, alpha=0.9)
+    ax.set_xticks(x)
+    ax.set_xticklabels(_SIM_COND_LABELS, fontsize=11)
+    ax.set_title("Qwen2.5-Omni-7B (Context word FT + prompt-adapted)", fontsize=12)
+    ax.set_ylabel(ylabel, fontsize=12)
+    ax.grid(axis="y", linewidth=0.4, alpha=0.5)
+    ax.yaxis.set_major_formatter(mtick.PercentFormatter())
+    ax.tick_params(axis="y", labelsize=11)
+    dist_handles = [Patch(facecolor=color, hatch=_DIST_HATCHES[d], edgecolor="white",
+                          label=_DIST_LABELS[d]) for d in _DIST_GROUPS]
+    ax.legend(handles=dist_handles, fontsize=11, loc="best", frameon=True)
+    fig.tight_layout()
+    os.makedirs(out_dir, exist_ok=True)
+    out_path = os.path.join(out_dir, "distance_analysis_leakage_qwen.pdf")
+    fig.savefig(out_path, bbox_inches="tight")
+    print(f"Saved {out_path}")
+    plt.close(fig)
+
+
+_DATASET_LABELS = {"fleurs": "FLEURS", "acl6060": "ACL 6060", "voxpopuli": "VoxPopuli"}
+
+
+_MIT_CONDS = ["no_context", "sentences_2_mixed", "sentences_5_mixed", "sentences_10_mixed"]
+_MIT_X     = [0, 2, 3, 4]
+_ATK_X     = [0, 1, 2, 3, 4]
+
+_DATASET_LABELS = {"fleurs": "FLEURS", "acl6060": "ACL 6060", "voxpopuli": "VoxPopuli"}
+
+
+def plot_attack_all_datasets(eval_root: str, datasets: list[str], out_dir: str,
+                             metric: str = "target_to_context", ylabel: str = "Leakage rate (%)"):
+    """3-row × 2-col appendix figure: one row per dataset, columns = Qwen / Phi.
+    Attack shown solid, mitigation dotted (matching plot_attack_with_mitigation style)."""
+    fig, axes = plt.subplots(len(datasets), 2, figsize=(12, 3.5 * len(datasets)), sharey=False)
+
+    for row, dataset in enumerate(datasets):
+        dataset_root = os.path.join(eval_root, dataset)
+        if not os.path.isdir(dataset_root):
+            continue
+        all_models   = load_results(dataset_root)
+        prefix       = "" if dataset == "fleurs" else f"{dataset}_"
+        attack_lines = _make_attack_lines(prefix)
+
+        for col, (family, lines) in enumerate(attack_lines.items()):
+            ax = axes[row][col]
+            for key, label, style in lines:
+                if key not in all_models:
+                    continue
+                atk_vals = [all_models[key].get(c, {}).get(metric, float("nan")) * 100
+                            for c in _ATTACK_CONDITIONS]
+                ax.plot(_ATK_X, atk_vals, color=style["color"], linewidth=style["lw"],
+                        marker=style["marker"], markersize=5, linestyle="-")
+                mit_vals = [all_models[key].get(c, {}).get(metric, float("nan")) * 100
+                            for c in _MIT_CONDS]
+                ax.plot(_MIT_X, mit_vals, color=style["color"], linewidth=style["lw"],
+                        marker=style["marker"], markersize=6, linestyle=":",
+                        markerfacecolor="white", markeredgewidth=1.5)
+            ax.set_xticks(_ATK_X)
+            ax.set_xticklabels(["no context", "word\n(2 words)", "1-sent\n(2-sent)", "5-sent", "10-sent"],
+                               rotation=0, ha="center", fontsize=11)
+            model_name = "Qwen2.5-Omni-7B" if family == "qwen" else "Phi-4-Multimodal"
+            ax.set_title(f"{_DATASET_LABELS.get(dataset, dataset)} — {model_name}", fontsize=12)
+            ax.axvline(x=0.5, color="#cccccc", linewidth=1.0, linestyle=":", zorder=0)
+            ax.grid(axis="y", linewidth=0.4, alpha=0.5)
+            ax.yaxis.set_major_formatter(mtick.PercentFormatter())
+            ax.tick_params(axis="y", labelsize=11)
+            if col == 0:
+                ax.set_ylabel(ylabel, fontsize=12)
+
+    model_handles = [
+        mlines.Line2D([], [], color=style["color"], linestyle="-",
+                      marker=style["marker"], markersize=5, linewidth=style["lw"], label=label)
+        for _, label, style in list(_make_attack_lines("").values())[0]
+    ]
+    style_handles = [
+        mlines.Line2D([], [], color="grey", linestyle=":", linewidth=1.5, marker="o", markersize=6,
+                      markerfacecolor="white", markeredgewidth=1.5, label="mitigated"),
+    ]
+    fig.legend(handles=model_handles + style_handles, fontsize=11, loc="lower center",
+               bbox_to_anchor=(0.5, -0.02), ncol=len(model_handles) + 1, frameon=True)
+    fig.tight_layout()
+    os.makedirs(out_dir, exist_ok=True)
+    out_path = os.path.join(out_dir, "results_attack_leakage_all_datasets.pdf")
     fig.savefig(out_path, bbox_inches="tight")
     print(f"Saved {out_path}")
     plt.close(fig)
@@ -685,9 +916,12 @@ if __name__ == "__main__":
         all_models = load_results_averaged(args.eval_root, args.average_datasets)
         os.makedirs(args.out_dir, exist_ok=True)
         _plot_all_sections(all_models, args.out_dir, baseline_lines, attack_lines)
+        plot_attack_all_datasets(args.eval_root, args.average_datasets, args.out_dir)
     elif args.similarity_analysis:
         plot_similarity_analysis(args.similarity_analysis, args.out_dir)
+        plot_similarity_analysis_qwen(args.similarity_analysis, args.out_dir)
     elif args.distance_analysis:
         plot_distance_analysis(args.distance_analysis, args.out_dir)
+        plot_distance_analysis_qwen(args.distance_analysis, args.out_dir)
     else:
         make_plots(args.eval_root, args.out_dir, dataset_prefix=dataset_prefix)

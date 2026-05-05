@@ -4,9 +4,12 @@
 for DATASET in fleurs acl6060 voxpopuli; do
     [ -d "generated_eval/${DATASET}" ] || continue
     echo "Plotting ${DATASET}..."
+    PREFIX=""
+    [ "$DATASET" != "fleurs" ] && PREFIX="${DATASET}_"
     python evaluation/plot_results.py \
         --eval_root "generated_eval/${DATASET}" \
-        --out_dir "generated_eval/${DATASET}/plots"
+        --out_dir "generated_eval/${DATASET}/plots" \
+        --dataset_prefix "$PREFIX"
 done
 
 # Average over all datasets

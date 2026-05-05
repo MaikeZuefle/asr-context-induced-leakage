@@ -59,7 +59,7 @@ for BASE in "phi" "qwen"; do
     done
 done
 
-# ── SIMILARITY ANALYSIS (FLEURS) ──────────────────────────────────────────────
+# ── SIMILARITY ANALYSIS ───────────────────────────────────────────────────────
 echo "=== Similarity analysis ==="
 
 run_sim_eval() {
@@ -85,7 +85,23 @@ run_sim_eval "generated_output_finetuned/fleurs/phi/fleurs_context_mixed/privacy
 run_sim_eval "generated_output_finetuned/fleurs/qwen/context_word_fleurs_mixed/privacy/en.jsonl" "$PREPARED_FLEURS"
 run_sim_eval "generated_output_finetuned/fleurs/phi/context_word_fleurs_mixed/privacy/en.jsonl" "$PREPARED_FLEURS"
 
-# ── DISTANCE ANALYSIS (FLEURS) ────────────────────────────────────────────────
+PREPARED_ACL6060="data/prepared/acl6060.jsonl"
+run_sim_eval "generated_output/acl6060/qwen_omni/privacy/en.jsonl" "$PREPARED_ACL6060"
+run_sim_eval "generated_output/acl6060/phi_multimodal/privacy/en.jsonl" "$PREPARED_ACL6060"
+run_sim_eval "generated_output_finetuned/acl6060/qwen/fleurs_context_mixed/privacy/en.jsonl" "$PREPARED_ACL6060"
+run_sim_eval "generated_output_finetuned/acl6060/phi/fleurs_context_mixed/privacy/en.jsonl" "$PREPARED_ACL6060"
+run_sim_eval "generated_output_finetuned/acl6060/qwen/acl6060_context_word_fleurs_mixed/privacy/en.jsonl" "$PREPARED_ACL6060"
+run_sim_eval "generated_output_finetuned/acl6060/phi/acl6060_context_word_fleurs_mixed/privacy/en.jsonl" "$PREPARED_ACL6060"
+
+PREPARED_VOXPOPULI="data/prepared/voxpopuli.jsonl"
+run_sim_eval "generated_output/voxpopuli/qwen_omni/privacy/en.jsonl" "$PREPARED_VOXPOPULI"
+run_sim_eval "generated_output/voxpopuli/phi_multimodal/privacy/en.jsonl" "$PREPARED_VOXPOPULI"
+run_sim_eval "generated_output_finetuned/voxpopuli/qwen/fleurs_context_mixed/privacy/en.jsonl" "$PREPARED_VOXPOPULI"
+run_sim_eval "generated_output_finetuned/voxpopuli/phi/fleurs_context_mixed/privacy/en.jsonl" "$PREPARED_VOXPOPULI"
+run_sim_eval "generated_output_finetuned/voxpopuli/qwen/voxpopuli_context_word_fleurs_mixed/privacy/en.jsonl" "$PREPARED_VOXPOPULI"
+run_sim_eval "generated_output_finetuned/voxpopuli/phi/voxpopuli_context_word_fleurs_mixed/privacy/en.jsonl" "$PREPARED_VOXPOPULI"
+
+# ── DISTANCE ANALYSIS ─────────────────────────────────────────────────────────
 echo "=== Distance analysis ==="
 
 run_dist_eval() {
@@ -109,6 +125,20 @@ run_dist_eval "generated_output_finetuned/fleurs/qwen/fleurs_context_mixed/priva
 run_dist_eval "generated_output_finetuned/fleurs/phi/fleurs_context_mixed/privacy/en.jsonl" "$PREPARED_FLEURS"
 run_dist_eval "generated_output_finetuned/fleurs/qwen/context_word_fleurs_mixed/privacy/en.jsonl" "$PREPARED_FLEURS"
 run_dist_eval "generated_output_finetuned/fleurs/phi/context_word_fleurs_mixed/privacy/en.jsonl" "$PREPARED_FLEURS"
+
+run_dist_eval "generated_output/acl6060/qwen_omni/privacy/en.jsonl" "$PREPARED_ACL6060"
+run_dist_eval "generated_output/acl6060/phi_multimodal/privacy/en.jsonl" "$PREPARED_ACL6060"
+run_dist_eval "generated_output_finetuned/acl6060/qwen/fleurs_context_mixed/privacy/en.jsonl" "$PREPARED_ACL6060"
+run_dist_eval "generated_output_finetuned/acl6060/phi/fleurs_context_mixed/privacy/en.jsonl" "$PREPARED_ACL6060"
+run_dist_eval "generated_output_finetuned/acl6060/qwen/acl6060_context_word_fleurs_mixed/privacy/en.jsonl" "$PREPARED_ACL6060"
+run_dist_eval "generated_output_finetuned/acl6060/phi/acl6060_context_word_fleurs_mixed/privacy/en.jsonl" "$PREPARED_ACL6060"
+
+run_dist_eval "generated_output/voxpopuli/qwen_omni/privacy/en.jsonl" "$PREPARED_VOXPOPULI"
+run_dist_eval "generated_output/voxpopuli/phi_multimodal/privacy/en.jsonl" "$PREPARED_VOXPOPULI"
+run_dist_eval "generated_output_finetuned/voxpopuli/qwen/fleurs_context_mixed/privacy/en.jsonl" "$PREPARED_VOXPOPULI"
+run_dist_eval "generated_output_finetuned/voxpopuli/phi/fleurs_context_mixed/privacy/en.jsonl" "$PREPARED_VOXPOPULI"
+run_dist_eval "generated_output_finetuned/voxpopuli/qwen/voxpopuli_context_word_fleurs_mixed/privacy/en.jsonl" "$PREPARED_VOXPOPULI"
+run_dist_eval "generated_output_finetuned/voxpopuli/phi/voxpopuli_context_word_fleurs_mixed/privacy/en.jsonl" "$PREPARED_VOXPOPULI"
 
 # ── COMBINED average ──────────────────────────────────────────────────────────
 echo "=== Combined average ==="
