@@ -1,5 +1,3 @@
-"""Shared utilities for data preparation scripts."""
-
 import random
 import warnings
 

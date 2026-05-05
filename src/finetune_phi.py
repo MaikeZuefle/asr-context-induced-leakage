@@ -1,16 +1,3 @@
-"""
-Fine-tune Phi-4-multimodal-instruct on TTS-generated privacy evaluation sentences
-or FLEURS context FT data.
-
-Uses the model's built-in speech LoRA adapter (model.set_lora_adapter('speech')).
-
-Requirements:
-    peft>=0.13.2
-    transformers>=4.46.1
-    accelerate>=1.3.0
-    scipy, soundfile
-"""
-
 import argparse
 import json
 import os
@@ -44,9 +31,7 @@ ANSWER_SUFFIX = "<|end|><|endoftext|>"
 _IGNORE_INDEX = -100
 
 
-# ---------------------------------------------------------------------------
-# Stopping criteria (unchanged from original)
-# ---------------------------------------------------------------------------
+# Stopping criteria
 
 class MultipleTokenBatchStoppingCriteria(StoppingCriteria):
     def __init__(self, stop_tokens: torch.LongTensor, batch_size: int = 1) -> None:
@@ -63,9 +48,7 @@ class MultipleTokenBatchStoppingCriteria(StoppingCriteria):
         return torch.all(self.stop_tokens_idx)
 
 
-# ---------------------------------------------------------------------------
 # Dataset
-# ---------------------------------------------------------------------------
 
 class TTSDataset(Dataset):
     """Loads TTS-generated audio samples from our privacy evaluation JSONL.
@@ -113,9 +96,7 @@ class TTSDataset(Dataset):
         }
 
 
-# ---------------------------------------------------------------------------
 # FLEURS context dataset
-# ---------------------------------------------------------------------------
 
 _FLEURS_CONTEXT_FIELDS = {
     "fleurs_context_1":  "context_sentence",
@@ -177,9 +158,7 @@ class FleursContextDataset(Dataset):
         }
 
 
-# ---------------------------------------------------------------------------
-# Collation (unchanged from original)
-# ---------------------------------------------------------------------------
+# Collation
 
 def pad_sequence(sequences, padding_side="right", padding_value=0):
     assert padding_side in ["right", "left"]
@@ -244,9 +223,7 @@ def collate_fn(batch):
     })
 
 
-# ---------------------------------------------------------------------------
 # Model
-# ---------------------------------------------------------------------------
 
 def create_model(use_flash_attention: bool):
     model = AutoModelForCausalLM.from_pretrained(
@@ -258,9 +235,7 @@ def create_model(use_flash_attention: bool):
     return model
 
 
-# ---------------------------------------------------------------------------
 # Evaluation
-# ---------------------------------------------------------------------------
 
 @torch.no_grad()
 def evaluate(model, processor, dataset, save_path=None, batch_size=1):
@@ -324,9 +299,7 @@ def evaluate(model, processor, dataset, save_path=None, batch_size=1):
     return None
 
 
-# ---------------------------------------------------------------------------
 # Main
-# ---------------------------------------------------------------------------
 
 DATASET_SOURCES = {
     "context_word":         ["context_sentence"],

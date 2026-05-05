@@ -10,7 +10,5 @@ __pycache__/
 myjob*
 z_outputs
 LlamaFactory
-todo.txt
 wandb/
 saves/
-.claude/

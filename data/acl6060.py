@@ -1,4 +1,3 @@
-"""Loader for the ACL6060 evaluation dataset."""
 import os
 
 

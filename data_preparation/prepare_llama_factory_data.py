@@ -1,26 +1,3 @@
-"""
-Convert TTS output JSONL into LLaMA Factory ShareGPT audio format and register
-the datasets in LLaMA Factory's dataset_info.json.
-
-Creates two datasets from data/tts/en.jsonl:
-  - privacy_context_word: audio of context_sentence, transcript is the target
-  - privacy_target_word:  audio of target_context_sentence, transcript is the target
-
-Output format per entry:
-    {
-        "conversations": [
-            {"from": "human", "value": "<audio>Please transcribe the audio."},
-            {"from": "gpt",   "value": "<transcript>"}
-        ],
-        "audios": ["<audio_path>"]
-    }
-
-Audio paths in the JSON are stored relative to --data_dir so LLaMA Factory can
-resolve them via its media_dir setting.
-
-Also patches LlamaFactory/data/dataset_info.json with entries for both datasets.
-"""
-
 import argparse
 import json
 import os

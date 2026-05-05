@@ -1,4 +1,3 @@
-"""Plot WER/bg-WER and tgt->ctx across conditions for all evaluated models."""
 import json
 import os
 import glob
@@ -7,7 +6,7 @@ import matplotlib.ticker as mtick
 import matplotlib.lines as mlines
 import numpy as np
 
-# ── condition groups ──────────────────────────────────────────────────────────
+# condition groups
 GROUPS = {
     "context": {
         "title": "Distractor in context (target word in speech)",
@@ -26,8 +25,7 @@ GROUPS = {
     },
 }
 
-# ── color scheme ─────────────────────────────────────────────────────────────
-# zeroshot=blue, eval-data ft=pink→red, fleurs-context ft=light→dark green,
+# color scheme: zeroshot=blue, eval-data ft=pink→red, fleurs-context ft=light→dark green,
 # combined (eval-data + fleurs-context) ft=light→dark purple
 _PALETTE = {
     "zeroshot":                  {"color": "#1565C0", "lw": 2.0, "marker": "o"},
@@ -44,10 +42,10 @@ _PALETTE = {
 }
 
 MODEL_STYLES = {
-    # ── zero-shot ─────────────────────────────────────────────────────────────
+    # zero-shot
     "qwen_omni":                                       _PALETTE["zeroshot"],
     "phi_multimodal":                                  _PALETTE["zeroshot"],
-    # ── FLEURS fine-tuned ─────────────────────────────────────────────────────
+    # FLEURS fine-tuned
     "qwen/context_word":                               _PALETTE["ft-context"],
     "qwen/target_word":                                _PALETTE["ft-target"],
     "qwen/both":                                       _PALETTE["ft-both"],
@@ -68,7 +66,7 @@ MODEL_STYLES = {
     "phi/context_word_fleurs_mixed":                   _PALETTE["ft-combined-context"],
     "phi/target_word_fleurs_mixed":                    _PALETTE["ft-combined-target"],
     "phi/both_fleurs_mixed":                           _PALETTE["ft-combined-both"],
-    # ── ACL6060 fine-tuned ────────────────────────────────────────────────────
+    # ACL6060 fine-tuned
     "qwen/acl6060_context_word":                       _PALETTE["ft-context"],
     "qwen/acl6060_target_word":                        _PALETTE["ft-target"],
     "qwen/acl6060_both":                               _PALETTE["ft-both"],
@@ -81,7 +79,7 @@ MODEL_STYLES = {
     "phi/acl6060_context_word_fleurs_mixed":           _PALETTE["ft-combined-context"],
     "phi/acl6060_target_word_fleurs_mixed":            _PALETTE["ft-combined-target"],
     "phi/acl6060_both_fleurs_mixed":                   _PALETTE["ft-combined-both"],
-    # ── VoxPopuli fine-tuned ──────────────────────────────────────────────────
+    # VoxPopuli fine-tuned
     "qwen/voxpopuli_context_word":                     _PALETTE["ft-context"],
     "qwen/voxpopuli_target_word":                      _PALETTE["ft-target"],
     "qwen/voxpopuli_both":                             _PALETTE["ft-both"],
@@ -148,7 +146,7 @@ DISPLAY_NAMES = {
 MODEL_ORDER = list(MODEL_STYLES.keys())
 
 
-# ── load ──────────────────────────────────────────────────────────────────────
+# load
 def load_results(eval_root="generated_eval"):
     models = {}
     for path in sorted(glob.glob(f"{eval_root}/**/privacy/en.json", recursive=True)):

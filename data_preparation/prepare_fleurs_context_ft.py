@@ -1,31 +1,3 @@
-"""
-Generate finetuning data for context-aware ASR using the FLEURS train split.
-
-Unlike the evaluation pipeline (prepare.py), this script does NOT need a phonetically
-similar distractor word. The goal is simply to teach the model to use context: we take
-a FLEURS utterance, extract a named entity from its transcript, generate a single
-context sentence that contains that NE, and pair it with the existing FLEURS audio.
-
-No TTS is needed — the audio files come directly from FLEURS.
-
-Output format (one JSON object per line):
-    {
-        "audio_path": "data/asr/fleurs_en_train_42.wav",  # split name included to avoid collisions
-        "transcript": "Lord Byron visited the area in 1809.",
-        "target_word": "Byron",
-        "context_sentence": "Byron remains one of the most celebrated Romantic poets.",
-        "context_sentences_5": ["...", "...", "...", "...", "..."],   # key sentence at random position
-        "context_sentences_10": ["...", ...],
-        "fleurs_split": "train",
-        "fleurs_id": 42
-    }
-
-Usage:
-    python -m data_preparation.prepare_fleurs_context_ft \\
-        --gemma_model_path /path/to/gemma-12b \\
-        --out_path data/ft/fleurs_context/en.jsonl
-"""
-
 import argparse
 import json
 import os
@@ -46,9 +18,7 @@ from data_preparation.utils import (
     generate_sentence_containing,
 )
 
-# ---------------------------------------------------------------------------
 # Prompt — only the target word (the NE itself) goes in the context sentence
-# ---------------------------------------------------------------------------
 
 _CONTEXT_SENTENCE_PROMPT = """\
 Here is a sentence from a spoken transcript:
@@ -67,9 +37,7 @@ def generate_context_sentence(reference: str, target_word: str, pipe) -> str:
     return generate_sentence_containing(prompt, target_word, pipe)
 
 
-# ---------------------------------------------------------------------------
 # NER
-# ---------------------------------------------------------------------------
 
 def extract_ne_candidates(text: str, nlp) -> list[str]:
     """Return named entity proper nouns from text."""
@@ -80,9 +48,7 @@ def extract_ne_candidates(text: str, nlp) -> list[str]:
     ]
 
 
-# ---------------------------------------------------------------------------
 # FLEURS loading — metadata only, no audio saved yet
-# ---------------------------------------------------------------------------
 
 def load_fleurs_metadata(language: str, splits: list[str]) -> list[dict]:
     """Load FLEURS transcript metadata from the given splits without writing audio."""
@@ -113,9 +79,7 @@ def save_audio(entry: dict) -> None:
         sf.write(entry["audio_path"], entry["audio_array"], entry["sampling_rate"])
 
 
-# ---------------------------------------------------------------------------
 # Main
-# ---------------------------------------------------------------------------
 
 def main(language: str, out_path: str, gemma_model_path: str,
          existing_prepared_path: str | None, splits: list[str]):

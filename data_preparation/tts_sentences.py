@@ -1,20 +1,3 @@
-"""
-Generate TTS audio for context_sentence and target_context_sentence fields
-from the prepared privacy evaluation data, using Kokoro TTS with randomly
-sampled English voices.
-
-Output format (one JSON object per line):
-    {
-        "audio_path": "data/tts/42_context.wav",
-        "transcript": "The baron was known for his wit and poetry.",
-        "voice": "af_heart",
-        "source": "context_sentence",   # or "target_context_sentence"
-        "sample_idx": 42,
-        "target_word": "byron",
-        "context_word": "baron"
-    }
-"""
-
 import argparse
 import json
 import os

@@ -1,24 +1,3 @@
-"""
-Convert FLEURS context FT JSONL into LLaMA Factory ShareGPT audio format and
-register datasets in LLaMA Factory's dataset_info.json.
-
-Creates four datasets from the FT JSONL:
-  - privacy_fleurs_context_1:     single context sentence
-  - privacy_fleurs_context_5:     5-sentence context (key sentence at random position)
-  - privacy_fleurs_context_10:    10-sentence context
-  - privacy_fleurs_context_mixed: one context length sampled uniformly at random per example
-
-Output format per entry:
-    {
-        "conversations": [
-            {"from": "human",
-             "value": "<audio>Please transcribe the audio. Context: \"<context>\""},
-            {"from": "gpt", "value": "<transcript>"}
-        ],
-        "audios": ["<audio_path>"]
-    }
-"""
-
 import argparse
 import json
 import os

@@ -1,36 +1,3 @@
-"""
-For each FLEURS sample, extract a named entity from the transcript,
-find a phonetically similar word via CMU pronouncing dict, then use an LLM
-to generate a context sentence containing that word. Samples with no suitable
-substitution are dropped.
-
-Output format (one JSON object per line):
-    {
-        "audio_path": "...",
-        "reference": "...",
-        "target_word": "byron",          # named entity actually spoken
-        "context_word": "baron",         # phonetically similar substitute (not a morphological variant)
-        "phoneme_distance": 1,
-        # 1-sentence contexts
-        "context_sentence": "The baron was known for his wit and poetry.",
-        "target_context_sentence": "Lord Byron visited the area in 1809.",
-        "mixed_sentences": ["Unlike the baron, Lord Byron preferred solitude.", "..."],  # context + target sentence
-        # 5-sentence contexts (lists), one sentence contains the key word(s)
-        "context_sentences_5": ["...", "...", "...", "...", "..."],
-        "target_context_sentences_5": ["...", "...", "...", "...", "..."],
-        "mixed_sentences_5": ["...", "...", "...", "...", "..."],
-        # 10-sentence contexts (lists), one sentence contains the key word(s)
-        "context_sentences_10": ["...", ...],
-        "target_context_sentences_10": ["...", ...],
-        "mixed_sentences_10": ["...", ...]
-    }
-
-Requirements:
-    pip install nltk spacy torch transformers
-    python -m nltk.downloader cmudict
-    python -m spacy download en_core_web_trf
-"""
-
 import argparse
 import json
 import os
@@ -71,9 +38,7 @@ def _are_morphological_variants(word1: str, word2: str) -> bool:
     return _STEMMER.stem(w1) == _STEMMER.stem(w2)
 
 
-# ---------------------------------------------------------------------------
 # Phoneme index built once at import time
-# ---------------------------------------------------------------------------
 
 _CMU_DICT = cmudict.dict()
 
@@ -132,9 +97,7 @@ def find_similar_word(word: str, max_distance: int = 2) -> tuple[str | None, int
     return best_word, best_dist
 
 
-# ---------------------------------------------------------------------------
 # Candidate word extraction
-# ---------------------------------------------------------------------------
 
 def extract_candidate_words(text: str, nlp) -> list[str]:
     """
@@ -146,9 +109,7 @@ def extract_candidate_words(text: str, nlp) -> list[str]:
     return [w for w in ne_words if _get_phonemes(w) is not None]
 
 
-# ---------------------------------------------------------------------------
 # Context sentence generation
-# ---------------------------------------------------------------------------
 
 _CONTEXT_SENTENCE_PROMPT = """\
 Here is a sentence from a spoken transcript:
@@ -181,9 +142,7 @@ def generate_target_sentence(reference: str, target_word: str, pipe) -> str:
     return generate_sentence_containing(prompt, target_word, pipe)
 
 
-# ---------------------------------------------------------------------------
 # Main
-# ---------------------------------------------------------------------------
 
 def main(language: str, out_path: str, max_distance: int, gemma_model_path: str):
     nlp = spacy.load("en_core_web_trf")

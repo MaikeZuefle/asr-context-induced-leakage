@@ -1,5 +1,3 @@
-"""Same pipeline as prepare.py but for VoxPopuli English test split."""
-
 import argparse
 import json
 import os

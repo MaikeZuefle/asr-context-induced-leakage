@@ -1,8 +1,3 @@
-"""
-Same pipeline as prepare.py but for the ACL6060 evaluation dataset.
-Uses the ACL6060 loader instead of FLEURS.
-"""
-
 import argparse
 import json
 import os
