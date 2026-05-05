@@ -491,6 +491,26 @@ def make_plots(eval_root="generated_eval", out_dir="generated_eval", dataset_pre
     _plot_all_sections(all_models, out_dir, baseline_lines, attack_lines)
 
 
+_SIM_UNSPLIT_CONDS  = {0, 1}  # no_context and word_context: sentence similarity not applicable
+_DIST_UNSPLIT_CONDS = {0}     # no_context only: phoneme distance is meaningful for word_context
+
+
+def _plot_sim_bars(ax, get_vals, color, x, width, groups, hatches, unsplit_conds):
+    """Single averaged bar for unsplit conditions, grouped bars for the rest."""
+    for i_cond in range(len(_SIM_ATTACK_CONDS)):
+        if i_cond in unsplit_conds:
+            vals_per_group = [get_vals(g) for g in groups]
+            avg = float(np.nanmean([v[i_cond] for v in vals_per_group]))
+            ax.bar(x[i_cond], avg, width * len(groups),
+                   color=color, edgecolor="white", linewidth=0.5, alpha=0.9)
+        else:
+            for i_group, group in enumerate(groups):
+                vals = get_vals(group)
+                ax.bar(x[i_cond] + (i_group - 1) * width, vals[i_cond], width,
+                       color=color, hatch=hatches[group],
+                       edgecolor="white", linewidth=0.5, alpha=0.9)
+
+
 _SIM_GROUPS       = ["distinct", "related", "near-identical"]
 _SIM_HATCHES      = {"distinct": "", "related": "///", "near-identical": "xxx"}
 _SIM_GROUP_LABELS = {"distinct": "Distinct (≤0.4)", "related": "Related (0.4–0.7)", "near-identical": "Near-identical (>0.7)"}
@@ -556,11 +576,9 @@ def plot_similarity_analysis(sim_root: str, out_dir: str, metric: str = "target_
         for col, model_label in enumerate(unique_labels):
             ax = axes[row][col]
             color = _SIM_MODEL_COLORS[model_label]
-            for i, group in enumerate(_SIM_GROUPS):
-                vals = data.get((family, model_label, group), [float("nan")] * len(_SIM_ATTACK_CONDS))
-                ax.bar(x + (i - 1) * width, vals, width,
-                       color=color, hatch=_SIM_HATCHES[group],
-                       edgecolor="white", linewidth=0.5, alpha=0.9)
+            _plot_sim_bars(ax,
+                           lambda g, f=family, m=model_label: data.get((f, m, g), [float("nan")] * len(_SIM_ATTACK_CONDS)),
+                           color, x, width, _SIM_GROUPS, _SIM_HATCHES, _SIM_UNSPLIT_CONDS)
             ax.set_xticks(x)
             ax.set_xticklabels(_SIM_COND_LABELS, fontsize=11)
             ax.set_title(model_label, fontsize=12)
@@ -614,11 +632,8 @@ def plot_similarity_analysis_qwen(sim_root: str, out_dir: str, metric: str = "ta
     fig, ax = plt.subplots(1, 1, figsize=(6, 3))
     x     = np.arange(len(_SIM_COND_LABELS))
     width = 0.28
-    for i, group in enumerate(_SIM_GROUPS):
-        vals = data.get(group, [float("nan")] * len(_SIM_ATTACK_CONDS))
-        ax.bar(x + (i - 1) * width, vals, width,
-               color=color, hatch=_SIM_HATCHES[group],
-               edgecolor="white", linewidth=0.5, alpha=0.9)
+    _plot_sim_bars(ax, lambda g: data.get(g, [float("nan")] * len(_SIM_ATTACK_CONDS)),
+                   color, x, width, _SIM_GROUPS, _SIM_HATCHES, _SIM_UNSPLIT_CONDS)
     ax.set_xticks(x)
     ax.set_xticklabels(_SIM_COND_LABELS, fontsize=11)
     ax.set_title("Qwen2.5-Omni-7B (Context word FT + prompt-adapted)", fontsize=12)
@@ -694,11 +709,9 @@ def plot_distance_analysis(dist_root: str, out_dir: str, metric: str = "target_t
         for col, model_label in enumerate(unique_labels):
             ax = axes[row][col]
             color = _SIM_MODEL_COLORS[model_label]
-            for i, dist in enumerate(_DIST_GROUPS):
-                vals = data.get((family, model_label, dist), [float("nan")] * len(_SIM_ATTACK_CONDS))
-                ax.bar(x + (i - 0.5) * width, vals, width,
-                       color=color, hatch=_DIST_HATCHES[dist],
-                       edgecolor="white", linewidth=0.5, alpha=0.9)
+            _plot_sim_bars(ax,
+                           lambda d, f=family, m=model_label: data.get((f, m, d), [float("nan")] * len(_SIM_ATTACK_CONDS)),
+                           color, x, width, _DIST_GROUPS, _DIST_HATCHES, _DIST_UNSPLIT_CONDS)
             ax.set_xticks(x)
             ax.set_xticklabels(_SIM_COND_LABELS, fontsize=11)
             ax.set_title(model_label, fontsize=12)
@@ -752,11 +765,8 @@ def plot_distance_analysis_qwen(dist_root: str, out_dir: str, metric: str = "tar
     fig, ax = plt.subplots(1, 1, figsize=(6, 3))
     x     = np.arange(len(_SIM_COND_LABELS))
     width = 0.35
-    for i, dist in enumerate(_DIST_GROUPS):
-        vals = data.get(dist, [float("nan")] * len(_SIM_ATTACK_CONDS))
-        ax.bar(x + (i - 0.5) * width, vals, width,
-               color=color, hatch=_DIST_HATCHES[dist],
-               edgecolor="white", linewidth=0.5, alpha=0.9)
+    _plot_sim_bars(ax, lambda d: data.get(d, [float("nan")] * len(_SIM_ATTACK_CONDS)),
+                   color, x, width, _DIST_GROUPS, _DIST_HATCHES, _DIST_UNSPLIT_CONDS)
     ax.set_xticks(x)
     ax.set_xticklabels(_SIM_COND_LABELS, fontsize=11)
     ax.set_title("Qwen2.5-Omni-7B (Context word FT + prompt-adapted)", fontsize=12)
