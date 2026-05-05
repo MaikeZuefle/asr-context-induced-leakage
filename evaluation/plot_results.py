@@ -418,7 +418,7 @@ def plot_attack_with_mitigation(all_models, lines_dict, metric, ylabel, out_path
             ax.annotate("", xy=(pos + 0.25, -0.18), xytext=(pos - 0.25, -0.18),
                         xycoords=("data", "axes fraction"),
                         textcoords=("data", "axes fraction"),
-                        arrowprops=dict(arrowstyle="-", linestyle=(0, (3, 3)),
+                        arrowprops=dict(arrowstyle="-", linestyle=":",
                                         color="dimgray", lw=1.5))
 
     axes[0].set_ylabel(ylabel, fontsize=12)
@@ -435,7 +435,7 @@ def plot_attack_with_mitigation(all_models, lines_dict, metric, ylabel, out_path
                       markerfacecolor="white", markeredgewidth=1.5, label="mitigated"),
     ]
     fig.legend(handles=model_handles + style_handles, fontsize=11, loc="lower center",
-               bbox_to_anchor=(0.5, -0.18), ncol=len(model_handles) + 2, frameon=True)
+               bbox_to_anchor=(0.5, -0.10), ncol=len(model_handles) + 2, frameon=True)
 
     fig.tight_layout()
     os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
@@ -834,6 +834,12 @@ def plot_attack_all_datasets(eval_root: str, datasets: list[str], out_dir: str,
             ax.tick_params(axis="y", labelsize=11)
             if col == 0:
                 ax.set_ylabel(ylabel, fontsize=12)
+            for pos in [1, 2]:
+                ax.annotate("", xy=(pos + 0.25, -0.18), xytext=(pos - 0.25, -0.18),
+                            xycoords=("data", "axes fraction"),
+                            textcoords=("data", "axes fraction"),
+                            arrowprops=dict(arrowstyle="-", linestyle=":",
+                                            color="dimgray", lw=1.5))
 
     model_handles = [
         mlines.Line2D([], [], color=style["color"], linestyle="-",
@@ -845,7 +851,7 @@ def plot_attack_all_datasets(eval_root: str, datasets: list[str], out_dir: str,
                       markerfacecolor="white", markeredgewidth=1.5, label="mitigated"),
     ]
     fig.legend(handles=model_handles + style_handles, fontsize=11, loc="lower center",
-               bbox_to_anchor=(0.5, -0.02), ncol=len(model_handles) + 1, frameon=True)
+               bbox_to_anchor=(0.5, -0.04), ncol=len(model_handles) + 1, frameon=True)
     fig.tight_layout()
     os.makedirs(out_dir, exist_ok=True)
     out_path = os.path.join(out_dir, "results_attack_leakage_all_datasets.pdf")
