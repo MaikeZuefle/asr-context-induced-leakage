@@ -28,6 +28,7 @@ pip install -e ".[qwen]"
 ```
 ├── data/                          # Loaders + storage (asr/, tts/, ft/ gitignored)
 │   ├── {fleurs,voxpopuli,acl6060}.py   # Dataset loaders (one per dataset)
+│   ├── prepared/                  # Evaluation JSONL files (one per dataset)
 │   └── llama_factory/             # LlamaFactory-format training datasets
 ├── data_preparation/              # Preparation pipeline (NER, phoneme matching, TTS, FT data)
 ├── models/                        # Model wrappers (phi_multimodal.py, qwen_omni.py)
@@ -44,7 +45,7 @@ pip install -e ".[qwen]"
 
 ## Pipeline
 
-> **Pre-generated data available.** The LlamaFactory training datasets (`data/llama_factory/`) and evaluation sets (`data/prepared/`) are included in the repository. TTS audio (`data/tts/`) and prompt-adaptation FT data (`data/ft/`) are gitignored but available separately. Steps 1 and 2 below only need to be re-run if you want to regenerate them from scratch.
+> **Pre-generated data available.** The LlamaFactory training datasets (`data/llama_factory/`) and evaluation sets (`data/prepared/`) are included in the repository. TTS audio (`data/tts/`) and prompt-adaptation FT data (`data/ft/`) will be made available via Hugging Face. Steps 1 and 2 below only need to be re-run if you want to regenerate them from scratch.
 
 ### 1. Prepare evaluation data
 
