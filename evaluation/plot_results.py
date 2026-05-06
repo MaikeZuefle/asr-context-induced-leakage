@@ -270,12 +270,14 @@ def _filter_models(models, subset_fn):
 _CONTEXT_CONDITIONS    = ["no_context", "word_target", "sentence_target", "sentences_5_target", "sentences_10_target"]
 _ATTACK_CONDITIONS     = ["no_context", "word_context", "sentence_context", "sentences_5_context", "sentences_10_context"]
 _MITIGATION_CONDITIONS = ["no_context", None, "sentences_2_mixed", "sentences_5_mixed", "sentences_10_mixed"]
+_MIXED_CONDITIONS      = ["no_context", "word_mixed", "sentences_2_mixed", "sentences_5_mixed", "sentences_10_mixed"]
 _COND_LABELS           = ["no context", "word", "1/2-sent", "5-sent", "10-sent"]
 
 _SHARED_STYLE = {
     "base":     {"color": "#90CAF9", "lw": 1.5, "marker": "o"},
-    "ctx_ft":   {"color": "#1565C0", "lw": 1.5, "marker": "o"},
-    "combined": {"color": "#FF8F00", "lw": 1.5, "marker": "s"},
+    "ctx_ft":        {"color": "#1565C0", "lw": 1.5, "marker": "o"},
+    "combined":      {"color": "#FF8F00", "lw": 1.5, "marker": "s"},
+    "mitigation_ft": {"color": "#BF360C", "lw": 1.5, "marker": "s"},
 }
 
 def _make_baseline_lines(prefix=""):
@@ -292,17 +294,28 @@ def _make_baseline_lines(prefix=""):
         ],
     }
 
+def _make_mitigation_lines(prefix=""):
+    lines = _make_baseline_lines(prefix)
+    for family in lines:
+        lines[family].append(
+            (f"{'qwen' if family == 'qwen' else 'phi'}/{prefix}both_fleurs_mixed",
+             "Both words FT + prompt-adapted", _SHARED_STYLE["mitigation_ft"])
+        )
+    return lines
+
 def _make_attack_lines(prefix=""):
     return {
         "qwen": [
             ("qwen_omni",                                            "Base model",                        _SHARED_STYLE["base"]),
             ("qwen/fleurs_context_mixed",                            "Prompt-adapted",                    _SHARED_STYLE["ctx_ft"]),
             (f"qwen/{prefix}context_word_fleurs_mixed",              "Context word FT + prompt-adapted",  _SHARED_STYLE["combined"]),
+            (f"qwen/{prefix}both_fleurs_mixed",                      "Both words FT + prompt-adapted",    _SHARED_STYLE["mitigation_ft"]),
         ],
         "phi": [
             ("phi_multimodal",                                       "Base model",                        _SHARED_STYLE["base"]),
             ("phi/fleurs_context_mixed",                             "Prompt-adapted",                    _SHARED_STYLE["ctx_ft"]),
             (f"phi/{prefix}context_word_fleurs_mixed",               "Context word FT + prompt-adapted",  _SHARED_STYLE["combined"]),
+            (f"phi/{prefix}both_fleurs_mixed",                       "Both words FT + prompt-adapted",    _SHARED_STYLE["mitigation_ft"]),
         ],
     }
 
@@ -338,7 +351,8 @@ def plot_two_panel(all_models, lines_dict, conditions, labels, metric, ylabel, o
                       linewidth=style["lw"], label=label)
         for _, label, style in list(lines_dict.values())[0]
     ]
-    axes[1].legend(handles=handles, fontsize=11, loc="best", frameon=True)
+    fig.legend(handles=handles, fontsize=11, loc="lower center",
+               bbox_to_anchor=(0.5, -0.10), ncol=len(handles), frameon=True)
     fig.tight_layout()
     os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
     fig.savefig(out_path, bbox_inches="tight")
@@ -378,32 +392,29 @@ def plot_single_panel(all_models, lines, conditions, labels, metric, ylabel, out
     plt.close(fig)
 
 
-def plot_attack_with_mitigation(all_models, lines_dict, metric, ylabel, out_path, fmt=lambda v: v * 100):
-    """Attack (solid) + mitigation (dotted) on the same axes.
+_MIXED_CONDS_FULL = ["no_context", "word_mixed", "sentences_2_mixed", "sentences_5_mixed", "sentences_10_mixed"]
 
-    X positions 0-4: no context, word, 1/2-sent, 5-sent, 10-sent.
-    Attack plotted at [0,1,2,3,4]; mitigation at [0,2,3,4] (no word-level mixed).
-    """
+
+def plot_baseline_with_mitigation(all_models, lines_dict, metric, ylabel, out_path, fmt=lambda v: v * 100):
+    """Baseline (solid, target-word context) + mitigation (dotted, both-word context) on same axes."""
     fig, axes = plt.subplots(1, 2, figsize=(12, 3.5), sharey=True)
-    x_atk = [0, 1, 2, 3, 4]
-    x_mit = [0, 2, 3, 4]
-    mit_conds = ["no_context", "sentences_2_mixed", "sentences_5_mixed", "sentences_10_mixed"]
+    x = [0, 1, 2, 3, 4]
 
     for ax, (family, lines) in zip(axes, lines_dict.items()):
         for key, label, style in lines:
             if key not in all_models:
                 continue
-            atk_vals = [fmt(all_models[key].get(c, {}).get(metric, float("nan")))
-                        for c in _ATTACK_CONDITIONS]
-            ax.plot(x_atk, atk_vals, color=style["color"], linewidth=style["lw"],
+            base_vals = [fmt(all_models[key].get(c, {}).get(metric, float("nan")))
+                         for c in _CONTEXT_CONDITIONS]
+            ax.plot(x, base_vals, color=style["color"], linewidth=style["lw"],
                     marker=style["marker"], markersize=5, linestyle="-")
             mit_vals = [fmt(all_models[key].get(c, {}).get(metric, float("nan")))
-                        for c in mit_conds]
-            ax.plot(x_mit, mit_vals, color=style["color"], linewidth=style["lw"],
+                        for c in _MIXED_CONDS_FULL]
+            ax.plot(x, mit_vals, color=style["color"], linewidth=style["lw"],
                     marker=style["marker"], markersize=6, linestyle=":",
                     markerfacecolor="white", markeredgewidth=1.5)
 
-        ax.set_xticks([0, 1, 2, 3, 4])
+        ax.set_xticks(x)
         ax.set_xticklabels(["no context", "word\n(2 words)", "1-sent\n(2-sent)", "5-sent", "10-sent"],
                            rotation=0, ha="center", fontsize=11)
         ax.set_title("Qwen2.5-Omni-7B" if family == "qwen" else "Phi-4-Multimodal", fontsize=12)
@@ -411,7 +422,6 @@ def plot_attack_with_mitigation(all_models, lines_dict, metric, ylabel, out_path
         ax.grid(axis="y", linewidth=0.4, alpha=0.5)
         ax.yaxis.set_major_formatter(mtick.PercentFormatter() if "%" in ylabel else mtick.ScalarFormatter())
         ax.tick_params(axis="y", labelsize=11)
-        # dotted underline only under the parenthesised (mitigation) second line at positions 1 and 2
         for pos in [1, 2]:
             ax.annotate("", xy=(pos + 0.25, -0.18), xytext=(pos - 0.25, -0.18),
                         xycoords=("data", "axes fraction"),
@@ -420,8 +430,6 @@ def plot_attack_with_mitigation(all_models, lines_dict, metric, ylabel, out_path
                                         color="dimgray", lw=1.5))
 
     axes[0].set_ylabel(ylabel, fontsize=12)
-
-    # legend below both panels
     model_handles = [
         mlines.Line2D([], [], color=style["color"], linestyle="-",
                       marker=style["marker"], markersize=5,
@@ -430,11 +438,10 @@ def plot_attack_with_mitigation(all_models, lines_dict, metric, ylabel, out_path
     ]
     style_handles = [
         mlines.Line2D([], [], color="grey", linestyle=":", linewidth=1.5, marker="o", markersize=6,
-                      markerfacecolor="white", markeredgewidth=1.5, label="mitigated"),
+                      markerfacecolor="white", markeredgewidth=1.5, label="prompt mitigated"),
     ]
     fig.legend(handles=model_handles + style_handles, fontsize=11, loc="lower center",
                bbox_to_anchor=(0.5, -0.10), ncol=len(model_handles) + 2, frameon=True)
-
     fig.tight_layout()
     os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
     fig.savefig(out_path, bbox_inches="tight")
@@ -442,7 +449,94 @@ def plot_attack_with_mitigation(all_models, lines_dict, metric, ylabel, out_path
     plt.close(fig)
 
 
-def _plot_all_sections(all_models, out_dir, baseline_lines, attack_lines):
+def _attack_mit_panel(ax, all_models, lines, family, metric, ylabel, fmt, underline_y=-0.18):
+    x_atk = [0, 1, 2, 3, 4]
+    x_mit = [0, 2, 3, 4]
+    mit_conds = ["no_context", "sentences_2_mixed", "sentences_5_mixed", "sentences_10_mixed"]
+    for key, label, style in lines:
+        if key not in all_models:
+            continue
+        atk_vals = [fmt(all_models[key].get(c, {}).get(metric, float("nan"))) for c in _ATTACK_CONDITIONS]
+        ax.plot(x_atk, atk_vals, color=style["color"], linewidth=style["lw"],
+                marker=style["marker"], markersize=5, linestyle="-")
+        mit_vals = [fmt(all_models[key].get(c, {}).get(metric, float("nan"))) for c in mit_conds]
+        ax.plot(x_mit, mit_vals, color=style["color"], linewidth=style["lw"],
+                marker=style["marker"], markersize=6, linestyle=":",
+                markerfacecolor="white", markeredgewidth=1.5)
+    ax.set_xticks([0, 1, 2, 3, 4])
+    ax.set_xticklabels(["no context", "word\n(2 words)", "1-sent\n(2-sent)", "5-sent", "10-sent"],
+                       rotation=0, ha="center", fontsize=11)
+    ax.set_title("Qwen2.5-Omni-7B" if family == "qwen" else "Phi-4-Multimodal", fontsize=12)
+    ax.axvline(x=0.5, color="#cccccc", linewidth=1.0, linestyle=":", zorder=0)
+    ax.grid(axis="y", linewidth=0.4, alpha=0.5)
+    ax.yaxis.set_major_formatter(mtick.PercentFormatter() if "%" in ylabel else mtick.ScalarFormatter())
+    ax.tick_params(axis="y", labelsize=11)
+    for pos in [1, 2]:
+        ax.annotate("", xy=(pos + 0.25, underline_y), xytext=(pos - 0.25, underline_y),
+                    xycoords=("data", "axes fraction"), textcoords=("data", "axes fraction"),
+                    arrowprops=dict(arrowstyle="-", linestyle=":", color="dimgray", lw=1.5))
+
+
+def _attack_mit_legend(fig, lines, n_extra_cols=2):
+    model_handles = [
+        mlines.Line2D([], [], color=style["color"], linestyle="-",
+                      marker=style["marker"], markersize=5,
+                      linewidth=style["lw"], label=label)
+        for _, label, style in lines
+    ]
+    style_handles = [
+        mlines.Line2D([], [], color="grey", linestyle=":", linewidth=1.5, marker="o", markersize=6,
+                      markerfacecolor="white", markeredgewidth=1.5, label="prompt mitigated"),
+    ]
+    fig.legend(handles=model_handles + style_handles, fontsize=11, loc="lower center",
+               bbox_to_anchor=(0.5, -0.10), ncol=len(model_handles) + n_extra_cols, frameon=True)
+
+
+def plot_attack_with_mitigation(all_models, lines_dict, metric, ylabel, out_path, fmt=lambda v: v * 100):
+    """Attack (solid) + mitigation (dotted) on the same axes, two panels."""
+    fig, axes = plt.subplots(1, 2, figsize=(12, 3.5), sharey=True)
+    for ax, (family, lines) in zip(axes, lines_dict.items()):
+        _attack_mit_panel(ax, all_models, lines, family, metric, ylabel, fmt)
+    axes[0].set_ylabel(ylabel, fontsize=12)
+    _attack_mit_legend(fig, list(lines_dict.values())[0])
+    fig.tight_layout()
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
+    fig.savefig(out_path, bbox_inches="tight")
+    print(f"Saved {out_path}")
+    plt.close(fig)
+
+
+def plot_attack_with_mitigation_single(all_models, lines_dict, family, metric, ylabel, out_path, fmt=lambda v: v * 100):
+    """Attack (solid) + mitigation (dotted), single panel for one model family."""
+    fig, ax = plt.subplots(1, 1, figsize=(6, 3))
+    _attack_mit_panel(ax, all_models, lines_dict[family], family, metric, ylabel, fmt, underline_y=-0.2)
+    ax.set_ylabel(ylabel, fontsize=12)
+    ax.set_title("Qwen2.5-Omni-7B", fontsize=12)
+    ax.tick_params(axis="y", labelsize=11)
+    lines = lines_dict[family]
+    model_handles = [
+        mlines.Line2D([], [], color=style["color"], linestyle="-",
+                      marker=style["marker"], markersize=6,
+                      linewidth=style["lw"],
+                      label=label.replace("prompt-adapted", "prompt-adapt.").replace("Prompt-adapted", "Prompt-adapt."))
+        for _, label, style in lines
+    ]
+    style_handles = [
+        mlines.Line2D([], [], color="grey", linestyle=":", linewidth=1.5, marker="o", markersize=6,
+                      markerfacecolor="white", markeredgewidth=1.5, label="prompt mitigated"),
+    ]
+    all_handles = model_handles + style_handles
+    ncol = (len(all_handles) + 2) // 3
+    fig.legend(handles=all_handles, fontsize=11, loc="lower center",
+               bbox_to_anchor=(0.5, -0.25), ncol=ncol, frameon=True)
+    fig.tight_layout()
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
+    fig.savefig(out_path, bbox_inches="tight")
+    print(f"Saved {out_path}")
+    plt.close(fig)
+
+
+def _plot_all_sections(all_models, out_dir, baseline_lines, attack_lines, mitigation_lines=None, scatter_lines=None):
     """Generate plots for sections A, B and C."""
     plot_two_panel(
         all_models, baseline_lines, _CONTEXT_CONDITIONS, _COND_LABELS,
@@ -480,13 +574,168 @@ def _plot_all_sections(all_models, out_dir, baseline_lines, attack_lines):
         metric="target_to_context", ylabel="Leakage rate (%)",
         out_path=os.path.join(out_dir, "plot_results_c", "results_mitigation_leakage.pdf"),
     )
+    plot_attack_with_mitigation_single(
+        all_models, attack_lines, "qwen",
+        metric="target_to_context", ylabel="Leakage rate (%)",
+        out_path=os.path.join(out_dir, "plot_results_c", "results_mitigation_leakage_qwen.pdf"),
+    )
+    plot_baseline_with_mitigation(
+        all_models, mitigation_lines or baseline_lines,
+        metric="target_correct", ylabel="Acoustic word accuracy (%)",
+        out_path=os.path.join(out_dir, "plot_results_a", "results_mitigation_acoustic_accuracy.pdf"),
+    )
+    if scatter_lines:
+        plot_accuracy_vs_leakage(
+            all_models, scatter_lines,
+            out_path=os.path.join(out_dir, "general_plots", "results_accuracy_vs_leakage.pdf"),
+        )
+        for family in ("qwen", "phi"):
+            plot_accuracy_vs_leakage_single(
+                all_models, scatter_lines, family,
+                out_path=os.path.join(out_dir, "general_plots", f"results_accuracy_vs_leakage_{family}.pdf"),
+            )
+
+
+_SCATTER_LEAK_CONDS  = ["no_context", "word_context",  "sentence_context"]
+_SCATTER_ACC_CONDS   = ["no_context", "word_target",   "sentence_target"]
+_SCATTER_COND_LABELS = ["no context", "word", "1-sent"]
+_SCATTER_MARKERS     = ["o", "s", "^"]
+_SCATTER_SIZES       = [120, 120, 120]
+
+
+def _make_scatter_methods(prefix=""):
+    """Methods for the accuracy-vs-leakage scatter plot.
+    Each entry: (label, leakage_model_key, accuracy_model_key, style)
+    X is taken from leakage_model under attack conditions,
+    Y is taken from accuracy_model under helpful-context conditions.
+    """
+    return {
+        "qwen": [
+            ("Base model",                       "qwen_omni",                              "qwen_omni",                             _SHARED_STYLE["base"]),
+            ("Prompt-adapted",                   "qwen/fleurs_context_mixed",              "qwen/fleurs_context_mixed",             _SHARED_STYLE["ctx_ft"]),
+            ("Context word FT + prompt-adapted", f"qwen/{prefix}context_word_fleurs_mixed", f"qwen/{prefix}target_word_fleurs_mixed", _SHARED_STYLE["combined"]),
+            ("Both words FT + prompt-adapted",   f"qwen/{prefix}both_fleurs_mixed",         f"qwen/{prefix}both_fleurs_mixed",        _SHARED_STYLE["mitigation_ft"]),
+        ],
+        "phi": [
+            ("Base model",                       "phi_multimodal",                         "phi_multimodal",                        _SHARED_STYLE["base"]),
+            ("Prompt-adapted",                   "phi/fleurs_context_mixed",               "phi/fleurs_context_mixed",              _SHARED_STYLE["ctx_ft"]),
+            ("Context word FT + prompt-adapted", f"phi/{prefix}context_word_fleurs_mixed",  f"phi/{prefix}target_word_fleurs_mixed",  _SHARED_STYLE["combined"]),
+            ("Both words FT + prompt-adapted",   f"phi/{prefix}both_fleurs_mixed",          f"phi/{prefix}both_fleurs_mixed",         _SHARED_STYLE["mitigation_ft"]),
+        ],
+    }
+
+
+_SCATTER_MIT_CONDS   = ["word_mixed", "sentences_2_mixed"]
+_SCATTER_MIT_INDICES = [1, 2]
+
+
+def _scatter_panel(ax, all_models, methods, family):
+    for label, leak_key, acc_key, style in methods:
+        if leak_key not in all_models or acc_key not in all_models:
+            continue
+        leak_model = all_models[leak_key]
+        acc_model  = all_models[acc_key]
+        color      = style["color"]
+        for i, (lc, ac) in enumerate(zip(_SCATTER_LEAK_CONDS, _SCATTER_ACC_CONDS)):
+            x = leak_model.get(lc, {}).get("target_to_context", float("nan")) * 100
+            y = acc_model.get(ac,  {}).get("target_correct",    float("nan")) * 100
+            ax.scatter(x, y, color=color, s=_SCATTER_SIZES[i],
+                       marker=_SCATTER_MARKERS[i], zorder=3, edgecolors="white", linewidths=0.5)
+        for i, mc in zip(_SCATTER_MIT_INDICES, _SCATTER_MIT_CONDS):
+            x = leak_model.get(mc, {}).get("target_to_context", float("nan")) * 100
+            y = leak_model.get(mc, {}).get("target_correct",    float("nan")) * 100
+            ax.scatter(x, y, s=_SCATTER_SIZES[i], marker=_SCATTER_MARKERS[i], zorder=3,
+                       facecolors="white", edgecolors=color, linewidths=1.5)
+    ax.annotate("", xy=(0.04, 0.96), xytext=(0.12, 0.88),
+                xycoords="axes fraction", textcoords="axes fraction",
+                arrowprops=dict(arrowstyle="->", color="dimgray", lw=2.5))
+    ax.text(0.08, 0.97, "ideal", transform=ax.transAxes,
+            fontsize=10, color="dimgray", va="top", ha="left")
+    ax.set_xlabel("Leakage rate (%)", fontsize=12)
+    ax.set_title("Qwen2.5-Omni-7B" if family == "qwen" else "Phi-4-Multimodal", fontsize=12)
+    ax.grid(linewidth=0.4, alpha=0.5)
+
+
+def _scatter_legend(fig, methods):
+    model_handles = [
+        mlines.Line2D([], [], color=style["color"], linestyle="None", marker="o", markersize=7,
+                      label=label)
+        for label, _, _, style in methods
+    ]
+    cond_handles = [
+        mlines.Line2D([], [], color="grey", linestyle="None",
+                      marker=_SCATTER_MARKERS[i], markersize=np.sqrt(_SCATTER_SIZES[i]),
+                      label=_SCATTER_COND_LABELS[i])
+        for i in range(len(_SCATTER_COND_LABELS))
+    ]
+    style_handles = [
+        mlines.Line2D([], [], color="grey", linestyle="None", marker="o", markersize=7,
+                      markerfacecolor="white", markeredgewidth=1.5, label="prompt mitigated"),
+    ]
+    n_cols = max(len(model_handles), len(cond_handles) + len(style_handles))
+    fig.legend(handles=model_handles + cond_handles + style_handles,
+               fontsize=10, loc="lower center", bbox_to_anchor=(0.5, -0.12),
+               ncol=n_cols, frameon=True)
+
+
+def plot_accuracy_vs_leakage(all_models, methods_dict, out_path):
+    """Two-panel scatter (Qwen | Phi)."""
+    fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+    for ax, (family, methods) in zip(axes, methods_dict.items()):
+        _scatter_panel(ax, all_models, methods, family)
+    axes[0].set_ylabel("Acoustic word accuracy (%)", fontsize=12)
+    _scatter_legend(fig, list(methods_dict.values())[0])
+    fig.tight_layout()
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
+    fig.savefig(out_path, bbox_inches="tight")
+    print(f"Saved {out_path}")
+    plt.close(fig)
+
+
+def plot_accuracy_vs_leakage_single(all_models, methods_dict, family, out_path):
+    """Single-panel scatter for one model family."""
+    fig, ax = plt.subplots(1, 1, figsize=(6, 3))
+    _scatter_panel(ax, all_models, methods_dict[family], family)
+    ax.set_ylabel("Acoustic word accuracy (%)", fontsize=12)
+
+    # Model colours legend — below the plot
+    methods = methods_dict[family]
+    model_handles = [
+        mlines.Line2D([], [], color=style["color"], linestyle="None", marker="o", markersize=7,
+                      label=label)
+        for label, _, _, style in methods
+    ]
+    fig.legend(handles=model_handles, fontsize=10, loc="lower center",
+               bbox_to_anchor=(0.5, -0.13), ncol=2, frameon=True)
+
+    # Condition markers + prompt mitigated — inside bottom right corner
+    cond_handles = [
+        mlines.Line2D([], [], color="grey", linestyle="None",
+                      marker=_SCATTER_MARKERS[i], markersize=np.sqrt(_SCATTER_SIZES[i]),
+                      label=_SCATTER_COND_LABELS[i])
+        for i in range(len(_SCATTER_COND_LABELS))
+    ]
+    style_handles = [
+        mlines.Line2D([], [], color="grey", linestyle="None", marker="o", markersize=7,
+                      markerfacecolor="white", markeredgewidth=1.5, label="prompt mitigated"),
+    ]
+    ax.legend(handles=cond_handles + style_handles, fontsize=10,
+              loc="lower right", frameon=True)
+
+    fig.tight_layout()
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
+    fig.savefig(out_path, bbox_inches="tight")
+    print(f"Saved {out_path}")
+    plt.close(fig)
 
 
 def make_plots(eval_root="generated_eval", out_dir="generated_eval", dataset_prefix=""):
-    all_models = load_results(eval_root)
-    baseline_lines = _make_baseline_lines(dataset_prefix)
-    attack_lines   = _make_attack_lines(dataset_prefix)
-    _plot_all_sections(all_models, out_dir, baseline_lines, attack_lines)
+    all_models       = load_results(eval_root)
+    baseline_lines   = _make_baseline_lines(dataset_prefix)
+    attack_lines     = _make_attack_lines(dataset_prefix)
+    mitigation_lines = _make_mitigation_lines(dataset_prefix)
+    scatter_lines    = _make_scatter_methods(dataset_prefix)
+    _plot_all_sections(all_models, out_dir, baseline_lines, attack_lines, mitigation_lines, scatter_lines)
 
 
 _SIM_UNSPLIT_CONDS  = {0, 1}  # no_context and word_context: sentence similarity not applicable
@@ -783,9 +1032,6 @@ def plot_distance_analysis_qwen(dist_root: str, out_dir: str, metric: str = "tar
     plt.close(fig)
 
 
-_DATASET_LABELS = {"fleurs": "FLEURS", "acl6060": "ACL 6060", "voxpopuli": "VoxPopuli"}
-
-
 _MIT_CONDS = ["no_context", "sentences_2_mixed", "sentences_5_mixed", "sentences_10_mixed"]
 _MIT_X     = [0, 2, 3, 4]
 _ATK_X     = [0, 1, 2, 3, 4]
@@ -846,7 +1092,7 @@ def plot_attack_all_datasets(eval_root: str, datasets: list[str], out_dir: str,
     ]
     style_handles = [
         mlines.Line2D([], [], color="grey", linestyle=":", linewidth=1.5, marker="o", markersize=6,
-                      markerfacecolor="white", markeredgewidth=1.5, label="mitigated"),
+                      markerfacecolor="white", markeredgewidth=1.5, label="prompt mitigated"),
     ]
     fig.legend(handles=model_handles + style_handles, fontsize=11, loc="lower center",
                bbox_to_anchor=(0.5, -0.04), ncol=len(model_handles) + 1, frameon=True)
@@ -922,14 +1168,16 @@ if __name__ == "__main__":
                         help="Prefix for dataset-specific combined model keys, e.g. 'acl6060_' or 'voxpopuli_'.")
     args = parser.parse_args()
 
-    dataset_prefix = args.dataset_prefix or ""
-    baseline_lines = _make_baseline_lines(dataset_prefix)
-    attack_lines   = _make_attack_lines(dataset_prefix)
+    dataset_prefix   = args.dataset_prefix or ""
+    baseline_lines   = _make_baseline_lines(dataset_prefix)
+    attack_lines     = _make_attack_lines(dataset_prefix)
+    mitigation_lines = _make_mitigation_lines(dataset_prefix)
+    scatter_lines    = _make_scatter_methods(dataset_prefix)
 
     if args.average_datasets:
         all_models = load_results_averaged(args.eval_root, args.average_datasets)
         os.makedirs(args.out_dir, exist_ok=True)
-        _plot_all_sections(all_models, args.out_dir, baseline_lines, attack_lines)
+        _plot_all_sections(all_models, args.out_dir, baseline_lines, attack_lines, mitigation_lines, scatter_lines)
         plot_attack_all_datasets(args.eval_root, args.average_datasets, args.out_dir)
     elif args.similarity_analysis:
         plot_similarity_analysis(args.similarity_analysis, args.out_dir)
