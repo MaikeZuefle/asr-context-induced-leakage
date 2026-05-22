@@ -341,7 +341,7 @@ def plot_two_panel(all_models, lines_dict, conditions, labels, metric, ylabel, o
         ax.set_title("Qwen2.5-Omni-7B" if family == "qwen" else "Phi-4-Multimodal", fontsize=12)
         ax.axvline(x=0.5, color="#cccccc", linewidth=1.0, linestyle=":", zorder=0)
         ax.grid(axis="y", linewidth=0.4, alpha=0.5)
-        ax.yaxis.set_major_formatter(mtick.PercentFormatter() if "%" in ylabel else mtick.ScalarFormatter())
+        ax.yaxis.set_major_formatter(mtick.ScalarFormatter())
         ax.tick_params(axis="y", labelsize=11)
 
     axes[0].set_ylabel(ylabel, fontsize=12)
@@ -375,7 +375,7 @@ def plot_single_panel(all_models, lines, conditions, labels, metric, ylabel, out
     ax.set_title("Qwen2.5-Omni-7B", fontsize=12)
     ax.axvline(x=0.5, color="#cccccc", linewidth=1.0, linestyle=":", zorder=0)
     ax.grid(axis="y", linewidth=0.4, alpha=0.5)
-    ax.yaxis.set_major_formatter(mtick.PercentFormatter() if "%" in ylabel else mtick.ScalarFormatter())
+    ax.yaxis.set_major_formatter(mtick.ScalarFormatter())
     ax.tick_params(axis="y", labelsize=11)
     ax.set_ylabel(ylabel, fontsize=12)
     handles = [
@@ -415,19 +415,13 @@ def plot_baseline_with_mitigation(all_models, lines_dict, metric, ylabel, out_pa
                     markerfacecolor="white", markeredgewidth=1.5)
 
         ax.set_xticks(x)
-        ax.set_xticklabels(["no context", "word\n(2 words)", "1-sent\n(2-sent)", "5-sent", "10-sent"],
+        ax.set_xticklabels(["no context", "word", "1-sent", "5-sent", "10-sent"],
                            rotation=0, ha="center", fontsize=11)
         ax.set_title("Qwen2.5-Omni-7B" if family == "qwen" else "Phi-4-Multimodal", fontsize=12)
         ax.axvline(x=0.5, color="#cccccc", linewidth=1.0, linestyle=":", zorder=0)
         ax.grid(axis="y", linewidth=0.4, alpha=0.5)
-        ax.yaxis.set_major_formatter(mtick.PercentFormatter() if "%" in ylabel else mtick.ScalarFormatter())
+        ax.yaxis.set_major_formatter(mtick.ScalarFormatter())
         ax.tick_params(axis="y", labelsize=11)
-        for pos in [1, 2]:
-            ax.annotate("", xy=(pos + 0.25, -0.18), xytext=(pos - 0.25, -0.18),
-                        xycoords=("data", "axes fraction"),
-                        textcoords=("data", "axes fraction"),
-                        arrowprops=dict(arrowstyle="-", linestyle=":",
-                                        color="dimgray", lw=1.5))
 
     axes[0].set_ylabel(ylabel, fontsize=12)
     model_handles = [
@@ -449,7 +443,7 @@ def plot_baseline_with_mitigation(all_models, lines_dict, metric, ylabel, out_pa
     plt.close(fig)
 
 
-def _attack_mit_panel(ax, all_models, lines, family, metric, ylabel, fmt, underline_y=-0.18):
+def _attack_mit_panel(ax, all_models, lines, family, metric, ylabel, fmt):
     x_atk = [0, 1, 2, 3, 4]
     x_mit = [0, 2, 3, 4]
     mit_conds = ["no_context", "sentences_2_mixed", "sentences_5_mixed", "sentences_10_mixed"]
@@ -464,17 +458,13 @@ def _attack_mit_panel(ax, all_models, lines, family, metric, ylabel, fmt, underl
                 marker=style["marker"], markersize=6, linestyle=":",
                 markerfacecolor="white", markeredgewidth=1.5)
     ax.set_xticks([0, 1, 2, 3, 4])
-    ax.set_xticklabels(["no context", "word\n(2 words)", "1-sent\n(2-sent)", "5-sent", "10-sent"],
+    ax.set_xticklabels(["no context", "word", "1-sent", "5-sent", "10-sent"],
                        rotation=0, ha="center", fontsize=11)
     ax.set_title("Qwen2.5-Omni-7B" if family == "qwen" else "Phi-4-Multimodal", fontsize=12)
     ax.axvline(x=0.5, color="#cccccc", linewidth=1.0, linestyle=":", zorder=0)
     ax.grid(axis="y", linewidth=0.4, alpha=0.5)
-    ax.yaxis.set_major_formatter(mtick.PercentFormatter() if "%" in ylabel else mtick.ScalarFormatter())
+    ax.yaxis.set_major_formatter(mtick.ScalarFormatter())
     ax.tick_params(axis="y", labelsize=11)
-    for pos in [1, 2]:
-        ax.annotate("", xy=(pos + 0.25, underline_y), xytext=(pos - 0.25, underline_y),
-                    xycoords=("data", "axes fraction"), textcoords=("data", "axes fraction"),
-                    arrowprops=dict(arrowstyle="-", linestyle=":", color="dimgray", lw=1.5))
 
 
 def _attack_mit_legend(fig, lines, n_extra_cols=2):
@@ -509,7 +499,7 @@ def plot_attack_with_mitigation(all_models, lines_dict, metric, ylabel, out_path
 def plot_attack_with_mitigation_single(all_models, lines_dict, family, metric, ylabel, out_path, fmt=lambda v: v * 100):
     """Attack (solid) + mitigation (dotted), single panel for one model family."""
     fig, ax = plt.subplots(1, 1, figsize=(6, 3))
-    _attack_mit_panel(ax, all_models, lines_dict[family], family, metric, ylabel, fmt, underline_y=-0.2)
+    _attack_mit_panel(ax, all_models, lines_dict[family], family, metric, ylabel, fmt)
     ax.set_ylabel(ylabel, fontsize=12)
     ax.set_title("Qwen2.5-Omni-7B", fontsize=12)
     ax.tick_params(axis="y", labelsize=11)
@@ -545,7 +535,7 @@ def _plot_all_sections(all_models, out_dir, baseline_lines, attack_lines, mitiga
     )
     plot_two_panel(
         all_models, baseline_lines, _CONTEXT_CONDITIONS, _COND_LABELS,
-        metric="background_wer", ylabel="Background WER", fmt=lambda v: v,
+        metric="background_wer", ylabel="Background WER (%)", fmt=lambda v: v * 100,
         out_path=os.path.join(out_dir, "plot_results_a", "results_baseline_wer.pdf"),
     )
     # Qwen-only versions for the paper body
@@ -556,7 +546,7 @@ def _plot_all_sections(all_models, out_dir, baseline_lines, attack_lines, mitiga
     )
     plot_single_panel(
         all_models, baseline_lines["qwen"], _CONTEXT_CONDITIONS, _COND_LABELS,
-        metric="background_wer", ylabel="Background WER", fmt=lambda v: v,
+        metric="background_wer", ylabel="Background WER (%)", fmt=lambda v: v * 100,
         out_path=os.path.join(out_dir, "plot_results_a", "results_baseline_wer_qwen.pdf"),
     )
     plot_two_panel(
@@ -566,7 +556,7 @@ def _plot_all_sections(all_models, out_dir, baseline_lines, attack_lines, mitiga
     )
     plot_two_panel(
         all_models, attack_lines, _ATTACK_CONDITIONS, _COND_LABELS,
-        metric="background_wer", ylabel="Background WER", fmt=lambda v: v,
+        metric="background_wer", ylabel="Background WER (%)", fmt=lambda v: v * 100,
         out_path=os.path.join(out_dir, "plot_results_b", "results_attack_wer.pdf"),
     )
     plot_attack_with_mitigation(
@@ -646,11 +636,11 @@ def _scatter_panel(ax, all_models, methods, family):
             y = leak_model.get(mc, {}).get("target_correct",    float("nan")) * 100
             ax.scatter(x, y, s=_SCATTER_SIZES[i], marker=_SCATTER_MARKERS[i], zorder=3,
                        facecolors="white", edgecolors=color, linewidths=1.5)
-    ax.annotate("", xy=(0.04, 0.96), xytext=(0.12, 0.88),
-                xycoords="axes fraction", textcoords="axes fraction",
-                arrowprops=dict(arrowstyle="->", color="dimgray", lw=2.5))
-    ax.text(0.08, 0.97, "ideal", transform=ax.transAxes,
-            fontsize=10, color="dimgray", va="top", ha="left")
+    ax.plot(0.0, 1.0, marker="*", markersize=14, color="dimgray",
+            transform=ax.transAxes, zorder=5, linestyle="None",
+            clip_on=False)
+    ax.text(0.0, 1.06, "ideal", transform=ax.transAxes,
+            fontsize=10, color="dimgray", va="bottom", ha="left", clip_on=False)
     ax.set_xlabel("Leakage rate (%)", fontsize=12)
     ax.set_title("Qwen2.5-Omni-7B" if family == "qwen" else "Phi-4-Multimodal", fontsize=12)
     ax.grid(linewidth=0.4, alpha=0.5)
@@ -830,7 +820,7 @@ def plot_similarity_analysis(sim_root: str, out_dir: str, metric: str = "target_
             ax.set_xticklabels(_SIM_COND_LABELS, fontsize=11)
             ax.set_title(model_label, fontsize=12)
             ax.grid(axis="y", linewidth=0.4, alpha=0.5)
-            ax.yaxis.set_major_formatter(mtick.PercentFormatter())
+            ax.yaxis.set_major_formatter(mtick.ScalarFormatter())
             ax.tick_params(axis="y", labelsize=11)
             if col == 0:
                 family_name = "Qwen2.5-Omni" if family == "qwen" else "Phi-4-Multimodal"
@@ -886,7 +876,7 @@ def plot_similarity_analysis_qwen(sim_root: str, out_dir: str, metric: str = "ta
     ax.set_title("Qwen2.5-Omni-7B (Context word FT + prompt-adapted)", fontsize=12)
     ax.set_ylabel(ylabel, fontsize=12)
     ax.grid(axis="y", linewidth=0.4, alpha=0.5)
-    ax.yaxis.set_major_formatter(mtick.PercentFormatter())
+    ax.yaxis.set_major_formatter(mtick.ScalarFormatter())
     ax.tick_params(axis="y", labelsize=11)
     bin_handles = [Patch(facecolor=color, hatch=_SIM_HATCHES[g], edgecolor="white",
                          label=_SIM_GROUP_LABELS[g]) for g in _SIM_GROUPS]
@@ -963,7 +953,7 @@ def plot_distance_analysis(dist_root: str, out_dir: str, metric: str = "target_t
             ax.set_xticklabels(_SIM_COND_LABELS, fontsize=11)
             ax.set_title(model_label, fontsize=12)
             ax.grid(axis="y", linewidth=0.4, alpha=0.5)
-            ax.yaxis.set_major_formatter(mtick.PercentFormatter())
+            ax.yaxis.set_major_formatter(mtick.ScalarFormatter())
             ax.tick_params(axis="y", labelsize=11)
             if col == 0:
                 family_name = "Qwen2.5-Omni" if family == "qwen" else "Phi-4-Multimodal"
@@ -1019,7 +1009,7 @@ def plot_distance_analysis_qwen(dist_root: str, out_dir: str, metric: str = "tar
     ax.set_title("Qwen2.5-Omni-7B (Context word FT + prompt-adapted)", fontsize=12)
     ax.set_ylabel(ylabel, fontsize=12)
     ax.grid(axis="y", linewidth=0.4, alpha=0.5)
-    ax.yaxis.set_major_formatter(mtick.PercentFormatter())
+    ax.yaxis.set_major_formatter(mtick.ScalarFormatter())
     ax.tick_params(axis="y", labelsize=11)
     dist_handles = [Patch(facecolor=color, hatch=_DIST_HATCHES[d], edgecolor="white",
                           label=_DIST_LABELS[d]) for d in _DIST_GROUPS]
@@ -1068,22 +1058,16 @@ def plot_attack_all_datasets(eval_root: str, datasets: list[str], out_dir: str,
                         marker=style["marker"], markersize=6, linestyle=":",
                         markerfacecolor="white", markeredgewidth=1.5)
             ax.set_xticks(_ATK_X)
-            ax.set_xticklabels(["no context", "word\n(2 words)", "1-sent\n(2-sent)", "5-sent", "10-sent"],
+            ax.set_xticklabels(["no context", "word", "1-sent", "5-sent", "10-sent"],
                                rotation=0, ha="center", fontsize=11)
             model_name = "Qwen2.5-Omni-7B" if family == "qwen" else "Phi-4-Multimodal"
             ax.set_title(f"{_DATASET_LABELS.get(dataset, dataset)} — {model_name}", fontsize=12)
             ax.axvline(x=0.5, color="#cccccc", linewidth=1.0, linestyle=":", zorder=0)
             ax.grid(axis="y", linewidth=0.4, alpha=0.5)
-            ax.yaxis.set_major_formatter(mtick.PercentFormatter())
+            ax.yaxis.set_major_formatter(mtick.ScalarFormatter())
             ax.tick_params(axis="y", labelsize=11)
             if col == 0:
                 ax.set_ylabel(ylabel, fontsize=12)
-            for pos in [1, 2]:
-                ax.annotate("", xy=(pos + 0.25, -0.18), xytext=(pos - 0.25, -0.18),
-                            xycoords=("data", "axes fraction"),
-                            textcoords=("data", "axes fraction"),
-                            arrowprops=dict(arrowstyle="-", linestyle=":",
-                                            color="dimgray", lw=1.5))
 
     model_handles = [
         mlines.Line2D([], [], color=style["color"], linestyle="-",
