@@ -1,5 +1,11 @@
 # When Helpful Context Leaks: Privacy Risks in Domain-Adapted ASR
 
+[![Dataset](https://img.shields.io/badge/🤗%20Dataset-maikezu%2Fasr--context--induced--leakage-blue)](https://huggingface.co/datasets/maikezu/asr-context-induced-leakage)
+
+<p align="center">
+  <img src="context_induced_privacy_risk.png" width="600"/>
+</p>
+
 SpeechLLMs are increasingly deployed in professional settings where domain customisation is standard practice: users supply context in prompts, fine-tune on proprietary recordings, or both. We identify and systematically investigate an overlooked privacy risk of such customisation: a model adapted to recognise domain-specific terminology can be 
 nudged into transcribing a phonetically similar word from its context or training data, even when a different word is spoken. To evaluate this risk, we construct a controlled dataset and measure leakage rates across two customisation mechanisms, prompt context injection and data 
 fine-tuning. 
@@ -48,7 +54,7 @@ pip install -e ".[qwen]"
 
 ## Pipeline
 
-> **Pre-generated data available.** The LlamaFactory training datasets (`data/llama_factory/`) and evaluation sets (`data/prepared/`) are included in the repository. TTS audio (`data/tts/`) and prompt-adaptation FT data (`data/ft/`) will be made available via Hugging Face. Steps 1 and 2 below only need to be re-run if you want to regenerate them from scratch.
+> **Pre-generated data available.** The LlamaFactory training datasets (`data/llama_factory/`) and evaluation sets (`data/prepared/`) are included in the repository. The full dataset including TTS audio and prompt-adaptation FT data is available on [HuggingFace](https://huggingface.co/datasets/maikezu/asr-context-induced-leakage) (`data/tts/` and `data/ft/`). Steps 1 and 2 below only need to be re-run if you want to regenerate from scratch.
 
 ### 1. Prepare evaluation data
 
