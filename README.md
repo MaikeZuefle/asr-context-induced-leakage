@@ -9,7 +9,9 @@
 SpeechLLMs are increasingly deployed in professional settings where domain customisation is standard practice: users supply context in prompts, fine-tune on proprietary recordings, or both. We identify and systematically investigate an overlooked privacy risk of such customisation: a model adapted to recognise domain-specific terminology can be 
 nudged into transcribing a phonetically similar word from its context or training data, even when a different word is spoken. To evaluate this risk, we construct a controlled dataset and measure leakage rates across two customisation mechanisms, prompt context injection and data 
 fine-tuning. 
- We find that both mechanisms cause measurable leakage, and that they compound when combined, substantially amplifying the leakage rate beyond either mechanism alone. A prompt-level mitigation strategy is effective against prompt injection but only partially effective when data fine-tuning is also involved.
+We find that both mechanisms cause measurable leakage, and that they compound when combined, substantially amplifying the leakage rate beyond either mechanism alone. A prompt-level mitigation strategy is effective against prompt injection but only partially effective when data fine-tuning is also involved.
+
+The data is available on HuggingFace (https://huggingface.co/datasets/maikezu/asr-context-induced-leakage) or in this repository.
 
 ## Setup
 
