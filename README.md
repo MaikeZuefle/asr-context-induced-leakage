@@ -11,7 +11,7 @@ nudged into transcribing a phonetically similar word from its context or trainin
 fine-tuning. 
 We find that both mechanisms cause measurable leakage, and that they compound when combined, substantially amplifying the leakage rate beyond either mechanism alone. A prompt-level mitigation strategy is effective against prompt injection but only partially effective when data fine-tuning is also involved.
 
-The data is available on HuggingFace (https://huggingface.co/datasets/maikezu/asr-context-induced-leakage) or in this repository.
+The data is available on HuggingFace [maikezu/asr-context-induced-leakage](https://huggingface.co/datasets/maikezu/asr-context-induced-leakage) or in this repository.
 
 ## Setup
 
