@@ -1,6 +1,7 @@
 # When Helpful Context Leaks: Privacy Risks in Domain-Adapted ASR
 
 [![Dataset](https://img.shields.io/badge/🤗%20Dataset-maikezu%2Fasr--context--induced--leakage-blue)](https://huggingface.co/datasets/maikezu/asr-context-induced-leakage)
+[![arXiv](https://img.shields.io/badge/arXiv-2605.28211-b31b1b)](https://arxiv.org/abs/2605.28211)
 
 <p align="center">
   <img src="context_induced_privacy_risk.png" width="600"/>
@@ -82,3 +83,17 @@ bash scripts/05_eval_analysis/02_plot.sh
 ```
 
 Results in `generated_eval/{fleurs,acl6060,voxpopuli}/`, combined averages in `generated_eval/combined/`, similarity analysis in `generated_eval/similarity_analysis/`.
+
+## Citation
+
+```bibtex
+@misc{züfle2026helpfulcontextleaksprivacy,
+      title={When Helpful Context Leaks: Privacy Risks in Domain-Adapted ASR}, 
+      author={Maike Züfle and Jan Niehues},
+      year={2026},
+      eprint={2605.28211},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2605.28211}, 
+}
+```
