@@ -30,3 +30,10 @@ echo "Plotting distance analysis..."
 python evaluation/plot_results.py \
     --distance_analysis generated_eval/distance_analysis \
     --out_dir generated_eval/distance_analysis/plots
+
+# Similarity + distance analysis combined
+echo "Plotting similarity+distance combined..."
+python evaluation/plot_results.py \
+    --similarity_analysis generated_eval/similarity_analysis \
+    --distance_analysis generated_eval/distance_analysis \
+    --out_dir generated_eval/similarity_analysis/plots
